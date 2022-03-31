@@ -13,6 +13,8 @@ var in_object = false
 var changed_color = false
 var same_collision = false
 
+var what_what = false
+
 var velocity = Vector2()
 
 onready var TheShape = $CollisionShape2D
@@ -67,4 +69,10 @@ func _physics_process(_delta):
 		in_object = false
 		get_parent().is_something_moving = false
 	
-	
+	if true:
+		var shaperect = Rect2(c_pos.x - shape_size.x, c_pos.y - shape_size.y, shape_size.x*2, shape_size.y*2)
+		
+		if shaperect.has_point(get_global_mouse_position()):
+			what_what = true
+		else:
+			what_what = false
