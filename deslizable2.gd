@@ -45,7 +45,6 @@ func _physics_process(_delta):
 			get_parent().is_something_moving = true
 			
 	if in_object:
-		""""
 		who = move_and_collide(get_global_mouse_position() - c_pos)
 		if is_instance_valid(who):
 			
@@ -62,7 +61,6 @@ func _physics_process(_delta):
 				
 		else:
 			same_collision = false
-		"""
 		pass
 		
 	if Input.is_action_just_released("drag"):
