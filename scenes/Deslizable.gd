@@ -34,7 +34,7 @@ func _physics_process(_delta):
 	
 	var c_pos = global_position
 	
-	if Input.is_action_pressed("drag") && not get_parent().is_something_moving:
+	if Input.is_action_pressed("click") && not get_parent().is_something_moving:
 		
 		var shaperect = Rect2(c_pos.x - shape_size.x, c_pos.y - shape_size.y, shape_size.x*2, shape_size.y*2)
 		
@@ -63,7 +63,7 @@ func _physics_process(_delta):
 		"""
 		pass
 		
-	if Input.is_action_just_released("drag"):
+	if Input.is_action_just_released("click"):
 		in_object = false
 		get_parent().is_something_moving = false
 	
