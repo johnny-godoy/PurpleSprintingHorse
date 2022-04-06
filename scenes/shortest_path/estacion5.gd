@@ -5,8 +5,8 @@ onready var deteccion = $AreaDeteccion
 onready var manager = ShortestPathManager
 onready var arm = $connecter
 
-onready var estaciones_adyacentes = [get_parent().get_node("estacion2"),
-									get_parent().get_node("estacion3")]
+onready var estaciones_adyacentes = [get_parent().get_node("estacion3"),
+									get_parent().get_node("estacion4")]
 
 var boton_apretado = false
 

@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/shortest_path/estacion.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/shortest_path/metrored_servicios_2020_09_13_page-0001.jpg" type="Texture" id=2]
+[ext_resource path="res://scenes/shortest_path/estacion1.gd" type="Script" id=3]
+[ext_resource path="res://scenes/shortest_path/estacion2.gd" type="Script" id=4]
+[ext_resource path="res://scenes/shortest_path/estacion4.gd" type="Script" id=5]
+[ext_resource path="res://scenes/shortest_path/estacion5.gd" type="Script" id=6]
+[ext_resource path="res://scenes/shortest_path/estacion3.gd" type="Script" id=7]
+
+[node name="nivel_ejemplo_1" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 582, 975 )
+scale = Vector2( 0.692647, 0.720378 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="estacion1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 255, 597 )
+script = ExtResource( 3 )
+
+[node name="estacion2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 386, 597 )
+script = ExtResource( 4 )
+
+[node name="estacion3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 255, 477 )
+script = ExtResource( 7 )
+
+[node name="estacion4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 384, 475 )
+script = ExtResource( 5 )
+
+[node name="estacion5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 383, 370 )
+script = ExtResource( 6 )

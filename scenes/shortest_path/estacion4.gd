@@ -6,7 +6,8 @@ onready var manager = ShortestPathManager
 onready var arm = $connecter
 
 onready var estaciones_adyacentes = [get_parent().get_node("estacion2"),
-									get_parent().get_node("estacion3")]
+									get_parent().get_node("estacion3"),
+									get_parent().get_node("estacion5")]
 
 var boton_apretado = false
 

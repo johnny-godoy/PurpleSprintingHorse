@@ -5,10 +5,10 @@ onready var deteccion = $AreaDeteccion
 onready var manager = ShortestPathManager
 onready var arm = $connecter
 
-onready var estaciones_adyacentes = [get_parent().get_node("estacion2"),
-									get_parent().get_node("estacion3")]
+onready var estaciones_adyacentes = [self]
 
 var boton_apretado = false
+var i_have_arriving_path = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,7 +18,7 @@ func _ready():
 
 func _physics_process(delta):
 	if manager.trying_to_connect and manager.current_station == self:
-		if boton_apretado:
+		if boton_apretado and not i_have_arriving_path:
 			var distance
 			
 			distance = position.distance_to(get_global_mouse_position())
@@ -28,6 +28,7 @@ func _physics_process(delta):
 			arm.scale.x = distance/ 64
 		
 		else:
+			i_have_arriving_path = false
 			arm.scale.x = 0
 			
 	if Input.is_action_just_released("click"):
@@ -49,6 +50,7 @@ func _clicked(_viewport, event, _shape_idx):
 		if manager.trying_to_connect:
 			if manager.current_station in estaciones_adyacentes:
 				manager.reset_variables()
+				i_have_arriving_path = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
