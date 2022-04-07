@@ -1,12 +1,11 @@
 extends Node2D
-
+class_name EstacionGenerica
 
 onready var deteccion = $AreaDeteccion
 onready var manager = ShortestPathManager
 onready var arm = $connecter
 
-onready var estaciones_adyacentes = [get_parent().get_node("estacion2"),
-									get_parent().get_node("estacion3")]
+onready var estaciones_adyacentes = [null]
 onready var connected_to : Node2D = null
 onready var connected_from : Node2D = null
 
@@ -53,12 +52,11 @@ func _clicked(_viewport, event, _shape_idx):
 		manager.trying_to_connect = true
 		manager.current_station = self
 		mouse_button_pressed = true
-		print("Activated")
 		
 	if InputMap.event_is_action(event, "click") && not event.pressed:
 		if manager.trying_to_connect:
 			if not connected_from:
-				if manager.current_station in estaciones_adyacentes and not is_instance_valid(connected_to):
+				if manager.current_station in estaciones_adyacentes:
 					manager.accept_connection = true
 					manager.current_ending_station = self
 

@@ -1,14 +1,22 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://scenes/shortest_path/estacion.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/shortest_path/estacionGenerica.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/shortest_path/metrored_servicios_2020_09_13_page-0001.jpg" type="Texture" id=2]
 [ext_resource path="res://scenes/shortest_path/estacion1.gd" type="Script" id=3]
 [ext_resource path="res://scenes/shortest_path/estacion2.gd" type="Script" id=4]
 [ext_resource path="res://scenes/shortest_path/estacion4.gd" type="Script" id=5]
 [ext_resource path="res://scenes/shortest_path/estacion5.gd" type="Script" id=6]
 [ext_resource path="res://scenes/shortest_path/estacion3.gd" type="Script" id=7]
+[ext_resource path="res://scenes/shortest_path/nivel_ejemplo_1.gd" type="Script" id=8]
+[ext_resource path="res://scripts/png_star_34230.png" type="Texture" id=9]
+[ext_resource path="res://Roboto-Medium.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 10 )
 
 [node name="nivel_ejemplo_1" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 582, 975 )
@@ -37,3 +45,23 @@ script = ExtResource( 5 )
 [node name="estacion5" parent="." instance=ExtResource( 1 )]
 position = Vector2( 383, 370 )
 script = ExtResource( 6 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 529, 181 )
+scale = Vector2( 0.231955, 0.227402 )
+texture = ExtResource( 9 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 208, 174 )
+scale = Vector2( 0.277832, 0.264648 )
+texture = ExtResource( 9 )
+
+[node name="Puntajes" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 21.0
+margin_top = 24.0
+margin_right = 671.0
+margin_bottom = 172.0
+rect_rotation = 0.17085
+custom_fonts/font = SubResource( 1 )
+align = 1

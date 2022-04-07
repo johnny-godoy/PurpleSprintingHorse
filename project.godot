@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "EstacionGenerica",
+"language": "GDScript",
+"path": "res://scenes/shortest_path/estacionGenerica.gd"
+} ]
+_global_script_class_icons={
+"EstacionGenerica": ""
+}
+
 [application]
 
 config/name="NoName"
