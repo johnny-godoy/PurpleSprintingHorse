@@ -14,6 +14,10 @@ config/name="NoName"
 run/main_scene="res://coloring/Coloring Tutorial.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+ShortestPathManager="*res://scripts/shortest_path_manager.gd"
+
 [display]
 
 window/size/width=720
