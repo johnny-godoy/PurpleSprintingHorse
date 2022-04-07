@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://coloring/ColorBuckets.tscn" type="PackedScene" id=1]
 [ext_resource path="res://coloring/Coloring Tutorial.gd" type="Script" id=2]
+[ext_resource path="res://Roboto-Medium.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 1, 1, 1, 1 )
@@ -9,9 +10,16 @@ bg_color = Color( 1, 1, 1, 1 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 43.5, 44.5 )
 
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 3 )
+
 [node name="Coloring Tutorial" type="Node2D"]
 position = Vector2( 5, 4 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_vertical_guides_": [  ]
+}
 
 [node name="ColorBuckets" parent="." instance=ExtResource( 1 )]
 margin_left = 51.0
@@ -20,7 +28,7 @@ margin_right = 668.0
 margin_bottom = 1010.0
 
 [node name="GraphToSolve" type="Node2D" parent="."]
-position = Vector2( 420, 169 )
+position = Vector2( 398, 426 )
 
 [node name="Edge 1-3" type="PinJoint2D" parent="GraphToSolve"]
 position = Vector2( 143, 142 )
@@ -84,3 +92,12 @@ custom_styles/normal = SubResource( 1 )
 [node name="Collision" type="CollisionShape2D" parent="GraphToSolve/ThirdNode"]
 position = Vector2( -0.5, -0.5 )
 shape = SubResource( 2 )
+
+[node name="Puntajes" type="Label" parent="."]
+margin_left = 21.0
+margin_top = 24.0
+margin_right = 671.0
+margin_bottom = 172.0
+rect_rotation = 0.17085
+custom_fonts/font = SubResource( 3 )
+align = 1

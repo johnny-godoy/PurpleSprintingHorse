@@ -3,6 +3,7 @@ extends Node2D
 onready var current_color = null
 onready var buckets = $ColorBuckets
 onready var graph = $GraphToSolve
+onready var label = $Puntajes
 onready var buttons = []
 onready var connected_node_pairs = []
 var max_color_count = 2
@@ -33,19 +34,24 @@ func _on_Node_pressed(button: Button) -> void:
 		button.modulate = current_color
 
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	var colors = []
+	var situation = ""
 	for button in buttons:
-		var color: Color = button.modulate
+		var color = button.modulate
 		if color == uncolored:
-			return
-		if not (color in colors):
+			situation = "Existen nodos sin pintar"
+			break
+		elif not (color in colors):
 			colors.append(color)
 	if len(colors) > max_color_count:
-		return
+		situation += "\n Usaste %s colores, tienes que usar menos que %s" % [len(colors), max_color_count]
 	for nodes in connected_node_pairs:
 		var a = nodes[0]
 		var b = nodes[1]
-		if a.modulate == b.modulate:
-			return
-	print("WIN")
+		if (a.modulate == b.modulate) and (a.modulate != uncolored):
+			situation += "\n Existen nodos vecinos con el mismo color"
+			break
+	if situation == "":
+		situation = "Ganaste!"
+	label.text = situation
