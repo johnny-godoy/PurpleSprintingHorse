@@ -56,6 +56,17 @@ position = Vector2( 208, 174 )
 scale = Vector2( 0.277832, 0.264648 )
 texture = ExtResource( 9 )
 
+[node name="Info_Juego" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 30.0
+margin_top = 899.0
+margin_right = 680.0
+margin_bottom = 1047.0
+rect_rotation = 0.17085
+custom_fonts/font = SubResource( 1 )
+text = "Debes ir de la estación 1 a la estación 5."
+align = 1
+
 [node name="Puntajes" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 21.0
