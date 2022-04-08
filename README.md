@@ -1,4 +1,7 @@
 # PurpleSprintingHorse
 Videojuego para el curso CC5408
 
-Rama develop: para desarrollo del juego, versiones estables van a main.
+[x] Demo
+[ ] Hito 2
+[ ] Hito 3
+[ ] Más problemas
