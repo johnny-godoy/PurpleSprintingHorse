@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/shortest_path/Untitled.001.png" type="Texture" id=1]
+[ext_resource path="res://scenes/shortest_path/estacionGenerica.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 30.0
+
+[node name="estacion" type="Node2D" groups=["station"]]
+position = Vector2( 165, 97 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="connecter" type="Sprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( 0, -32 )
+
+[node name="station_img" type="Sprite" parent="."]
+scale = Vector2( 0.11, 0.11 )
+texture = ExtResource( 1 )
+
+[node name="AreaDeteccion" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion"]
+shape = SubResource( 1 )
