@@ -1,15 +1,16 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scenes/shortest_path/estacionGenerica.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/shortest_path/metrored_servicios_2020_09_13_page-0001.jpg" type="Texture" id=2]
-[ext_resource path="res://scenes/shortest_path/estacion1.gd" type="Script" id=3]
-[ext_resource path="res://scenes/shortest_path/estacion2.gd" type="Script" id=4]
-[ext_resource path="res://scenes/shortest_path/estacion4.gd" type="Script" id=5]
-[ext_resource path="res://scenes/shortest_path/estacion5.gd" type="Script" id=6]
-[ext_resource path="res://scenes/shortest_path/estacion3.gd" type="Script" id=7]
-[ext_resource path="res://scenes/shortest_path/nivel_ejemplo_1.gd" type="Script" id=8]
+[ext_resource path="res://scenes/shortest_path/hito_1/estacion1.gd" type="Script" id=3]
+[ext_resource path="res://scenes/shortest_path/hito_1/estacion2.gd" type="Script" id=4]
+[ext_resource path="res://scenes/shortest_path/hito_1/estacion4.gd" type="Script" id=5]
+[ext_resource path="res://scenes/shortest_path/hito_1/estacion5.gd" type="Script" id=6]
+[ext_resource path="res://scenes/shortest_path/hito_1/estacion3.gd" type="Script" id=7]
+[ext_resource path="res://scenes/shortest_path/hito_1/nivel_ejemplo_1.gd" type="Script" id=8]
 [ext_resource path="res://scripts/png_star_34230.png" type="Texture" id=9]
 [ext_resource path="res://Roboto-Medium.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://scenes/shortest_path/HUD_OVERLAY.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -17,6 +18,8 @@ font_data = ExtResource( 10 )
 
 [node name="nivel_ejemplo_1" type="Node2D"]
 script = ExtResource( 8 )
+
+[node name="HUD_OVERLAY" parent="." instance=ExtResource( 11 )]
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 582, 975 )

@@ -17,7 +17,7 @@ func _on_coloreamiento_pressed():
 	get_tree().change_scene("res://coloring/Coloring Tutorial.tscn")
 
 func _on_camino_pressed():
-	get_tree().change_scene("res://scenes/shortest_path/nivel_ejemplo_1.tscn")
+	get_tree().change_scene("res://scenes/shortest_path/hito_1/nivel_ejemplo_1.tscn")
 
 func _on_exit_pressed():
 	get_tree().quit()
