@@ -15,22 +15,25 @@ var is_starting_station = false
 func _ready():
 	deteccion.input_pickable = true
 	deteccion.connect("input_event", self, "_clicked")
-	
+	deteccion.connect("area_entered", self, "_aaa")
+
 	add_to_group("station")
 	
 	if manager.start_station == self:
 		is_starting_station = true # Future references, so the player has to start on that node
-	
+
 func _physics_process(delta):
 	if manager.trying_to_connect and manager.current_station == self:
 		if mouse_button_pressed and not connected_to:
 			var distance
 			
-			distance = position.distance_to(get_global_mouse_position())
-			var angle = int(position.angle_to_point(get_global_mouse_position())*180/PI - 180) % 360
+			var posi = get_viewport().get_mouse_position()
+			
+			distance = position.distance_to(posi)
+			var angle = int(position.angle_to_point(posi)*180/PI - 180) % 360
 				
 			arm.rotation_degrees = angle
-			arm.scale.x = distance/ 64
+			arm.scale.x = distance / (64 * scale.x) # Asumiendo que scale.x = scale.y
 		
 		elif manager.accept_connection:
 			connected_to = manager.current_ending_station
@@ -43,7 +46,7 @@ func _physics_process(delta):
 			
 	if Input.is_action_just_released("click"):
 		mouse_button_pressed = false
-	
+
 func _clicked(_viewport, event, _shape_idx):
 	if InputMap.event_is_action(event, "click") && event.pressed:
 		manager.trying_to_connect = true
@@ -53,10 +56,13 @@ func _clicked(_viewport, event, _shape_idx):
 		
 	if InputMap.event_is_action(event, "click") && not event.pressed:
 		if manager.trying_to_connect:
+			print('d1')
 			if not connected_from:
+				print(manager.current_station)
 				if manager.current_station in estaciones_adyacentes and not is_instance_valid(connected_to):
 					manager.accept_connection = true
 					manager.current_ending_station = self
+					print('a')
 
 func disconnect_paths():
 	if is_instance_valid(connected_to):
