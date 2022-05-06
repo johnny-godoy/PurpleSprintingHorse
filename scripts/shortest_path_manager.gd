@@ -16,6 +16,8 @@ var score_text = null
 
 var number_of_connections = 0 # Reset by station
 
+var zoo = 1
+
 # Sets the default state for the temp vars.
 func reset_variables():
 	trying_to_connect = false

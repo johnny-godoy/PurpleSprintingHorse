@@ -3,6 +3,7 @@ extends Node2D
 onready var manager = ShortestPathManager
 const station = preload("res://scenes/shortest_path/estacionGenerica.tscn")
 onready var nodes = $rome_subway
+onready var camera = $Camera2D
 
 func _ready():
 	manager.reset_variables()
@@ -23,14 +24,11 @@ func _ready():
 	manager.end_station = estacion_2
 	manager.optimal_path = [estacion_1, estacion_2]
 	
-	self.add_child(estacion_1, true)
-	self.add_child(estacion_2, true)
-	self.add_child(estacion_3, true)
+	nodes.add_child(estacion_1, true)
+	nodes.add_child(estacion_2, true)
+	nodes.add_child(estacion_3, true)
 	
 	estacion_2.estaciones_adyacentes = [estacion_1]
 	estacion_3.estaciones_adyacentes = [estacion_2]
 	estacion_1.estaciones_adyacentes = [estacion_2]
-	
-func _physics_process(delta):
-	if is_instance_valid(manager.current_ending_station):
-		print(manager.current_ending_station)
+

@@ -27,9 +27,9 @@ func _physics_process(delta):
 		if mouse_button_pressed and not connected_to:
 			var distance
 			
-			var posi = get_viewport().get_mouse_position()
+			var posi = get_global_mouse_position()
 			
-			distance = position.distance_to(posi)
+			distance = position.distance_to(posi) # / manager.zoo.x
 			var angle = int(position.angle_to_point(posi)*180/PI - 180) % 360
 				
 			arm.rotation_degrees = angle
@@ -52,17 +52,13 @@ func _clicked(_viewport, event, _shape_idx):
 		manager.trying_to_connect = true
 		manager.current_station = self
 		mouse_button_pressed = true
-		print("Activated")
 		
 	if InputMap.event_is_action(event, "click") && not event.pressed:
 		if manager.trying_to_connect:
-			print('d1')
 			if not connected_from:
-				print(manager.current_station)
 				if manager.current_station in estaciones_adyacentes and not is_instance_valid(connected_to):
 					manager.accept_connection = true
 					manager.current_ending_station = self
-					print('a')
 
 func disconnect_paths():
 	if is_instance_valid(connected_to):
