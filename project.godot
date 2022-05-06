@@ -30,6 +30,7 @@ window/stretch/aspect="expand"
 
 layout=false
 displa=false
+window=false
 
 [input]
 

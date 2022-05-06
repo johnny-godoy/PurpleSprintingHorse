@@ -1,8 +1,8 @@
 extends MarginContainer
 
-onready var coloreamiento = $Panel/VBoxContainer/Coloreamiento
-onready var camino = $Panel/VBoxContainer/Camino
-onready var exit = $Panel/VBoxContainer/Exit
+onready var coloreamiento = $Panel/VBoxContainer/VBoxContainer/Coloreamiento
+onready var camino = $Panel/VBoxContainer/VBoxContainer/Camino
+onready var exit = $Panel/VBoxContainer/VBoxContainer/Exit
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	coloreamiento.connect("pressed",self, "_on_coloreamiento_pressed")
