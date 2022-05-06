@@ -1,45 +1,43 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://coloring/ColorBuckets.tscn" type="PackedScene" id=1]
+[ext_resource path="res://coloring/base/ColorBuckets.tscn" type="PackedScene" id=1]
 [ext_resource path="res://coloring/Coloring Tutorial.gd" type="Script" id=2]
-[ext_resource path="res://Roboto-Medium.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://assets/coloring/Easel-PNG-Pic.png" type="Texture" id=4]
 [ext_resource path="res://assets/coloring/1080x1920-Wallpaper_AppsApk_-481.jpg" type="Texture" id=5]
 [ext_resource path="res://assets/shortest_path/Untitled.001.png" type="Texture" id=6]
+[ext_resource path="res://coloring/base/HUD_OVERLAY.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 45.0444
 
-[sub_resource type="DynamicFont" id=3]
-size = 24
-font_data = ExtResource( 3 )
-
 [node name="Coloring Tutorial" type="Node2D"]
-position = Vector2( 5, 4 )
+position = Vector2( 1, 11 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 440, 535 )
-scale = Vector2( 0.823148, 0.559375 )
+position = Vector2( 469.125, 534 )
+scale = Vector2( 0.866435, 0.563542 )
 texture = ExtResource( 5 )
 
-[node name="Canvas" type="Sprite" parent="."]
-position = Vector2( 586, 376 )
-scale = Vector2( 1.68941, 1.3375 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 496, 633 )
+scale = Vector2( 1.60912, 1.0875 )
 texture = ExtResource( 4 )
-offset = Vector2( -37.8831, 119.626 )
+
+[node name="HUD_OVERLAY" parent="." instance=ExtResource( 7 )]
 
 [node name="ColorBuckets" parent="." instance=ExtResource( 1 )]
-margin_left = 185.0
-margin_top = 753.0
-margin_right = 820.0
-margin_bottom = 922.0
+margin_left = 176.0
+margin_top = 804.0
+margin_right = 811.0
+margin_bottom = 943.0
 
 [node name="GraphToColor" type="Node2D" parent="."]
-position = Vector2( 570, 470 )
+position = Vector2( 510, 592 )
+scale = Vector2( 0.96, 0.96 )
 
 [node name="Edge 2-3" type="PinJoint2D" parent="GraphToColor"]
 position = Vector2( 143, 142 )
@@ -109,20 +107,3 @@ rect_scale = Vector2( 0.25, 0.25 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture_normal = ExtResource( 6 )
-
-[node name="ScoreFrame" type="MarginContainer" parent="."]
-margin_left = -5.0
-margin_top = -4.0
-margin_right = 418.0
-margin_bottom = 180.0
-
-[node name="ColorRect" type="ColorRect" parent="ScoreFrame"]
-margin_right = 423.0
-margin_bottom = 184.0
-color = Color( 0, 0, 0, 1 )
-
-[node name="ScoreLabel" type="Label" parent="ScoreFrame"]
-margin_top = 77.0
-margin_right = 423.0
-margin_bottom = 106.0
-custom_fonts/font = SubResource( 3 )
