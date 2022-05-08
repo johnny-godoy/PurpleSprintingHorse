@@ -1,90 +1,25 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://coloring/base/level.gd" type="Script" id=1]
-[ext_resource path="res://assets/shortest_path/Untitled.001.png" type="Texture" id=2]
+[ext_resource path="res://assets/coloring/Easel-PNG-Pic.png" type="Texture" id=2]
 [ext_resource path="res://coloring/base/ColorBuckets.tscn" type="PackedScene" id=3]
 [ext_resource path="res://coloring/base/HUD_OVERLAY.tscn" type="PackedScene" id=4]
-
-[sub_resource type="CircleShape2D" id=1]
-radius = 45.0444
+[ext_resource path="res://assets/coloring/1080x1920-Wallpaper_AppsApk_-481.jpg" type="Texture" id=5]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="HUD_OVERLAY" parent="." instance=ExtResource( 4 )]
 
-[node name="GraphToColor" type="Node2D" parent="."]
-position = Vector2( 531, 587 )
-scale = Vector2( 0.96, 0.96 )
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 469.125, 534 )
+scale = Vector2( 0.866435, 0.563542 )
+texture = ExtResource( 5 )
 
-[node name="Edge 2-3" type="PinJoint2D" parent="GraphToColor"]
-position = Vector2( 143, 142 )
-rotation = 2.78555
-node_a = NodePath("../SecondNode")
-node_b = NodePath("../ThirdNode")
-
-[node name="Line2D" type="Line2D" parent="GraphToColor/Edge 2-3"]
-points = PoolVector2Array( 5.60254, 251.741, 1.28583, -0.588684 )
-
-[node name="Edge 1-2" type="PinJoint2D" parent="GraphToColor"]
-position = Vector2( -204, -43 )
-rotation = -1.74882
-node_a = NodePath("../FirstNode")
-node_b = NodePath("../SecondNode")
-
-[node name="Line2D" type="Line2D" parent="GraphToColor/Edge 1-2"]
-points = PoolVector2Array( -2.95259, -0.53125, 1.10057, 259.293 )
-
-[node name="FirstNode" type="StaticBody2D" parent="GraphToColor"]
-position = Vector2( -201, -43 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GraphToColor/FirstNode"]
-position = Vector2( 0, 1 )
-shape = SubResource( 1 )
-
-[node name="TextureButton" type="TextureButton" parent="GraphToColor/FirstNode"]
-margin_left = -44.0
-margin_top = -44.0
-margin_right = 316.0
-margin_bottom = 316.0
-rect_scale = Vector2( 0.25, 0.25 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = ExtResource( 2 )
-
-[node name="SecondNode" type="StaticBody2D" parent="GraphToColor"]
-position = Vector2( 48, -90 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GraphToColor/SecondNode"]
-position = Vector2( 0, 1 )
-shape = SubResource( 1 )
-
-[node name="TextureButton" type="TextureButton" parent="GraphToColor/SecondNode"]
-margin_left = -44.0
-margin_top = -44.0
-margin_right = 316.0
-margin_bottom = 316.0
-rect_scale = Vector2( 0.25, 0.25 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = ExtResource( 2 )
-
-[node name="ThirdNode" type="StaticBody2D" parent="GraphToColor"]
-position = Vector2( 143, 143 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GraphToColor/ThirdNode"]
-position = Vector2( 0, 1 )
-shape = SubResource( 1 )
-
-[node name="TextureButton" type="TextureButton" parent="GraphToColor/ThirdNode"]
-margin_left = -44.0
-margin_top = -44.0
-margin_right = 316.0
-margin_bottom = 316.0
-rect_scale = Vector2( 0.25, 0.25 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture_normal = ExtResource( 2 )
+[node name="Canvas" type="Sprite" parent="Background"]
+position = Vector2( 31.0179, 175.675 )
+scale = Vector2( 1.85717, 1.92976 )
+texture = ExtResource( 2 )
 
 [node name="ColorBuckets" parent="." instance=ExtResource( 3 )]
 margin_left = 176.0
