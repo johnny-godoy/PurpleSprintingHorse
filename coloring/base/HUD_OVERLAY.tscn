@@ -67,3 +67,19 @@ action_mode = 0
 enabled_focus_mode = 0
 keep_pressed_outside = true
 text = "Menú"
+
+[node name="NextLevelButton" type="Button" parent="."]
+anchor_left = 0.732
+anchor_top = 0.035
+anchor_right = 0.932
+anchor_bottom = 0.104
+margin_left = -5.04004
+margin_top = 86.2
+margin_right = 5.95996
+margin_bottom = 85.68
+focus_mode = 0
+theme = ExtResource( 1 )
+action_mode = 0
+enabled_focus_mode = 0
+keep_pressed_outside = true
+text = "Siguiente"

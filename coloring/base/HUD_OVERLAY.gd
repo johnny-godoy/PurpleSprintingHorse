@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 onready var menu_button: Button = $MenuButton
+onready var next_level_button: Button = $NextLevelButton
 onready var level_label: Label = $LevelNumber
 onready var to_color_label: Label = $ToColor
 onready var colors_used_label: Label = $ColorsUsed
@@ -17,17 +18,20 @@ func _ready() -> void:
 	# Configurando el botón de menú
 	menu_button.connect("button_down", self, '_menu_button_pressed')
 	menu_button.mouse_filter = Control.MOUSE_FILTER_STOP
-	menu_button.add_stylebox_override("hover",
-									  menu_button.get_stylebox('normal'))
-	# Variables iniciales
-	self.level = 1
-	self.min_colors = 2
-	self.colors_used = 0
-	self.to_color = 3
+	menu_button.add_stylebox_override("hover", menu_button.get_stylebox('normal'))
+	
+	# Configurando el botón del siguiente nivel
+	next_level_button.connect("button_down", self, '_on_next_level_pressed')
+	next_level_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	next_level_button.add_stylebox_override("hover", next_level_button.get_stylebox('normal'))
 
 
 func _menu_button_pressed() -> void:
 	get_tree().change_scene("res://scenes/MainMenu.tscn")
+
+
+func _on_next_level_pressed() -> void:
+	get_tree().change_scene("res://coloring/Level %d.tscn" % (level + 1))
 
 
 func _set_lvl(new_number: int) -> void:
