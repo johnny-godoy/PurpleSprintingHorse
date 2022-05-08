@@ -1,9 +1,13 @@
+class_name Level
 extends Node2D
 
 onready var graph = $GraphToColor
 onready var hud = $HUD_OVERLAY
 onready var selected = $Marco/Selected
 onready var buckets = $ColorBuckets
+
+export(int) var min_colors
+export(int) var level
 
 
 var buttons = []
@@ -13,8 +17,8 @@ var uncolored = Color(1, 1, 1, 1)
 
 func _ready() -> void:
 	# Inicializando el HUD
-	hud.min_colors = 2
-	hud.level = 1
+	hud.min_colors = min_colors
+	hud.level = level
 
 	# Inicializando cada elemento del grafo
 	for graph_element in graph.get_children():  

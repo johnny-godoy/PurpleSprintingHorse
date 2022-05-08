@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://coloring/base/level.gd"
+} ]
+_global_script_class_icons={
+"Level": ""
+}
+
 [application]
 
 config/name="NoName"
