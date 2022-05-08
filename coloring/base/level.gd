@@ -13,12 +13,15 @@ export var level = 0
 var buttons = []
 var connected_node_pairs = []
 var uncolored = Color(1, 1, 1, 1)
+var has_next_level: bool
 
 
 func _ready() -> void:
 	# Inicializando el HUD
 	hud.min_colors = min_colors
 	hud.level = level
+	hud.last_level_button.visible = level != 1
+	has_next_level = level < hud.last_implemented_level
 
 	# Inicializando cada elemento del grafo
 	for graph_element in graph.get_children():  
@@ -63,4 +66,4 @@ func _process(_delta) -> void:
 	selected.color = buckets.current_color
 
 	# Si el nivel está terminado, se muestra el botón siguiente
-	hud.next_level_button.visible = hud.colors_used <= min_colors and hud.errors == 0 and hud.to_color == 0
+	hud.next_level_button.visible = has_next_level and hud.colors_used <= min_colors and hud.errors == 0 and hud.to_color == 0

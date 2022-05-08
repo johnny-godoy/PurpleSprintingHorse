@@ -14,7 +14,7 @@ func _ready():
 #	pass
 
 func _on_coloreamiento_pressed():
-	get_tree().change_scene("res://coloring/Coloring Tutorial.tscn")
+	get_tree().change_scene("res://coloring/Level 1.tscn")
 
 func _on_camino_pressed():
 	get_tree().change_scene("res://scenes/shortest_path/hito_1/nivel_ejemplo_1.tscn")
