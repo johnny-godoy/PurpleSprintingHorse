@@ -1,14 +1,13 @@
 extends Node2D
 
-onready var buckets = $ColorBuckets
 onready var graph = $GraphToColor
 onready var hud = $HUD_OVERLAY
 onready var selected = $Marco/Selected
+onready var buckets = $ColorBuckets
 
 
 var buttons = []
 var connected_node_pairs = []
-var current_color = null
 var uncolored = Color(1, 1, 1, 1)
 
 
@@ -16,11 +15,7 @@ func _ready() -> void:
 	# Inicializando el HUD
 	hud.min_colors = 2
 	hud.level = 1
-	
-	# Inicializando las cubetas
-	for button in buckets.get_children():
-		button.connect("pressed", self, "_on_Bucket_pressed", [button.modulate])
-	
+
 	# Inicializando cada elemento del grafo
 	for graph_element in graph.get_children():  
 		if graph_element is Joint2D:  # Aristas
@@ -33,13 +28,9 @@ func _ready() -> void:
 			buttons.append(button)
 
 
-func _on_Bucket_pressed(color: Color) -> void:
-	current_color = color
-
-
 func _on_Node_pressed(button: TextureButton) -> void:
-	if current_color != null:
-		button.modulate = current_color
+	if buckets.current_color != uncolored:
+		button.modulate = buckets.current_color
 
 
 func _process(_delta) -> void:
@@ -66,5 +57,5 @@ func _process(_delta) -> void:
 			hud.errors += 1
 
 	# Se actualiza el color seleccionado
-	if current_color != null:
-		selected.color = current_color
+	if buckets.current_color != uncolored:
+		selected.color = buckets.current_color

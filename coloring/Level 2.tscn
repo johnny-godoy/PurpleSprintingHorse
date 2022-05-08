@@ -10,7 +10,7 @@
 [sub_resource type="CircleShape2D" id=4]
 radius = 45.0444
 
-[node name="Coloring Tutorial" type="Node2D"]
+[node name="Level" type="Node2D"]
 position = Vector2( 1, 11 )
 script = ExtResource( 2 )
 __meta__ = {
