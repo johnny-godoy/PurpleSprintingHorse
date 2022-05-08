@@ -51,7 +51,6 @@ points = PoolVector2Array( 5.60254, 251.741, 1.28583, -0.588684 )
 [node name="Edge 1-3" type="PinJoint2D" parent="GraphToColor"]
 position = Vector2( 143, 142 )
 rotation = 2.78555
-scale = Vector2( 1, 1 )
 node_a = NodePath("../FirstNode")
 node_b = NodePath("../ThirdNode")
 
@@ -118,3 +117,16 @@ rect_scale = Vector2( 0.25, 0.25 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture_normal = ExtResource( 6 )
+
+[node name="Marco" type="ColorRect" parent="."]
+margin_left = 163.0
+margin_top = 711.0
+margin_right = 242.0
+margin_bottom = 784.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Selected" type="ColorRect" parent="Marco"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 72.0
+margin_bottom = 67.0

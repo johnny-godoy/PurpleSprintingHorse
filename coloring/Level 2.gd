@@ -3,6 +3,7 @@ extends Node2D
 onready var buckets = $ColorBuckets
 onready var graph = $GraphToColor
 onready var hud = $HUD_OVERLAY
+onready var selected = $Marco/Selected
 
 
 var buttons = []
@@ -41,9 +42,6 @@ func _on_Node_pressed(button: TextureButton) -> void:
 		button.modulate = current_color
 
 
-
-
-
 func _process(_delta) -> void:
 	# Se determina la cantidad de nodos sin colorear
 	hud.to_color = 0
@@ -66,3 +64,7 @@ func _process(_delta) -> void:
 		var b = nodes[1]
 		if (a.modulate == b.modulate) and (a.modulate != uncolored):
 			hud.errors += 1
+
+	# Se actualiza el color seleccionado
+	if current_color != null:
+		selected.color = current_color

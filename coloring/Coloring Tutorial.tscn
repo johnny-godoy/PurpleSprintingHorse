@@ -22,21 +22,15 @@ position = Vector2( 469.125, 534 )
 scale = Vector2( 0.866435, 0.563542 )
 texture = ExtResource( 5 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Canvas" type="Sprite" parent="."]
 position = Vector2( 496, 633 )
 scale = Vector2( 1.60912, 1.0875 )
 texture = ExtResource( 4 )
 
 [node name="HUD_OVERLAY" parent="." instance=ExtResource( 7 )]
 
-[node name="ColorBuckets" parent="." instance=ExtResource( 1 )]
-margin_left = 176.0
-margin_top = 804.0
-margin_right = 811.0
-margin_bottom = 943.0
-
 [node name="GraphToColor" type="Node2D" parent="."]
-position = Vector2( 510, 592 )
+position = Vector2( 531, 587 )
 scale = Vector2( 0.96, 0.96 )
 
 [node name="Edge 2-3" type="PinJoint2D" parent="GraphToColor"]
@@ -107,3 +101,22 @@ rect_scale = Vector2( 0.25, 0.25 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture_normal = ExtResource( 6 )
+
+[node name="ColorBuckets" parent="." instance=ExtResource( 1 )]
+margin_left = 176.0
+margin_top = 804.0
+margin_right = 811.0
+margin_bottom = 943.0
+
+[node name="Marco" type="ColorRect" parent="."]
+margin_left = 163.0
+margin_top = 711.0
+margin_right = 242.0
+margin_bottom = 784.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Selected" type="ColorRect" parent="Marco"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 72.0
+margin_bottom = 67.0

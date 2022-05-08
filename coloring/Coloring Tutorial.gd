@@ -3,6 +3,7 @@ extends Node2D
 onready var buckets = $ColorBuckets
 onready var graph = $GraphToColor
 onready var hud = $HUD_OVERLAY
+onready var selected = $Marco/Selected
 
 
 var buttons = []
@@ -63,3 +64,7 @@ func _process(_delta) -> void:
 		var b = nodes[1]
 		if (a.modulate == b.modulate) and (a.modulate != uncolored):
 			hud.errors += 1
+
+	# Se actualiza el color seleccionado
+	if current_color != null:
+		selected.color = current_color
