@@ -6,8 +6,8 @@ onready var hud = $HUD_OVERLAY
 onready var selected = $Marco/Selected
 onready var buckets = $ColorBuckets
 
-export(int) var min_colors
-export(int) var level
+export var min_colors = 4
+export var level = 0
 
 
 var buttons = []
@@ -33,8 +33,7 @@ func _ready() -> void:
 
 
 func _on_Node_pressed(button: TextureButton) -> void:
-	if buckets.current_color != uncolored:
-		button.modulate = buckets.current_color
+	button.modulate = buckets.current_color
 
 
 func _process(_delta) -> void:
@@ -61,8 +60,7 @@ func _process(_delta) -> void:
 			hud.errors += 1  
 
 	# Se actualiza el color seleccionado
-	if buckets.current_color != uncolored:
-		selected.color = buckets.current_color
+	selected.color = buckets.current_color
 
 	# Si el nivel está terminado, se muestra el botón siguiente
 	hud.next_level_button.visible = hud.colors_used <= min_colors and hud.errors == 0 and hud.to_color == 0

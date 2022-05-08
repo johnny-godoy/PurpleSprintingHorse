@@ -15,6 +15,7 @@ script = ExtResource( 3 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 margin_bottom = 214.0
+rect_pivot_offset = Vector2( 501, 115 )
 
 [node name="LevelNumber" type="Label" parent="."]
 anchor_right = 1.0
@@ -55,11 +56,11 @@ text = "Errores: 0"
 [node name="MenuButton" type="Button" parent="."]
 anchor_left = 0.732
 anchor_top = 0.035
-anchor_right = 0.932
+anchor_right = 0.971
 anchor_bottom = 0.104
-margin_left = -0.0400391
-margin_top = 0.200005
-margin_right = -0.0401001
+margin_left = 27.9601
+margin_top = 0.199997
+margin_right = -0.120056
 margin_bottom = -0.32
 focus_mode = 0
 theme = ExtResource( 1 )
@@ -73,9 +74,9 @@ anchor_left = 0.732
 anchor_top = 0.035
 anchor_right = 0.932
 anchor_bottom = 0.104
-margin_left = -5.04004
+margin_left = 24.9601
 margin_top = 86.2
-margin_right = 5.95996
+margin_right = 35.9601
 margin_bottom = 85.68
 focus_mode = 0
 theme = ExtResource( 1 )
