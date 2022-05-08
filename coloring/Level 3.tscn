@@ -9,7 +9,7 @@ radius = 45.0444
 [node name="Level 3" type="Node2D"]
 
 [node name="Level" parent="." instance=ExtResource( 2 )]
-position = Vector2( -99, 0 )
+position = Vector2( 1, 10 )
 min_colors = 2
 level = 3
 
