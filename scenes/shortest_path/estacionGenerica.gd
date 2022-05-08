@@ -29,7 +29,7 @@ func _physics_process(delta):
 			
 			var posi = get_global_mouse_position()
 			
-			distance = position.distance_to(posi) # / manager.zoo.x
+			distance = position.distance_to(posi)
 			var angle = int(position.angle_to_point(posi)*180/PI - 180) % 360
 				
 			arm.rotation_degrees = angle

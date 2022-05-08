@@ -1,10 +1,6 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+# draw_polyline ($ Path2D.curve.get_baked_points (), Color.aquamarine, 5, true)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

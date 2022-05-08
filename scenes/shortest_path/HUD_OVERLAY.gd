@@ -36,6 +36,3 @@ func _set_min_conns(min_number):
 	min_num_conns = min_number
 	stations_label.text = 'Estaciones: %d/%d' % [num_connections, min_num_conns]
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
