@@ -4,9 +4,9 @@ onready var deteccion = $AreaDeteccion
 onready var manager = ShortestPathManager
 onready var arm = $connecter
 
-onready var estaciones_adyacentes = [null]  # Agregar instancias de estaciones adyacentes aquí
-onready var connected_to : Node2D = null
-onready var connected_from : Node2D = null
+onready var estaciones_adyacentes = []  # Agregar instancias de estaciones adyacentes aquí
+onready var connected_to : Node2D
+onready var connected_from : Node2D 
 
 var mouse_button_pressed = false
 var is_starting_station = false
@@ -15,7 +15,6 @@ var is_starting_station = false
 func _ready():
 	deteccion.input_pickable = true
 	deteccion.connect("input_event", self, "_clicked")
-	deteccion.connect("area_entered", self, "_aaa")
 
 	add_to_group("station")
 	

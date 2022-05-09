@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/shortest_path/rome_subway.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/shortest_path/HUD_OVERLAY.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/shortest_path/Mapas/rome_subway.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/shortest_path/Bases/HUD_OVERLAY.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/shortest_path/testeo_lvl/test_level.gd" type="Script" id=3]
-[ext_resource path="res://scenes/shortest_path/SP_Camera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/shortest_path/Bases/SP_Camera.tscn" type="PackedScene" id=4]
 
 [node name="test_lvl" type="Node2D"]
 script = ExtResource( 3 )
