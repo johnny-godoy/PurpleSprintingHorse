@@ -11,6 +11,7 @@ const station = preload("res://scenes/shortest_path/bases/estacionGenerica.tscn"
 
 func _ready():
 	manager.reset_variables()
+	manager.HUD = $HUD_OVERLAY
 	
 	# Se crean las estaciones
 	for pos in stations.get_children():
@@ -27,8 +28,9 @@ func _ready():
 	for station in _childs:
 		for neighbour in map.next_to[num]:
 			station.estaciones_adyacentes.append(_childs[neighbour])
-			print(station.estaciones_adyacentes)
 		num = num + 1
+	
+	_childs[0].is_starting_station = true
 
 func _get_scale():
 	return Vector2(stations_scale, stations_scale)

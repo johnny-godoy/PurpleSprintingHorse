@@ -21,9 +21,17 @@ func _get_scale():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	# Le damos la información al HUD
 	HUD.level_number = number_of_level
 	HUD.min_num_conns = minimum_connections
+	
+	# Configuramos el manager
+	manager.reset_variables()
+	manager.HUD = HUD
+	manager.number_of_connections = 0
 
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

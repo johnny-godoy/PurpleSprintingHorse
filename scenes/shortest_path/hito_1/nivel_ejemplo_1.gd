@@ -12,9 +12,9 @@ func _ready():
 	manager.start_station = $estacion1
 	manager.end_station = $estacion5
 	manager.optimal_path = [$estacion1, $estacion3, $estacion5]
-	manager.star = $Sprite2
-	manager.score_text = $Puntajes
-	manager.star2 = $Sprite3
+	# manager.star = $Sprite2
+	# manager.score_text = $Puntajes
+	# manager.star2 = $Sprite3
 
 func _process(_delta):
 	manager.check_path(lastStation)

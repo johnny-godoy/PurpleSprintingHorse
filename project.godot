@@ -30,8 +30,8 @@ ShortestPathManager="*res://scripts/shortest_path_manager.gd"
 
 [display]
 
-window/size/width=750
-window/size/height=1334
+window/size/width=720
+window/size/height=1080
 window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"

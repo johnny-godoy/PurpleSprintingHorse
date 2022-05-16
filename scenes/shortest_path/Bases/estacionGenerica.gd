@@ -37,6 +37,7 @@ func _physics_process(delta):
 		elif manager.accept_connection:
 			connected_to = manager.current_ending_station
 			manager.current_ending_station.connected_from = self
+			manager.number_of_connections = manager.number_of_connections + 1
 			manager.reset_variables()
 		
 		else:
@@ -47,7 +48,12 @@ func _physics_process(delta):
 		mouse_button_pressed = false
 
 func _clicked(_viewport, event, _shape_idx):
+	
 	if InputMap.event_is_action(event, "click") && event.pressed:
+		# Para permitir conexión debe ser la primera estación o deben existir conexiones
+		if not is_starting_station and manager.number_of_connections == 0:
+			return
+		
 		manager.trying_to_connect = true
 		manager.current_station = self
 		mouse_button_pressed = true
@@ -61,8 +67,9 @@ func _clicked(_viewport, event, _shape_idx):
 
 func disconnect_paths():
 	if is_instance_valid(connected_to):
+		manager.number_of_connections = manager.number_of_connections - 1
 		connected_to.disconnect_paths()
+		connected_to.connected_from = null
 		connected_to = null
 	arm.scale.x = 0
-	connected_from = null
 	return

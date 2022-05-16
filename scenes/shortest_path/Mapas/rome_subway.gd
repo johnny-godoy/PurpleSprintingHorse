@@ -2,6 +2,8 @@ extends Node2D
 
 # draw_polyline ($ Path2D.curve.get_baked_points (), Color.aquamarine, 5, true)
 var next_to = []
+
+
 onready var places = get_tree().get_nodes_in_group('stations')
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +32,7 @@ func _ready():
 	_add_conn('sp_red_9', ['sp_red_8', 'sp_red_10'])
 	_add_conn('sp_red_10', ['sp_red_9', 'sp_red_11'])
 	_add_conn('sp_red_11', ['sp_red_10'])
+
 	
 func _add_conn(_og, connections):
 	
