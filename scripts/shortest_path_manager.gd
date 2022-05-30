@@ -16,11 +16,13 @@ var current_ending_station : Node2D = null
 var current_station : Node2D = null
 var start_station : Node2D = null # Indefinite
 var end_station : Node2D = null # Indefinite
-var optimal_path = null # Indefinite
+var optimal_path = [] # Indefinite
 
 var number_of_connections := 0 setget _set_noc# Reset by station
 
 var HUD : Node2D
+
+export var player_won = false
 
 # Sets the default state for the temp vars.
 func reset_variables():
@@ -36,7 +38,14 @@ func check_path(last_station : Node2D):
 		while is_instance_valid(current_station):
 			current_path.insert(0, current_station)
 			current_station = current_station.connected_from
+			
+		if current_path == optimal_path:
+			player_won = true
 
 func _set_noc(value):
 	number_of_connections = value
 	HUD.num_connections = value
+	
+	if current_ending_station == end_station:
+		check_path(current_ending_station)
+

@@ -5,6 +5,7 @@ onready var manager = ShortestPathManager
 onready var arm = $connecter
 
 onready var estaciones_adyacentes = []  # Agregar instancias de estaciones adyacentes aquí
+onready var conexiones_a_estacion = {}
 onready var connected_to : Node2D
 onready var connected_from : Node2D 
 
@@ -39,7 +40,9 @@ func _physics_process(delta):
 			manager.current_ending_station.connected_from = self
 			manager.number_of_connections = manager.number_of_connections + 1
 			manager.reset_variables()
-		
+			arm.scale.x = 0
+			conexiones_a_estacion[connected_to].visible = true
+			
 		else:
 			disconnect_paths()
 			manager.reset_variables()
@@ -69,6 +72,7 @@ func disconnect_paths():
 	if is_instance_valid(connected_to):
 		manager.number_of_connections = manager.number_of_connections - 1
 		connected_to.disconnect_paths()
+		conexiones_a_estacion[connected_to].visible = false # devuelve una línea
 		connected_to.connected_from = null
 		connected_to = null
 	arm.scale.x = 0

@@ -28,6 +28,7 @@ func _ready():
 	for station in _childs:
 		for neighbour in map.next_to[num]:
 			station.estaciones_adyacentes.append(_childs[neighbour])
+			station.conexiones_a_estacion[_childs[neighbour]] = map.connecting_line[[num, neighbour]]
 		num = num + 1
 	
 	_childs[0].is_starting_station = true
