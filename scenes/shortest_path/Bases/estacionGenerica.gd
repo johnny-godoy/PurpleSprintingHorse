@@ -9,8 +9,11 @@ onready var conexiones_a_estacion = {}
 onready var connected_to : Node2D
 onready var connected_from : Node2D 
 
+onready var station_sprite = $station_img
+
 var mouse_button_pressed = false
-var is_starting_station = false
+var is_starting_station = false setget _set_is_starting
+var is_ending_station = false setget _set_is_ending
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +25,7 @@ func _ready():
 	if manager.start_station == self:
 		is_starting_station = true # Future references, so the player has to start on that node
 
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	if manager.trying_to_connect and manager.current_station == self:
 		if mouse_button_pressed and not connected_to:
@@ -57,9 +61,11 @@ func _clicked(_viewport, event, _shape_idx):
 		if not is_starting_station and manager.number_of_connections == 0:
 			return
 		
-		manager.trying_to_connect = true
-		manager.current_station = self
-		mouse_button_pressed = true
+		# Solo se puede conectar si hay alguien conectado antes
+		if is_instance_valid(connected_from) or is_starting_station:
+			manager.trying_to_connect = true
+			manager.current_station = self
+			mouse_button_pressed = true
 		
 	if InputMap.event_is_action(event, "click") && not event.pressed:
 		if manager.trying_to_connect:
@@ -77,3 +83,11 @@ func disconnect_paths():
 		connected_to = null
 	arm.scale.x = 0
 	return
+	
+func _set_is_starting(value):
+	is_starting_station = value
+	station_sprite.texture = load("res://assets/shortest_path/start_station.png")
+	#station_sprite.texture = "res://assets/shortest_path/start_station.png"
+	
+func _set_is_ending(_value):
+	station_sprite.texture = load("res://assets/shortest_path/end_station.png")

@@ -115,7 +115,6 @@ func _ready():
 func _add_conn(_og, connections):
 	
 	var temp_node = []
-	var temp_line = {}
 
 	for node_n_line in connections:
 		temp_node.append(name_to_num(node_n_line[0]))

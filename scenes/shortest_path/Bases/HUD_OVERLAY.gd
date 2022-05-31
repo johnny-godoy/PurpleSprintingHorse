@@ -29,6 +29,9 @@ func _set_lvl_num(new_number):
 func _number_of_connections(number_of_stations):
 	num_connections = number_of_stations
 	_stations_label.text = 'Estaciones: %d/%d' % [num_connections, min_num_conns]
+	
+	if num_connections > min_num_conns:
+		print('Too many')
 
 func _set_min_conns(min_number):
 	min_num_conns = min_number

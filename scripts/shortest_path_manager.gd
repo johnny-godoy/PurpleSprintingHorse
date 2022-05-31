@@ -41,6 +41,8 @@ func check_path(last_station : Node2D):
 			
 		if current_path == optimal_path:
 			player_won = true
+		else:
+			player_won = false
 
 func _set_noc(value):
 	number_of_connections = value
@@ -48,4 +50,6 @@ func _set_noc(value):
 	
 	if current_ending_station == end_station:
 		check_path(current_ending_station)
+	else:
+		player_won = false
 

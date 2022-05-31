@@ -8,7 +8,7 @@ onready var stations = $rome_subway/map
 onready var won_menu = $wonMenu
 
 export var minimum_connections = 5
-export var number_of_level = 1
+export var number_of_level = 2
 
 export var stations_scale := 0.5 setget , _get_scale
 
@@ -33,15 +33,12 @@ func _ready():
 	manager.number_of_connections = 0
 	manager.player_won = false
 	
-	var stations_to_be_used = ['sp_red_5', 'sp_red_6', 'sp_red_4', 'sp_red_3', 'sp_red_2', 'sp_red_1']
-	var _optimal_path = []
+	var _optimal_path_map_ = ['sp_blue_8', 'sp_blue_7', 'sp_black_1', 'sp_red_7', 'sp_red_8', 'sp_red_9']
+	var _optimal_path = range(len(_optimal_path_map_))
 	
 	# Se crean las estaciones
 	for pos in stations.get_children():
 		if not pos.is_in_group('stations'):
-			continue
-		elif not pos.get_name() in stations_to_be_used:
-			_childs.append(null)
 			continue
 			
 		var temp_station = station.instance()
@@ -50,16 +47,15 @@ func _ready():
 		map.add_child(temp_station, true)
 		_childs.append(temp_station)
 		
-		if pos.get_name() == 'sp_red_1':
+		if pos.get_name() == 'sp_blue_8':
 			temp_station.is_starting_station = true
 		
-		if pos.get_name() == 'sp_red_6':
+		if pos.get_name() == 'sp_red_9':
 			manager.end_station = temp_station
 			temp_station.is_ending_station = true
 		
-		_optimal_path.append(temp_station)
-	
-	manager.optimal_path = _optimal_path
+		if pos.name in _optimal_path_map_:
+			_optimal_path[_optimal_path_map_.find(pos.name)] = temp_station
 		
 	var num = 0
 	for station in _childs:
@@ -72,6 +68,8 @@ func _ready():
 			station.estaciones_adyacentes.append(_childs[neighbour])
 			station.conexiones_a_estacion[_childs[neighbour]] = map.connecting_line[[num, neighbour]]
 		num = num + 1
+	
+	manager.optimal_path = _optimal_path
 	
 var count = 0
 var count2 = 0
@@ -89,4 +87,4 @@ func _physics_process(delta):
 		
 
 func next_level():
-	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_2.tscn")
+	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_3.tscn")
