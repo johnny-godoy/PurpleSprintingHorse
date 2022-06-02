@@ -40,6 +40,7 @@ func _physics_process(delta):
 			arm.scale.x = distance / (64 * scale.x) # Asumiendo que scale.x = scale.y
 		
 		elif manager.accept_connection:
+			manager.station_touched = true
 			connected_to = manager.current_ending_station
 			manager.current_ending_station.connected_from = self
 			manager.number_of_connections = manager.number_of_connections + 1
@@ -48,6 +49,7 @@ func _physics_process(delta):
 			conexiones_a_estacion[connected_to].visible = true
 			
 		else:
+			manager.station_touched = true
 			disconnect_paths()
 			manager.reset_variables()
 			
@@ -56,12 +58,8 @@ func _physics_process(delta):
 
 func _clicked(_viewport, event, _shape_idx):
 	
-	if event is InputEventScreenDrag:
-		print('aaaaa')
-	
 	if InputMap.event_is_action(event, "click") && event.pressed:
-		print('station input')
-		get_tree().set_input_as_handled()
+		manager.station_touched = true
 		
 		# Para permitir conexión debe ser la primera estación o deben existir conexiones
 		if not is_starting_station and manager.number_of_connections == 0:
@@ -74,11 +72,16 @@ func _clicked(_viewport, event, _shape_idx):
 			mouse_button_pressed = true
 		
 	if InputMap.event_is_action(event, "click") && not event.pressed:
+		manager.station_touched = false
 		if manager.trying_to_connect:
 			if not connected_from:
 				if manager.current_station in estaciones_adyacentes and not is_instance_valid(connected_to):
 					manager.accept_connection = true
 					manager.current_ending_station = self
+
+func _input(event):
+	if event is InputEventScreenTouch:
+		manager.station_touched = false
 
 func disconnect_paths():
 	if is_instance_valid(connected_to):

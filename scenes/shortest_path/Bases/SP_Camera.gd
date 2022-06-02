@@ -1,6 +1,6 @@
 extends Camera2D
 
-var man = ShortestPathManager
+var manager = ShortestPathManager
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -98,8 +98,8 @@ func _input(event):
 			touch_events.erase(event.index)
 		
 	
-	if event is InputEventScreenDrag:
-		print('moved touch')
+	if event is InputEventScreenDrag and not manager.station_touched:
+		
 		touch_events[event.index] = event
 		if touch_events.size() == 1:
 			var new_pos = -zoom * event.relative + position

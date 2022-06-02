@@ -30,7 +30,3 @@ margin_right = 736.0
 margin_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
-margin_right = 12.0
-margin_bottom = 12.0

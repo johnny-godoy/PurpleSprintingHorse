@@ -9,6 +9,9 @@ extends Node
 
 # Variables globales para el shortest path
 
+# Literal spaguetti
+var station_touched = false
+
 var trying_to_connect = false
 var accept_connection = false
 
