@@ -15,6 +15,9 @@ var mouse_button_pressed = false
 var is_starting_station = false setget _set_is_starting
 var is_ending_station = false setget _set_is_ending
 
+# TODO: end_station no debería poder tirar nuevas líneas
+# Zoom cuando termina un nivel
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	deteccion.input_pickable = true

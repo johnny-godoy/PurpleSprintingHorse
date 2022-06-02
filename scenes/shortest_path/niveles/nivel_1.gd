@@ -6,6 +6,7 @@ onready var HUD = $HUD_OVERLAY
 onready var map = $rome_subway
 onready var stations = $rome_subway/map
 onready var won_menu = $wonMenu
+onready var camera = $SP_Camera
 
 export var minimum_connections = 5
 export var number_of_level = 1
@@ -83,7 +84,9 @@ func _physics_process(delta):
 	
 	if manager.player_won and not activated:
 		activated = true
+		camera.zoom = Vector2(1, 1)
 		won_menu.pause_menu()
+		
 	elif not manager.player_won and activated:
 		activated = false
 		
