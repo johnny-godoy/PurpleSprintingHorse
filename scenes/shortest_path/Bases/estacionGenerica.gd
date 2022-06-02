@@ -56,8 +56,12 @@ func _physics_process(delta):
 
 func _clicked(_viewport, event, _shape_idx):
 	
+	if event is InputEventScreenDrag:
+		print('aaaaa')
+	
 	if InputMap.event_is_action(event, "click") && event.pressed:
-		print('clicked')
+		print('station input')
+		get_tree().set_input_as_handled()
 		
 		# Para permitir conexión debe ser la primera estación o deben existir conexiones
 		if not is_starting_station and manager.number_of_connections == 0:
@@ -89,7 +93,6 @@ func disconnect_paths():
 func _set_is_starting(value):
 	is_starting_station = value
 	station_sprite.texture = load("res://assets/shortest_path/start_station.png")
-	#station_sprite.texture = "res://assets/shortest_path/start_station.png"
 	
 func _set_is_ending(_value):
 	station_sprite.texture = load("res://assets/shortest_path/end_station.png")

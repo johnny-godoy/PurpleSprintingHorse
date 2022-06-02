@@ -82,8 +82,7 @@ func _set_zoom_level(value: float):
 		)
 	tween.start()
 	
-		
-func _unhandled_input(event):
+func _input(event):
 	
 	##### MOBILE OPTIONS
 	if event is InputEventScreenTouch:
@@ -94,15 +93,18 @@ func _unhandled_input(event):
 		# - 
 		if event.pressed:
 			touch_events[event.index] = event
+			print('camera input')
 		else:
 			touch_events.erase(event.index)
 		
-		
-		print(event.index)
+	
 	if event is InputEventScreenDrag:
+		print('moved touch')
 		touch_events[event.index] = event
 		if touch_events.size() == 1:
-			position += event.relative.rotated(rotation) * zoom.x
+			var new_pos = -zoom * event.relative + position
+			_update_position(new_pos)
+			# position += event.relative.rotated(rotation) * zoom.x
 	
 	##### MOUSE - PC OPTIONS
 	if event.is_action("mouse_button"):
@@ -114,7 +116,6 @@ func _unhandled_input(event):
 			dragging = false
 
 	elif event is InputEventMouseMotion and dragging:
-		
 		var new_pos = zoom * (mouse_start_pos - event.position) + screen_start_position
 		_update_position(new_pos)
 		
@@ -149,4 +150,3 @@ func _update_position(new_position):
 		pass
 	else:
 		position.x = new_position.x
-	

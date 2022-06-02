@@ -12,7 +12,7 @@ export var number_of_level = 1
 
 export var stations_scale := 0.5 setget , _get_scale
 
-const station = preload("res://scenes/shortest_path/bases/estacionGenerica.tscn")
+const station = preload("res://scenes/shortest_path/Bases/estacionGenerica.tscn")
 
 var _childs = []
 
