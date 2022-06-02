@@ -10,4 +10,4 @@ min_colors = 2
 level = 1
 
 [node name="GraphToColor" parent="Level" instance=ExtResource( 2 )]
-position = Vector2( 502, 416 )
+position = Vector2( 386, 523 )

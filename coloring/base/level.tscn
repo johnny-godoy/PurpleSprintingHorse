@@ -12,26 +12,26 @@ script = ExtResource( 1 )
 [node name="HUD_OVERLAY" parent="." instance=ExtResource( 4 )]
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 456.625, 534 )
-scale = Vector2( 0.843287, 0.563542 )
+position = Vector2( 360.125, 537 )
+scale = Vector2( 0.664583, 0.560417 )
 texture = ExtResource( 5 )
 
 [node name="Canvas" type="Sprite" parent="."]
-position = Vector2( 454.596, 480.156 )
-scale = Vector2( 1.98778, 1.50289 )
+position = Vector2( 363.596, 567.5 )
+scale = Vector2( 1.55955, 1.26375 )
 texture = ExtResource( 2 )
 
 [node name="ColorBuckets" parent="." instance=ExtResource( 3 )]
-margin_left = 18.0
-margin_top = 726.0
-margin_right = 883.0
-margin_bottom = 913.0
+margin_left = 43.0
+margin_top = 772.0
+margin_right = 667.0
+margin_bottom = 927.0
 
 [node name="Marco" type="ColorRect" parent="."]
 margin_left = 58.0
-margin_top = 591.0
+margin_top = 645.0
 margin_right = 137.0
-margin_bottom = 664.0
+margin_bottom = 718.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Selected" type="ColorRect" parent="Marco"]

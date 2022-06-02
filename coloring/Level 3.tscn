@@ -14,7 +14,7 @@ min_colors = 2
 level = 3
 
 [node name="GraphToColor" type="Node2D" parent="Level"]
-position = Vector2( 458, 419 )
+position = Vector2( 406, 542 )
 
 [node name="Edge 1-4" type="PinJoint2D" parent="Level/GraphToColor"]
 position = Vector2( -166, -127 )
