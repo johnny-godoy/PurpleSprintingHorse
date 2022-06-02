@@ -33,6 +33,8 @@ var og_screen_pos
 
 # For zoom/moving on mobile
 var touch_events = {}
+var last_drag_distance = 0
+var zoom_speed = 0.05
 
 var og_diff_left
 var og_diff_right
@@ -105,7 +107,14 @@ func _input(event):
 			var new_pos = -zoom * event.relative + position
 			_update_position(new_pos)
 			# position += event.relative.rotated(rotation) * zoom.x
-	
+		elif touch_events.size() == 2:
+			var drag_distance = touch_events[0].position.distance_to(touch_events[1].position)
+			if abs(drag_distance - last_drag_distance) > 10:
+				var new_zoom = (1 + zoom_speed) if drag_distance < last_drag_distance else (1 - zoom_speed)
+				new_zoom = clamp(zoom.x * new_zoom, min_zoom, max_zoom)
+				zoom = Vector2.ONE * new_zoom
+				last_drag_distance = drag_distance
+		
 	##### MOUSE - PC OPTIONS
 	if event.is_action("mouse_button"):
 		if event.is_pressed():
