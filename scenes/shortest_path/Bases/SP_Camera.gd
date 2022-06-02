@@ -107,12 +107,14 @@ func _input(event):
 			var new_pos = -zoom * event.relative + position
 			_update_position(new_pos)
 			# position += event.relative.rotated(rotation) * zoom.x
+		# TODO: arreglar/customizar para valores nuestros (no genéricos)
 		elif touch_events.size() == 2:
 			var drag_distance = touch_events[0].position.distance_to(touch_events[1].position)
 			if abs(drag_distance - last_drag_distance) > 10:
 				var new_zoom = (1 + zoom_speed) if drag_distance < last_drag_distance else (1 - zoom_speed)
-				new_zoom = clamp(zoom.x * new_zoom, min_zoom, max_zoom)
-				zoom = Vector2.ONE * new_zoom
+				_set_zoom_level(zoom.x * new_zoom)
+				# new_zoom = clamp(zoom.x * new_zoom, min_zoom, max_zoom)
+				# zoom = Vector2.ONE * new_zoom
 				last_drag_distance = drag_distance
 		
 	##### MOUSE - PC OPTIONS
