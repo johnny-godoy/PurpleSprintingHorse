@@ -57,6 +57,8 @@ func _physics_process(delta):
 func _clicked(_viewport, event, _shape_idx):
 	
 	if InputMap.event_is_action(event, "click") && event.pressed:
+		print('clicked')
+		
 		# Para permitir conexión debe ser la primera estación o deben existir conexiones
 		if not is_starting_station and manager.number_of_connections == 0:
 			return

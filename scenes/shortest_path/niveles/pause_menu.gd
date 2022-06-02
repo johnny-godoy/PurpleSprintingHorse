@@ -25,3 +25,4 @@ func _on_main_menu_pressed():
 
 func _on_next_level_pressed():
 	get_parent().next_level()
+	get_tree().paused = false

@@ -25,10 +25,14 @@ export var left_position : float
 # Ubicación corte derecho de la cámara
 export var right_position : float
 
-var dragging
+# For zoom/moving on PC
+var dragging # For dragging
 var mouse_start_pos
 var screen_start_position
 var og_screen_pos
+
+# For zoom/moving on mobile
+var touch_events = {}
 
 var og_diff_left
 var og_diff_right
@@ -79,7 +83,7 @@ func _set_zoom_level(value: float):
 	tween.start()
 	
 		
-func _input(event):
+func _unhandled_input(event):
 	
 	##### MOBILE OPTIONS
 	if event is InputEventScreenTouch:
@@ -88,12 +92,17 @@ func _input(event):
 		# - De hacerlo revisar sus posiciones
 		# - Si se separan -> Zoom de acercamiento, en caso contrario zoom de alejamiento según distancia
 		# - 
+		if event.pressed:
+			touch_events[event.index] = event
+		else:
+			touch_events.erase(event.index)
+		
 		
 		print(event.index)
 	if event is InputEventScreenDrag:
-		pass
-		# DRAG?? Ver como entrega los valores
-		# Creo que hay que ocupar relative
+		touch_events[event.index] = event
+		if touch_events.size() == 1:
+			position += event.relative.rotated(rotation) * zoom.x
 	
 	##### MOUSE - PC OPTIONS
 	if event.is_action("mouse_button"):
@@ -105,9 +114,6 @@ func _input(event):
 			dragging = false
 
 	elif event is InputEventMouseMotion and dragging:
-		
-		# TODO: implementar clamp cuando llegue a los limites, en función de la posición de la cámara
-		# hay que observar el cuadrado rosa, donde su tamaño varía con el zoom.
 		
 		var new_pos = zoom * (mouse_start_pos - event.position) + screen_start_position
 		_update_position(new_pos)

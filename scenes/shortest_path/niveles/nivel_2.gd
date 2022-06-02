@@ -49,6 +49,7 @@ func _ready():
 		
 		if pos.get_name() == 'sp_blue_8':
 			temp_station.is_starting_station = true
+			manager.start_station = temp_station
 		
 		if pos.get_name() == 'sp_red_9':
 			manager.end_station = temp_station
