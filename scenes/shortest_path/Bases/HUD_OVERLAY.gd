@@ -20,7 +20,7 @@ func _ready():
 	
 # Despliega el menú
 func _menu_button_pressed():
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	get_tree().change_scene("res://scenes/NivelesCamino.tscn")
 	
 func _set_lvl_num(new_number):
 	level_number = new_number

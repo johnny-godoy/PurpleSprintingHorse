@@ -33,7 +33,7 @@ func _ready() -> void:
 	last_level_button.add_stylebox_override("hover", last_level_button.get_stylebox('normal'))
 
 func _menu_button_pressed() -> void:
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	get_tree().change_scene("res://scenes/NivelesColoreamiento.tscn")
 
 
 func _on_next_level_pressed() -> void:

@@ -19,7 +19,7 @@ func _on_resume_pressed():
 	visible = false
 
 func _on_main_menu_pressed():
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	get_tree().change_scene("res://scenes/NivelesCamino.tscn")
 	get_tree().paused = false
 
 func _on_next_level_pressed():
