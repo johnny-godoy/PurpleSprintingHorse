@@ -13,7 +13,7 @@ var to_color = 0 setget _set_to_color
 var colors_used = 0 setget _set_colors_used
 var errors = 0 setget _set_errors
 var save_file = File.new()
-var last_implemented_level = 4
+var last_implemented_level = 5
 var level_progress = 0
 var progress_array
 var min_colors
