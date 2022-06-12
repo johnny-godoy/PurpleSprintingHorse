@@ -21,16 +21,19 @@ var min_colors
 
 func _ready() -> void:
 	# Configurando el botón de menú
-	menu_button.connect("button_down", self, '_menu_button_pressed')
+	# warning-ignore:return_value_discarded
+	menu_button.connect("button_down", self, '_scene_changer', ["res://scenes/MainMenu.tscn"])
 	menu_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	menu_button.add_stylebox_override("hover", menu_button.get_stylebox('normal'))
 
 	# Configurando los botones para cambiar de nivel
 	# Siguiente nivel
+	# warning-ignore:return_value_discarded
 	next_level_button.connect("button_down", self, '_on_next_level_pressed')
 	next_level_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	next_level_button.add_stylebox_override("hover", next_level_button.get_stylebox('normal'))
 	# Nivel anterior
+	# warning-ignore:return_value_discarded
 	last_level_button.connect("button_down", self, '_on_last_level_pressed')
 	last_level_button.mouse_filter = Control.MOUSE_FILTER_STOP
 	last_level_button.add_stylebox_override("hover", last_level_button.get_stylebox('normal'))
@@ -38,7 +41,7 @@ func _ready() -> void:
 	# Cargando el progreso de los niveles
 	save_file.open("res://coloring/base/coloring_progress.dat", File.READ)
 	progress_array = str2var(save_file.get_as_text())
-	save_file.close()
+	save_file.close() 
 
 
 func save_progress() -> void:
@@ -48,19 +51,18 @@ func save_progress() -> void:
 	save_file.close()
 
 
-func _menu_button_pressed() -> void:
+func _scene_changer(path) -> void:
 	save_progress()
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	# warning-ignore:return_value_discarded
+	get_tree().change_scene(path)
 
 
 func _on_next_level_pressed() -> void:
-	save_progress()
-	get_tree().change_scene("res://coloring/Level %d.tscn" % (level + 1))
+	_scene_changer("res://coloring/Level %d.tscn" % (level + 1))
 
 
 func _on_last_level_pressed() -> void:
-	save_progress()
-	get_tree().change_scene("res://coloring/Level %d.tscn" % (level - 1))
+	_scene_changer("res://coloring/Level %d.tscn" % (level - 1))
 
 
 func _set_lvl(new_number: int) -> void:
