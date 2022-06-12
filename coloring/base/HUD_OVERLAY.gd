@@ -13,7 +13,7 @@ var to_color = 0 setget _set_to_color
 var colors_used = 0 setget _set_colors_used
 var errors = 0 setget _set_errors
 var save_file = File.new()
-var last_implemented_level = 3
+var last_implemented_level = 4
 var level_progress = 0
 var progress_array
 var min_colors
@@ -41,7 +41,7 @@ func _ready() -> void:
 	# Cargando el progreso de los niveles
 	save_file.open("res://coloring/base/coloring_progress.dat", File.READ)
 	progress_array = str2var(save_file.get_as_text())
-	save_file.close() 
+	save_file.close()
 
 
 func save_progress() -> void:
