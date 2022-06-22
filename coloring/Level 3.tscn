@@ -6,64 +6,64 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 45.0444
 
-[node name="Level 3" type="Node2D"]
+[node name="Level" type="Node2D"]
 
-[node name="Level" parent="." instance=ExtResource( 2 )]
+[node name="Level 3" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1, 10 )
 min_colors = 2
 level = 3
 
-[node name="GraphToColor" type="Node2D" parent="Level"]
+[node name="GraphToColor" type="Node2D" parent="Level 3"]
 position = Vector2( 406, 542 )
 
-[node name="Edge 1-4" type="PinJoint2D" parent="Level/GraphToColor"]
+[node name="Edge 1-4" type="PinJoint2D" parent="Level 3/GraphToColor"]
 position = Vector2( -166, -127 )
 rotation = -1.74882
 node_a = NodePath("../FirstNode")
 node_b = NodePath("../FourthNode")
 
-[node name="Line2D" type="Line2D" parent="Level/GraphToColor/Edge 1-4"]
+[node name="Line2D" type="Line2D" parent="Level 3/GraphToColor/Edge 1-4"]
 position = Vector2( 2.14548, -0.630035 )
 points = PoolVector2Array( -0.53125, 2.95261, -233.786, -39.0165 )
 
-[node name="Edge 2-3" type="PinJoint2D" parent="Level/GraphToColor"]
+[node name="Edge 2-3" type="PinJoint2D" parent="Level 3/GraphToColor"]
 position = Vector2( 115, 108 )
 rotation = 2.78555
 node_a = NodePath("../SecondNode")
 node_b = NodePath("../ThirdNode")
 
-[node name="Line2D" type="Line2D" parent="Level/GraphToColor/Edge 2-3"]
+[node name="Line2D" type="Line2D" parent="Level 3/GraphToColor/Edge 2-3"]
 position = Vector2( -78.8727, 228.941 )
 scale = Vector2( 1.00366, 1.00431 )
 points = PoolVector2Array( 76.4783, -230.866, -4.638, -10.3706 )
 
-[node name="Edge 1-2" type="PinJoint2D" parent="Level/GraphToColor"]
+[node name="Edge 1-2" type="PinJoint2D" parent="Level 3/GraphToColor"]
 position = Vector2( -166, -127 )
 rotation = -1.74882
 node_a = NodePath("../FirstNode")
 node_b = NodePath("../SecondNode")
 
-[node name="Line2D" type="Line2D" parent="Level/GraphToColor/Edge 1-2"]
+[node name="Line2D" type="Line2D" parent="Level 3/GraphToColor/Edge 1-2"]
 points = PoolVector2Array( -0.53125, 2.95261, -50.4691, 280.496 )
 
-[node name="Edge 3-4" type="PinJoint2D" parent="Level/GraphToColor"]
+[node name="Edge 3-4" type="PinJoint2D" parent="Level 3/GraphToColor"]
 position = Vector2( -162, 100 )
 rotation = -1.74882
 node_a = NodePath("../ThirdNode")
 node_b = NodePath("../FourthNode")
 
-[node name="Line2D" type="Line2D" parent="Level/GraphToColor/Edge 3-4"]
+[node name="Line2D" type="Line2D" parent="Level 3/GraphToColor/Edge 3-4"]
 position = Vector2( 0.708344, -3.93677 )
 points = PoolVector2Array( -0.53125, 2.95261, -50.4692, 280.496 )
 
-[node name="FirstNode" type="StaticBody2D" parent="Level/GraphToColor"]
+[node name="FirstNode" type="StaticBody2D" parent="Level 3/GraphToColor"]
 position = Vector2( -164, -126 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/GraphToColor/FirstNode"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 3/GraphToColor/FirstNode"]
 position = Vector2( 0, 1 )
 shape = SubResource( 1 )
 
-[node name="TextureButton" type="TextureButton" parent="Level/GraphToColor/FirstNode"]
+[node name="TextureButton" type="TextureButton" parent="Level 3/GraphToColor/FirstNode"]
 margin_left = -44.0
 margin_top = -44.0
 margin_right = 316.0
@@ -73,14 +73,14 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 texture_normal = ExtResource( 1 )
 
-[node name="SecondNode" type="StaticBody2D" parent="Level/GraphToColor"]
+[node name="SecondNode" type="StaticBody2D" parent="Level 3/GraphToColor"]
 position = Vector2( 116, -127 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/GraphToColor/SecondNode"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 3/GraphToColor/SecondNode"]
 position = Vector2( 0, 1 )
 shape = SubResource( 1 )
 
-[node name="TextureButton" type="TextureButton" parent="Level/GraphToColor/SecondNode"]
+[node name="TextureButton" type="TextureButton" parent="Level 3/GraphToColor/SecondNode"]
 margin_left = -44.0
 margin_top = -44.0
 margin_right = 316.0
@@ -90,14 +90,14 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 texture_normal = ExtResource( 1 )
 
-[node name="ThirdNode" type="StaticBody2D" parent="Level/GraphToColor"]
+[node name="ThirdNode" type="StaticBody2D" parent="Level 3/GraphToColor"]
 position = Vector2( 115, 107 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/GraphToColor/ThirdNode"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 3/GraphToColor/ThirdNode"]
 position = Vector2( 0, 1 )
 shape = SubResource( 1 )
 
-[node name="TextureButton" type="TextureButton" parent="Level/GraphToColor/ThirdNode"]
+[node name="TextureButton" type="TextureButton" parent="Level 3/GraphToColor/ThirdNode"]
 margin_left = -44.0
 margin_top = -44.0
 margin_right = 316.0
@@ -107,14 +107,14 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 texture_normal = ExtResource( 1 )
 
-[node name="FourthNode" type="StaticBody2D" parent="Level/GraphToColor"]
+[node name="FourthNode" type="StaticBody2D" parent="Level 3/GraphToColor"]
 position = Vector2( -165, 98 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/GraphToColor/FourthNode"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 3/GraphToColor/FourthNode"]
 position = Vector2( 0, 1 )
 shape = SubResource( 1 )
 
-[node name="TextureButton" type="TextureButton" parent="Level/GraphToColor/FourthNode"]
+[node name="TextureButton" type="TextureButton" parent="Level 3/GraphToColor/FourthNode"]
 margin_left = -44.0
 margin_top = -44.0
 margin_right = 316.0
