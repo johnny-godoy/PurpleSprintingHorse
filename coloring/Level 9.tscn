@@ -9,7 +9,7 @@ radius = 45.0444
 [node name="Level" type="Node2D"]
 
 [node name="Level 9" parent="." instance=ExtResource( 1 )]
-position = Vector2( -225, -70 )
+position = Vector2( 0, 7 )
 level = 9
 
 [node name="GraphToColor" type="Node2D" parent="Level 9"]
