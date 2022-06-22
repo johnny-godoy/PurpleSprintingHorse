@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://coloring/base/level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/shortest_path/Untitled.001.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 45.0444
+
+[node name="Level" type="Node2D"]
+
+[node name="Level 9" parent="." instance=ExtResource( 1 )]
+level = 9
+
+[node name="GraphToColor" type="Node2D" parent="Level 9"]
+
+[node name="FirstNode" type="StaticBody2D" parent="Level 9/GraphToColor"]
+position = Vector2( 369, 523 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 9/GraphToColor/FirstNode"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="TextureButton" type="TextureButton" parent="Level 9/GraphToColor/FirstNode"]
+margin_left = -44.0
+margin_top = -44.0
+margin_right = 316.0
+margin_bottom = 316.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 2 )
+
+[node name="Edge 1-2" type="PinJoint2D" parent="Level 9/GraphToColor"]
+position = Vector2( 175, 463 )
+rotation = -1.74882
+
+[node name="Line2D" type="Line2D" parent="Level 9/GraphToColor/Edge 1-2"]
+points = PoolVector2Array( -2.95259, -0.53125, 1.10057, 259.293 )
