@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://coloring/base/level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://coloring/base/grafo_ejemplo.tscn" type="PackedScene" id=2]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Level" parent="." instance=ExtResource( 1 )]
+min_colors = 2
+level = 1
+
+[node name="GraphToColor" parent="Level" instance=ExtResource( 2 )]
+position = Vector2( 386, 523 )

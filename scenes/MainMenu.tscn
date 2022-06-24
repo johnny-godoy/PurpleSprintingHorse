@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://resources/temita.tres" type="Theme" id=1]
+[ext_resource path="res://assets/shortestpath.png" type="Texture" id=2]
+[ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/playbuttonpdn.png" type="Texture" id=3]
+[ext_resource path="res://assets/coloreamiento.png" type="Texture" id=4]
+[ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/question.png" type="Texture" id=5]
+[ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/exitdoor.png" type="Texture" id=6]
+[ext_resource path="res://scenes/MainMenu.gd" type="Script" id=7]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 80.0
+margin_top = 216.0
+margin_right = 477.0
+margin_bottom = 305.0
+rect_scale = Vector2( 1.5, 1.5 )
+size_flags_horizontal = 0
+theme = ExtResource( 1 )
+text = "Horse"
+align = 1
+valign = 1
+
+[node name="Exit" type="TextureButton" parent="."]
+margin_left = 584.0
+margin_top = 48.0
+margin_right = 1184.0
+margin_bottom = 648.0
+rect_scale = Vector2( 0.15, 0.15 )
+texture_normal = ExtResource( 6 )
+
+[node name="Help" type="TextureButton" parent="."]
+margin_left = 48.0
+margin_top = 48.0
+margin_right = 648.0
+margin_bottom = 648.0
+rect_scale = Vector2( 0.15, 0.15 )
+texture_normal = ExtResource( 5 )
+
+[node name="coloreamiento" type="TextureButton" parent="."]
+margin_left = 68.0
+margin_top = 455.0
+margin_right = 468.0
+margin_bottom = 855.0
+rect_scale = Vector2( 0.65, 0.65 )
+texture_normal = ExtResource( 4 )
+
+[node name="shortestpath" type="TextureButton" parent="."]
+margin_left = 66.0
+margin_top = 746.0
+margin_right = 466.0
+margin_bottom = 1146.0
+rect_scale = Vector2( 0.65, 0.65 )
+texture_normal = ExtResource( 2 )
+
+[node name="Colorea" type="Label" parent="."]
+margin_left = 334.0
+margin_top = 517.0
+margin_right = 696.0
+margin_bottom = 652.0
+theme = ExtResource( 1 )
+text = "¡Colorea usando
+tan pocos colores
+como puedas!"
+align = 1
+
+[node name="Encuentra" type="Label" parent="."]
+margin_left = 342.0
+margin_top = 837.0
+margin_right = 696.0
+margin_bottom = 926.0
+theme = ExtResource( 1 )
+text = "¡Encuentra el camino
+más corto!"
+align = 1
+
+[node name="Play1" type="Sprite" parent="."]
+position = Vector2( 194, 580 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )
+
+[node name="Play2" type="Sprite" parent="."]
+position = Vector2( 196, 875 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 3 )

@@ -1,7 +1,7 @@
 extends Node2D
 
 onready var menu = $Menu
-var paths = ["coloring/Coloring Tutorial", "scenes/shortest_path/nivel_ejemplo_1", "MainMenu"]
+var paths = ["coloring/Level 1", "scenes/shortest_path/nivel_ejemplo_1", "MainMenu"]
 
 
 func _ready() -> void:

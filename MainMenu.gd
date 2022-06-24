@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var level_select = $Menu/SelectLevel
+var asd = 4
 
 
 func _ready() -> void:

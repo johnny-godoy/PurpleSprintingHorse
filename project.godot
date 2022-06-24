@@ -10,18 +10,18 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Node2D",
-"class": "EstacionGenerica",
+"class": "Level",
 "language": "GDScript",
-"path": "res://scenes/shortest_path/estacionGenerica.gd"
+"path": "res://coloring/base/level.gd"
 } ]
 _global_script_class_icons={
-"EstacionGenerica": ""
+"Level": ""
 }
 
 [application]
 
 config/name="NoName"
-run/main_scene="res://MainMenu.tscn"
+run/main_scene="res://scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -33,13 +33,14 @@ ShortestPathManager="*res://scripts/shortest_path_manager.gd"
 window/size/width=720
 window/size/height=1080
 window/handheld/orientation="portrait"
-window/stretch/mode="2d"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [global]
 
 layout=false
 displa=false
+window=false
 
 [input]
 
@@ -58,6 +59,25 @@ select={
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
  ]
 }
+zoom_in={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":4,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+zoom_out={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":5,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+mouse_button={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":3,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [physics]
 
@@ -65,4 +85,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/default_clear_color=Color( 0.352941, 0, 0.619608, 1 )
 environment/default_environment="res://default_env.tres"

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/temita.tres" type="Theme" id=1]
+[ext_resource path="res://assets/font/Kurland_Font_0_22/Kurland.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/shortest_path/Bases/HUD_OVERLAY.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="HUD_OVERLAY" type="Node2D"]
+position = Vector2( -3, 73 )
+script = ExtResource( 3 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+anchor_right = 1.0
+margin_bottom = 133.0
+color = Color( 0.960784, 0.65098, 0.117647, 1 )
+
+[node name="LevelNumber" type="Label" parent="HUD"]
+anchor_right = 1.0
+margin_bottom = 53.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Nivel 5/3"
+align = 1
+
+[node name="StationNumber" type="Label" parent="HUD"]
+margin_left = 3.0
+margin_top = 74.0
+margin_right = 313.0
+margin_bottom = 127.0
+theme = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Estaciones: xx/nn"
+
+[node name="MenuButton" type="Button" parent="HUD"]
+anchor_left = 0.814
+anchor_top = 0.044
+anchor_right = 0.992
+anchor_bottom = 0.113
+margin_left = -16.08
+margin_top = 0.479996
+margin_right = -0.240051
+margin_bottom = -0.0400085
+focus_mode = 0
+theme = ExtResource( 1 )
+action_mode = 0
+enabled_focus_mode = 0
+keep_pressed_outside = true
+text = "Menú"

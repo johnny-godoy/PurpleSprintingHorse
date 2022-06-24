@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/asd.gd" type="Script" id=1]
+[ext_resource path="res://assets/font/Kurland_Font_0_22/Kurland.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/temita.tres" type="Theme" id=3]
+
+[sub_resource type="Theme" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 55
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="MarginContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -375.0
+margin_top = -670.0
+margin_right = 375.0
+margin_bottom = 670.0
+rect_min_size = Vector2( 750, 1334 )
+theme = SubResource( 2 )
+script = ExtResource( 1 )
+
+[node name="Panel" type="PanelContainer" parent="."]
+margin_right = 750.0
+margin_bottom = 1340.0
+rect_min_size = Vector2( 720, 1080 )
+theme = ExtResource( 3 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+margin_right = 750.0
+margin_bottom = 1340.0
+rect_min_size = Vector2( 750, 1334 )
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+margin_top = 474.0
+margin_right = 750.0
+margin_bottom = 724.0
+rect_min_size = Vector2( 0, 250 )
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+text = "PurpleSprintingHorse's Game"
+align = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer"]
+margin_top = 728.0
+margin_right = 750.0
+margin_bottom = 865.0
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Coloreamiento" type="Button" parent="Panel/VBoxContainer/VBoxContainer"]
+margin_right = 750.0
+margin_bottom = 43.0
+text = "Coloreamiento de grafos"
+
+[node name="Camino" type="Button" parent="Panel/VBoxContainer/VBoxContainer"]
+margin_top = 47.0
+margin_right = 750.0
+margin_bottom = 90.0
+text = "Camino más corto"
+
+[node name="Exit" type="Button" parent="Panel/VBoxContainer/VBoxContainer"]
+margin_top = 94.0
+margin_right = 750.0
+margin_bottom = 137.0
+text = "Exit"

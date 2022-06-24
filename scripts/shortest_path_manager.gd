@@ -1,6 +1,16 @@
 extends Node
 
+#######
+# En cada nivel se debe settear al inicio:
+#	- start_station
+#	- end_station
+#	- optimal_path
+#	- number_of_connections = 0
+
 # Variables globales para el shortest path
+
+# Literal spaguetti
+var station_touched = false
 
 var trying_to_connect = false
 var accept_connection = false
@@ -9,12 +19,13 @@ var current_ending_station : Node2D = null
 var current_station : Node2D = null
 var start_station : Node2D = null # Indefinite
 var end_station : Node2D = null # Indefinite
-var optimal_path = null # Indefinite
-var star : Sprite = null
-var star2: Sprite = null
-var score_text = null
+var optimal_path = [] # Indefinite
 
-var number_of_connections = 0 # Reset by station
+var number_of_connections := 0 setget _set_noc# Reset by station
+
+var HUD : Node2D
+
+export var player_won = false
 
 # Sets the default state for the temp vars.
 func reset_variables():
@@ -30,19 +41,18 @@ func check_path(last_station : Node2D):
 		while is_instance_valid(current_station):
 			current_path.insert(0, current_station)
 			current_station = current_station.connected_from
-		
-	if current_path == optimal_path:
-		star.visible = true
-		star2.visible = true
-	elif len(current_path) > len(optimal_path):
-		if len(current_path) == 4:
-			star.visible = true
-			star2.visible = false
+			
+		if current_path == optimal_path:
+			player_won = true
 		else:
-			star.visible = false
-			star2.visible = false
-			score_text.text = "Existen caminos más cortos. Por lo que obtienes\n 0 de 2 estrellas :c"
-	else:	
-		star.visible = false
-		star2.visible = false
-		score_text.text = ""
+			player_won = false
+
+func _set_noc(value):
+	number_of_connections = value
+	HUD.num_connections = value
+	
+	if current_ending_station == end_station:
+		check_path(current_ending_station)
+	else:
+		player_won = false
+

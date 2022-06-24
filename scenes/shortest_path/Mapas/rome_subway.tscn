@@ -1,0 +1,315 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/shortest_path/rome_subway.jpeg" type="Texture" id=1]
+[ext_resource path="res://scenes/shortest_path/Mapas/rome_subway.gd" type="Script" id=2]
+
+[node name="rome_subway" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="background" type="ColorRect" parent="."]
+margin_left = -274.0
+margin_top = -123.0
+margin_right = 1018.0
+margin_bottom = 1248.0
+mouse_filter = 2
+
+[node name="map" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 720.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 360, 360 )
+rect_pivot_offset = Vector2( 323, 710 )
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="sp_red_1" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 54, 403.5 )
+
+[node name="sp_red_2" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 109, 403.5 )
+
+[node name="sp_red_3" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 161, 403.5 )
+
+[node name="sp_red_4" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 221, 403 )
+
+[node name="sp_red_5" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 279, 403 )
+
+[node name="sp_red_6" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 318, 441 )
+
+[node name="sp_black_1" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 359, 481 )
+
+[node name="sp_red_7" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 405, 529 )
+
+[node name="sp_green_1" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 52, 732 )
+
+[node name="sp_blue_1" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 428, 412 )
+
+[node name="sp_blue_2" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 556, 409 )
+
+[node name="sp_blue_3" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 431, 345 )
+
+[node name="sp_blue_4" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 488, 284 )
+
+[node name="sp_blue_5" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 605, 360 )
+
+[node name="sp_blue_6" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 650, 314 )
+
+[node name="sp_blue_7" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 320, 518 )
+
+[node name="sp_blue_8" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 255, 594 )
+
+[node name="sp_blue_9" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 252, 664 )
+
+[node name="sp_blue_10" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 252, 728 )
+
+[node name="sp_blue_11" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 252, 800 )
+
+[node name="sp_blue_12" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 336, 800 )
+
+[node name="sp_red_8" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 468, 593 )
+
+[node name="sp_red_9" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 524, 649 )
+
+[node name="sp_red_10" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 580, 707 )
+
+[node name="sp_red_11" type="Node2D" parent="map" groups=["stations"]]
+position = Vector2( 663, 790 )
+
+[node name="lines" type="Node2D" parent="map"]
+
+[node name="green_1" type="Line2D" parent="map/lines"]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 3, 0 )
+scale = Vector2( 0.984848, 1 )
+z_index = 1
+points = PoolVector2Array( 52.8, 734, 96.4616, 756, 117.785, 724, 143.169, 684, 184.8, 623, 435.6, 623, 482.308, 590, 469.108, 575, 386.862, 494, 376.708, 485, 362.493, 485 )
+width = 5.0
+joint_mode = 2
+antialiased = true
+
+[node name="red_1" type="Line2D" parent="map/lines"]
+points = PoolVector2Array( 54, 404, 109, 404 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="red_2" type="Line2D" parent="map/lines"]
+position = Vector2( 55, 0 )
+points = PoolVector2Array( 54, 404, 106, 404 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="red_3" type="Line2D" parent="map/lines"]
+position = Vector2( 107, 0 )
+points = PoolVector2Array( 54, 404, 114, 404 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="red_4" type="Line2D" parent="map/lines"]
+position = Vector2( 167, 0 )
+points = PoolVector2Array( 54, 404, 112, 404 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="red_5" type="Line2D" parent="map/lines"]
+position = Vector2( 167, 0 )
+points = PoolVector2Array( 54, 404, 112, 404 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="red_6" type="Line2D" parent="map/lines"]
+position = Vector2( 225, 0 )
+points = PoolVector2Array( 54, 403, 57, 405, 93, 441 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="red_7" type="Line2D" parent="map/lines"]
+position = Vector2( 264, 38 )
+points = PoolVector2Array( 54, 403, 95, 443 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="red_8" type="Line2D" parent="map/lines"]
+position = Vector2( 306, 78 )
+points = PoolVector2Array( 54, 403, 100, 452 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="red_9" type="Line2D" parent="map/lines"]
+position = Vector2( 351, 126 )
+points = PoolVector2Array( 54, 403, 117, 468 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="red_10" type="Line2D" parent="map/lines"]
+position = Vector2( 351, 126 )
+points = PoolVector2Array( 54, 403, 82, 432, 117, 468 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="red_11" type="Line2D" parent="map/lines"]
+position = Vector2( 414, 191 )
+points = PoolVector2Array( 54, 403, 110, 459 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="red_12" type="Line2D" parent="map/lines"]
+position = Vector2( 470, 247 )
+points = PoolVector2Array( 54, 403, 110, 460 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="red_13" type="Line2D" parent="map/lines"]
+position = Vector2( 526, 304 )
+points = PoolVector2Array( 54, 403, 137, 487 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="blue_1" type="Line2D" parent="map/lines"]
+position = Vector2( 216, 396 )
+points = PoolVector2Array( 37, 404, 73, 404, 120, 404 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="blue_2" type="Line2D" parent="map/lines"]
+position = Vector2( 216, 393 )
+points = PoolVector2Array( 37, 410, 37, 336 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="blue_3" type="Line2D" parent="map/lines"]
+position = Vector2( 216, 393 )
+points = PoolVector2Array( 37, 272, 37, 336 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="blue_4" type="Line2D" parent="map/lines"]
+position = Vector2( 216, 393 )
+points = PoolVector2Array( 37, 272, 37, 211, 39, 202 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="blue_5" type="Line2D" parent="map/lines"]
+position = Vector2( 217, 394 )
+points = PoolVector2Array( 105, 126, 65, 172, 39, 202 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="blue_6" type="Line2D" parent="map/lines"]
+position = Vector2( 217, 394 )
+points = PoolVector2Array( 105, 126, 131, 96, 143, 89 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="blue_7" type="Line2D" parent="map/lines"]
+position = Vector2( 215, 392 )
+points = PoolVector2Array( 213, 19, 201, 21, 157, 70, 143, 89 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="blue_8" type="Line2D" parent="map/lines"]
+position = Vector2( 285, 323 )
+points = PoolVector2Array( 147, 23, 146, 26, 146, 54, 146, 79, 143, 89 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="blue_9" type="Line2D" parent="map/lines"]
+position = Vector2( 286, 323 )
+points = PoolVector2Array( 145, 24, 171, -5, 202, -39 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="blue_10" type="Line2D" parent="map/lines"]
+position = Vector2( 285, 323 )
+points = PoolVector2Array( 270, 88, 209, 88, 143, 89 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="blue_11" type="Line2D" parent="map/lines"]
+position = Vector2( 285, 323 )
+points = PoolVector2Array( 271, 88, 277, 87, 319, 43, 321, 40 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="blue_12" type="Line2D" parent="map/lines"]
+position = Vector2( 287, 326 )
+points = PoolVector2Array( 366, -10, 320, 37 )
+width = 5.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+antialiased = true
