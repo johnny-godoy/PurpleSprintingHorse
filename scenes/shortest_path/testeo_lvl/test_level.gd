@@ -2,16 +2,30 @@ extends Node2D
 
 export var stations_scale := 0.5 setget , _get_scale
 var _childs = []
+var first_touch = true
 
 onready var manager = ShortestPathManager
 onready var map = $rome_subway
 onready var stations = $rome_subway/map
+onready var instruction_overlay = $horse_overlay
 
 const station = preload("res://scenes/shortest_path/bases/estacionGenerica.tscn")
+var _started_level = false
 
 func _ready():
 	manager.reset_variables()
 	manager.HUD = $HUD_OVERLAY
+	call_deferred('first_call')
+
+
+func first_call():
+	
+	instruction_overlay.prompt_text('HOL HOLA HOLAS HOLASS')
+	print('passed_0')
+	instruction_overlay.prompt_text('AAAAAAA')
+	print('passed_1')
+	instruction_overlay.prompt_text('BBBBBBB')
+	print('passed_2')
 	
 	# Se crean las estaciones
 	for pos in stations.get_children():
@@ -32,6 +46,8 @@ func _ready():
 		num = num + 1
 	
 	_childs[0].is_starting_station = true
-
+	
+	_started_level = true
+	
 func _get_scale():
 	return Vector2(stations_scale, stations_scale)
