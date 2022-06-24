@@ -95,7 +95,7 @@ func _input(event):
 		# - 
 		if event.pressed:
 			touch_events[event.index] = event
-			print('camera input')
+			# print('camera input')
 		else:
 			touch_events.erase(event.index)
 		
