@@ -8,6 +8,7 @@ onready var buckets = $ColorBuckets
 
 export var min_colors = 4
 export var level = 0
+export var leeway = 1
 
 
 var buttons = []
@@ -65,5 +66,9 @@ func _process(_delta) -> void:
 	# Se actualiza el color seleccionado
 	selected.color = buckets.current_color
 
-	# Si el nivel está terminado, se muestra el botón siguiente
-	hud.next_level_button.visible = has_next_level and hud.colors_used <= min_colors and hud.errors == 0 and hud.to_color == 0
+	# Se revisa si el nivel terminó para correr la secuencia apropiada
+	hud.level_progress = 0
+	hud.next_level_button.visible = false
+	if hud.colors_used <= min_colors + leeway and hud.errors == 0 and hud.to_color == 0:	
+		hud.next_level_button.visible = has_next_level
+		hud.level_progress = 1 + int(hud.colors_used == min_colors)
