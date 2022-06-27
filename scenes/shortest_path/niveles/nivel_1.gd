@@ -74,6 +74,14 @@ func _ready():
 			station.conexiones_a_estacion[_childs[neighbour]] = map.connecting_line[[num, neighbour]]
 		num = num + 1
 	
+	var instruction_overlay = $Horse_Overlay
+	$SP_Camera.current = false
+	yield(instruction_overlay.prompt_text('HOL HOLA HOLAS HOLASS'), "completed")
+	yield(instruction_overlay.prompt_iterables(['Habia', 'una', 'vez', 'truz']), "completed")
+	$SP_Camera.current = true
+	instruction_overlay.visible = false
+	
+	
 var count = 0
 var count2 = 0
 var activated = false
