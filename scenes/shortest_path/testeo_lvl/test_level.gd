@@ -19,9 +19,10 @@ func _ready():
 
 func print_text():
 	$SP_Camera.current = false
+	yield(instruction_overlay.prompt_text('AAAAA'), "completed")
 	yield(instruction_overlay.prompt_text('HOL HOLA HOLAS HOLASS'), "completed")
 	print('passed_0')
-	yield(instruction_overlay.prompt_iterables(['Habia', 'una', 'vez', 'truz']), "completed")
+	yield(instruction_overlay.prompt_iterables(['Habia una vez', 'unaaaaa', 'vez lorem ipsum', 'truzardaadadadada']), "completed")
 	print('passed_1')
 	print('passed_2')
 	$SP_Camera.current = true

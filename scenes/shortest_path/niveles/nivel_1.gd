@@ -74,12 +74,7 @@ func _ready():
 			station.conexiones_a_estacion[_childs[neighbour]] = map.connecting_line[[num, neighbour]]
 		num = num + 1
 	
-	var instruction_overlay = $Horse_Overlay
-	$SP_Camera.current = false
-	yield(instruction_overlay.prompt_text('HOL HOLA HOLAS HOLASS'), "completed")
-	yield(instruction_overlay.prompt_iterables(['Habia', 'una', 'vez', 'truz']), "completed")
-	$SP_Camera.current = true
-	instruction_overlay.visible = false
+	instrucciones_nivel()
 	
 	
 var count = 0
@@ -98,6 +93,18 @@ func _physics_process(delta):
 	elif not manager.player_won and activated:
 		activated = false
 		
+
+func instrucciones_nivel():
+	var instruction_overlay = $Horse_Overlay
+	var texto_bienvenida = "Hola, bienvenide! En este trabajo al parecer debo encontrar el camino más corto entre dos puntos..."
+	# Explicar que significa cada cosa, mencionar que parpadean las estaciones y que estos niveles
+	# Son para entender el sistema
+	
+	$SP_Camera.current = false
+	yield(instruction_overlay.prompt_text(texto_bienvenida), "completed")
+	yield(instruction_overlay.prompt_iterables(['Habia', 'una', 'vez', 'truz']), "completed")
+	$SP_Camera.current = true
+	instruction_overlay.visible = false
 
 func next_level():
 	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_2.tscn")

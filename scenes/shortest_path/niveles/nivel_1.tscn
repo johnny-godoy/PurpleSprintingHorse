@@ -13,9 +13,6 @@ script = ExtResource( 4 )
 [node name="HUD_OVERLAY" parent="." instance=ExtResource( 3 )]
 
 [node name="rome_subway" parent="." instance=ExtResource( 1 )]
-process_priority = -1
-position = Vector2( 6, 5 )
-z_index = -1
 
 [node name="SP_Camera" parent="." instance=ExtResource( 2 )]
 process_priority = 1
