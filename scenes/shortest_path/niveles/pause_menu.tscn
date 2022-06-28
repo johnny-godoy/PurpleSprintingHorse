@@ -24,10 +24,8 @@ script = ExtResource( 3 )
 
 [node name="Background" type="ColorRect" parent="."]
 modulate = Color( 0.592157, 0.403922, 0.643137, 0.486275 )
-margin_left = -100.0
-margin_top = -100.0
-margin_right = 820.0
-margin_bottom = 1180.0
+margin_right = 720.0
+margin_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
