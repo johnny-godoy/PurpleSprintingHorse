@@ -15,17 +15,22 @@ var _started_level = false
 func _ready():
 	manager.reset_variables()
 	manager.HUD = $HUD_OVERLAY
-	call_deferred('first_call')
+	first_call()
 
-
+func print_text():
+	$SP_Camera.current = false
+	yield(instruction_overlay.prompt_text('AAAAA'), "completed")
+	yield(instruction_overlay.prompt_text('HOL HOLA HOLAS HOLASS'), "completed")
+	print('passed_0')
+	yield(instruction_overlay.prompt_iterables(['Habia una vez', 'unaaaaa', 'vez lorem ipsum', 'truzardaadadadada']), "completed")
+	print('passed_1')
+	print('passed_2')
+	$SP_Camera.current = true
+	$horse_overlay.visible = false
+	
 func first_call():
 	
-	instruction_overlay.prompt_text('HOL HOLA HOLAS HOLASS')
-	print('passed_0')
-	instruction_overlay.prompt_text('AAAAAAA')
-	print('passed_1')
-	instruction_overlay.prompt_text('BBBBBBB')
-	print('passed_2')
+	yield(print_text(), "completed")
 	
 	# Se crean las estaciones
 	for pos in stations.get_children():
@@ -34,6 +39,7 @@ func first_call():
 		var temp_station = station.instance()
 		temp_station.position = pos.position
 		temp_station.scale = self.stations_scale
+		temp_station.z_index = -1
 		map.add_child(temp_station, true)
 		_childs.append(temp_station)
 	

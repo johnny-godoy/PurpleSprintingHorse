@@ -41,6 +41,8 @@ var og_diff_right
 var og_diff_top
 var og_diff_bottom
 
+# Para evitar comportamientos 
+
 # The camera's target zoom level.
 var _zoom_level := 1.0 setget _set_zoom_level
 
@@ -85,6 +87,8 @@ func _set_zoom_level(value: float):
 	tween.start()
 	
 func _input(event):
+	if not current:
+		return
 	
 	##### MOBILE OPTIONS
 	if event is InputEventScreenTouch:

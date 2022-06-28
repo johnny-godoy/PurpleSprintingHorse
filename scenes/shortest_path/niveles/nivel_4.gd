@@ -6,10 +6,9 @@ onready var HUD = $HUD_OVERLAY
 onready var map = $rome_subway
 onready var stations = $rome_subway/map
 onready var won_menu = $wonMenu
-onready var camera = $SP_Camera
 
-export var minimum_connections = 5
-export var number_of_level = 1
+export var minimum_connections = 2
+export var number_of_level = 3
 
 export var stations_scale := 0.5 setget , _get_scale
 
@@ -20,6 +19,10 @@ var _childs = []
 # Devuelve un vector con la escala, para setear la escala de cada estación
 func _get_scale():
 	return Vector2(stations_scale, stations_scale)
+
+# Siguiente nivel
+func next_level():
+	get_tree().change_scene("res://scenes/MainMenu.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,8 +37,11 @@ func _ready():
 	manager.number_of_connections = 0
 	manager.player_won = false
 	
-	var stations_to_be_used = ['sp_red_5', 'sp_red_6', 'sp_red_4', 'sp_red_3', 'sp_red_2', 'sp_red_1']
-	var _optimal_path = []
+	var stations_to_be_used = ['sp_blue_1', 'sp_black_1', 'sp_green_1']
+	# EN ESTOS NIVELES SE USAN POCOS NIVELES, POR LO QUE EL ORDEN DE LA LISTA 
+	# ANTERIOR ES EL MISMO ORDEN QUE EL CAMINO OPTIMO
+	var _optimal_path_map_ = stations_to_be_used
+	var _optimal_path = range(len(stations_to_be_used))
 	
 	# Se crean las estaciones
 	for pos in stations.get_children():
@@ -51,16 +57,14 @@ func _ready():
 		map.add_child(temp_station, true)
 		_childs.append(temp_station)
 		
-		if pos.get_name() == 'sp_red_1':
+		if pos.get_name() == _optimal_path_map_[0]:
 			temp_station.is_starting_station = true
 		
-		if pos.get_name() == 'sp_red_6':
+		if pos.get_name() == _optimal_path_map_[-1]:
 			manager.end_station = temp_station
 			temp_station.is_ending_station = true
-		
-		_optimal_path.append(temp_station)
 	
-	manager.optimal_path = _optimal_path
+		_optimal_path[stations_to_be_used.find(pos.name)] = temp_station
 		
 	var num = 0
 	for station in _childs:
@@ -74,8 +78,7 @@ func _ready():
 			station.conexiones_a_estacion[_childs[neighbour]] = map.connecting_line[[num, neighbour]]
 		num = num + 1
 	
-	instrucciones_nivel()
-	
+	manager.optimal_path = _optimal_path
 	
 var count = 0
 var count2 = 0
@@ -87,24 +90,7 @@ func _physics_process(delta):
 	
 	if manager.player_won and not activated:
 		activated = true
-		camera.zoom = Vector2(1, 1)
 		won_menu.pause_menu()
-		
 	elif not manager.player_won and activated:
 		activated = false
 		
-
-func instrucciones_nivel():
-	var instruction_overlay = $Horse_Overlay
-	var texto_bienvenida = "Hola, bienvenide! En este trabajo al parecer debo encontrar el camino más corto entre dos puntos..."
-	# Explicar que significa cada cosa, mencionar que parpadean las estaciones y que estos niveles
-	# Son para entender el sistema
-	
-	$SP_Camera.current = false
-	yield(instruction_overlay.prompt_text(texto_bienvenida), "completed")
-	yield(instruction_overlay.prompt_iterables(['Habia', 'una', 'vez', 'truz']), "completed")
-	$SP_Camera.current = true
-	instruction_overlay.visible = false
-
-func next_level():
-	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_2.tscn")

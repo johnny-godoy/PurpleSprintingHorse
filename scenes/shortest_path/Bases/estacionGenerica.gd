@@ -9,11 +9,14 @@ onready var conexiones_a_estacion = {}
 onready var connected_to : Node2D
 onready var connected_from : Node2D 
 
+onready var station_label = $RichTextLabel
 onready var station_sprite = $station_img
 
 var mouse_button_pressed = false
 var is_starting_station = false setget _set_is_starting
 var is_ending_station = false setget _set_is_ending
+
+signal frame_passed
 
 # TODO: end_station no debería poder tirar nuevas líneas
 # Zoom cuando termina un nivel
@@ -30,6 +33,8 @@ func _ready():
 
 # warning-ignore:unused_argument
 func _physics_process(delta):
+	emit_signal('frame_passed')
+	
 	if manager.trying_to_connect and manager.current_station == self:
 		if mouse_button_pressed and not connected_to:
 			var distance
@@ -98,7 +103,40 @@ func disconnect_paths():
 	
 func _set_is_starting(value):
 	is_starting_station = value
-	station_sprite.texture = load("res://assets/shortest_path/start_station.png")
+	station_label.text = 'INICIO'
+	station_sprite.texture = load("res://assets/shortest_path/star_white.png")
+	station_sprite.scale = Vector2(0.025, 0.025)
+	blink_station()
+		
+func _set_is_ending(value):
+	is_ending_station = value
+	station_label.text = 'FINAL'
+	station_sprite.texture = load("res://assets/shortest_path/star_white.png")
+	station_sprite.scale = Vector2(0.025, 0.025)
+	blink_station()
+
+func blink_station(frames=240, frames_per_blink=40):
+	var to_set_a_sprite_once = false
+	var _end_frames_passed = 0
 	
-func _set_is_ending(_value):
-	station_sprite.texture = load("res://assets/shortest_path/end_station.png")
+	var asset = "res://assets/shortest_path/"
+	
+	if is_starting_station:
+		asset += "star_yellow.png"
+	elif is_ending_station:
+		asset += "star_pink.png"
+	else:
+		return
+	
+	while _end_frames_passed < frames:
+		if _end_frames_passed % frames_per_blink == 0:
+			
+			if to_set_a_sprite_once:
+				station_sprite.texture = load(asset)
+			else:
+				station_sprite.texture = load("res://assets/shortest_path/star_white.png")
+				
+			to_set_a_sprite_once = !to_set_a_sprite_once
+		_end_frames_passed += 1
+		yield(self, 'frame_passed')
+	station_sprite.texture = load("res://assets/shortest_path/star_white.png")
