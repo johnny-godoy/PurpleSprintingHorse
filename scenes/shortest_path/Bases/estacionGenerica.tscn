@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/shortest_path/Bases/estacionGenerica.gd" type="Script" id=1]
 [ext_resource path="res://assets/shortest_path/Untitled.001.png" type="Texture" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://resources/temita.tres" type="Theme" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 30.0
@@ -33,3 +34,18 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion"]
 shape = SubResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -54.0
+margin_top = 22.0
+margin_right = 69.0
+margin_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource( 4 )
+text = "
+"
+scroll_active = false
+override_selected_font_color = true

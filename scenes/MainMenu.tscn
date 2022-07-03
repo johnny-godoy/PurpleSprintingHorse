@@ -12,31 +12,30 @@
 script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = 70.0
-margin_top = 217.0
-margin_right = 467.0
-margin_bottom = 306.0
+margin_left = 80.0
+margin_top = 216.0
+margin_right = 477.0
+margin_bottom = 305.0
 rect_scale = Vector2( 1.5, 1.5 )
 size_flags_horizontal = 0
 theme = ExtResource( 1 )
-text = "PurpleSprintingHorse's
-Game"
+text = "Horse"
 align = 1
 valign = 1
 
 [node name="Exit" type="TextureButton" parent="."]
-margin_left = 586.0
-margin_top = 52.0
-margin_right = 1186.0
-margin_bottom = 652.0
+margin_left = 584.0
+margin_top = 48.0
+margin_right = 1184.0
+margin_bottom = 648.0
 rect_scale = Vector2( 0.15, 0.15 )
 texture_normal = ExtResource( 6 )
 
 [node name="Help" type="TextureButton" parent="."]
-margin_left = 59.0
-margin_top = 51.0
-margin_right = 659.0
-margin_bottom = 651.0
+margin_left = 48.0
+margin_top = 48.0
+margin_right = 648.0
+margin_bottom = 648.0
 rect_scale = Vector2( 0.15, 0.15 )
 texture_normal = ExtResource( 5 )
 

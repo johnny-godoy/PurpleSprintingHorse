@@ -17,4 +17,4 @@ func _on_coloreamiento_pressed():
 
 # Creada por Agustin temporalmente
 func _on_camino_pressed():
-	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_1.tscn")
+	get_tree().change_scene("res://scenes/NivelesCamino.tscn")

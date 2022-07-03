@@ -1,6 +1,6 @@
 extends Camera2D
 
-var man = ShortestPathManager
+var manager = ShortestPathManager
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -33,11 +33,15 @@ var og_screen_pos
 
 # For zoom/moving on mobile
 var touch_events = {}
+var last_drag_distance = 0
+var zoom_speed = 0.05
 
 var og_diff_left
 var og_diff_right
 var og_diff_top
 var og_diff_bottom
+
+# Para evitar comportamientos 
 
 # The camera's target zoom level.
 var _zoom_level := 1.0 setget _set_zoom_level
@@ -82,8 +86,9 @@ func _set_zoom_level(value: float):
 		)
 	tween.start()
 	
-		
-func _unhandled_input(event):
+func _input(event):
+	if not current:
+		return
 	
 	##### MOBILE OPTIONS
 	if event is InputEventScreenTouch:
@@ -94,16 +99,28 @@ func _unhandled_input(event):
 		# - 
 		if event.pressed:
 			touch_events[event.index] = event
+			# print('camera input')
 		else:
 			touch_events.erase(event.index)
 		
+	
+	if event is InputEventScreenDrag and not manager.station_touched:
 		
-		print(event.index)
-	if event is InputEventScreenDrag:
 		touch_events[event.index] = event
 		if touch_events.size() == 1:
-			position += event.relative.rotated(rotation) * zoom.x
-	
+			var new_pos = -zoom * event.relative + position
+			_update_position(new_pos)
+			# position += event.relative.rotated(rotation) * zoom.x
+		# TODO: arreglar/customizar para valores nuestros (no genéricos)
+		elif touch_events.size() == 2:
+			var drag_distance = touch_events[0].position.distance_to(touch_events[1].position)
+			if abs(drag_distance - last_drag_distance) > 10:
+				var new_zoom = (1 + zoom_speed) if drag_distance < last_drag_distance else (1 - zoom_speed)
+				_set_zoom_level(zoom.x * new_zoom)
+				# new_zoom = clamp(zoom.x * new_zoom, min_zoom, max_zoom)
+				# zoom = Vector2.ONE * new_zoom
+				last_drag_distance = drag_distance
+		
 	##### MOUSE - PC OPTIONS
 	if event.is_action("mouse_button"):
 		if event.is_pressed():
@@ -114,7 +131,6 @@ func _unhandled_input(event):
 			dragging = false
 
 	elif event is InputEventMouseMotion and dragging:
-		
 		var new_pos = zoom * (mouse_start_pos - event.position) + screen_start_position
 		_update_position(new_pos)
 		
@@ -149,4 +165,3 @@ func _update_position(new_position):
 		pass
 	else:
 		position.x = new_position.x
-	
