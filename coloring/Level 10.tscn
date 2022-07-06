@@ -1,12 +1,17 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://coloring/base/level.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/shortest_path/Untitled.001.png" type="Texture" id=2]
+[ext_resource path="res://coloring/Ending.gd" type="Script" id=3]
+[ext_resource path="res://scenes/caballo.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 45.0444
 
 [node name="Level" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Horse_Overlay" parent="." instance=ExtResource( 4 )]
 
 [node name="Level 10" parent="." instance=ExtResource( 1 )]
 min_colors = 5
