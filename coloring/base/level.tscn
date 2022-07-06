@@ -22,20 +22,20 @@ scale = Vector2( 1.55955, 1.26375 )
 texture = ExtResource( 2 )
 
 [node name="ColorBuckets" parent="." instance=ExtResource( 3 )]
-margin_left = 43.0
-margin_top = 772.0
-margin_right = 667.0
-margin_bottom = 927.0
+margin_left = 46.0
+margin_top = 773.0
+margin_right = 675.0
+margin_bottom = 936.0
 
 [node name="Marco" type="ColorRect" parent="."]
 margin_left = 58.0
-margin_top = 645.0
-margin_right = 137.0
+margin_top = 640.0
+margin_right = 136.0
 margin_bottom = 718.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Selected" type="ColorRect" parent="Marco"]
-margin_left = 6.0
-margin_top = 6.0
-margin_right = 72.0
-margin_bottom = 67.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 69.0
+margin_bottom = 69.0
