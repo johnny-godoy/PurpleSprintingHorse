@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://resources/temita.tres" type="Theme" id=1]
 [ext_resource path="res://assets/shortestpath.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/question.png" type="Texture" id=5]
 [ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/exitdoor.png" type="Texture" id=6]
 [ext_resource path="res://scenes/MainMenu.gd" type="Script" id=7]
+[ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/info.png" type="Texture" id=8]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 7 )
@@ -38,6 +39,14 @@ margin_right = 648.0
 margin_bottom = 648.0
 rect_scale = Vector2( 0.15, 0.15 )
 texture_normal = ExtResource( 5 )
+
+[node name="Credits" type="TextureButton" parent="."]
+margin_left = 326.0
+margin_top = 50.0
+margin_right = 926.0
+margin_bottom = 650.0
+rect_scale = Vector2( 0.15, 0.15 )
+texture_normal = ExtResource( 8 )
 
 [node name="coloreamiento" type="TextureButton" parent="."]
 margin_left = 68.0
