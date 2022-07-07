@@ -8,7 +8,8 @@ func _ready():
 	'Debes pintar los círculos en la pantalla, ¡es fácil!.',
 	'En tu caballete tienes una selección de colores, ¡elige los que más que gusten!',
 	'Presiona un color para seleccionarlo, y luego presiona un círculo para pintarlo de ese color. Si quieres borrar un color, usa el blanco :)',
-	'Hay una regla muy importante que no puedes olvidar: Si dos círculos están unidos por una línea azul, ¡no los puedes pintar del mismo color!',
+	'Hay una regla muy importante que no puedes olvidar: Si dos círculos están unidos por una línea, ¡no los puedes pintar del mismo color!',
+	'Si te equivocas, la línea se volverá roja, indicando tu error',
 	'Pero eso es suficiente charla, ¡vamos a divertirnos!']
 
 	yield(instruction_overlay.prompt_text(texto_bienvenida), "completed")
