@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lvl1.png-0ffe418842f97967a04e2da6bc7eabc6.stex"
+path="res://.import/caballo_ingeniero.png-99d617a426c211d4184482e5958e3494.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/coloring/lvl1.png"
-dest_files=[ "res://.import/lvl1.png-0ffe418842f97967a04e2da6bc7eabc6.stex" ]
+source_file="res://assets/otros/caballo_ingeniero.png"
+dest_files=[ "res://.import/caballo_ingeniero.png-99d617a426c211d4184482e5958e3494.stex" ]
 
 [params]
 

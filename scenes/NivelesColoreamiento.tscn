@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/leftarrow.png" type="Texture" id=1]
-[ext_resource path="res://assets/coloring/lvl2.png" type="Texture" id=2]
-[ext_resource path="res://assets/coloring/lvl1.png" type="Texture" id=3]
-[ext_resource path="res://assets/coloring/lvl3.png" type="Texture" id=4]
+[ext_resource path="res://assets/coloring/level1.png" type="Texture" id=2]
+[ext_resource path="res://assets/coloring/level2.png" type="Texture" id=3]
+[ext_resource path="res://assets/coloring/level3.png" type="Texture" id=4]
 [ext_resource path="res://scenes/Nivelescoloreamiento.gd" type="Script" id=5]
 [ext_resource path="res://resources/temita.tres" type="Theme" id=6]
 [ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/playbuttonpdn.png" type="Texture" id=7]
@@ -17,16 +17,18 @@ scale = Vector2( 0.4, 0.4 )
 [node name="lvl1" type="TextureButton" parent="Niveles2"]
 margin_left = 190.0
 margin_top = 742.5
-margin_right = 1003.0
+margin_right = 1001.0
 margin_bottom = 1203.5
-texture_normal = ExtResource( 3 )
+texture_normal = ExtResource( 2 )
+expand = true
 
 [node name="lvl2" type="TextureButton" parent="Niveles2"]
 margin_left = 190.0
 margin_top = 1352.5
 margin_right = 1001.0
 margin_bottom = 1810.5
-texture_normal = ExtResource( 2 )
+texture_normal = ExtResource( 3 )
+expand = true
 
 [node name="lvl3" type="TextureButton" parent="Niveles2"]
 margin_left = 185.0
@@ -34,6 +36,7 @@ margin_top = 2005.0
 margin_right = 992.0
 margin_bottom = 2468.0
 texture_normal = ExtResource( 4 )
+expand = true
 
 [node name="Niveles" type="Label" parent="."]
 margin_left = 270.0
@@ -44,6 +47,32 @@ rect_scale = Vector2( 1.5, 1.5 )
 theme = ExtResource( 6 )
 text = "Niveles"
 
+[node name="LabelsCalificacion" type="Node2D" parent="."]
+
+[node name="Calificacion1" type="Label" parent="LabelsCalificacion"]
+margin_left = 409.0
+margin_top = 305.0
+margin_right = 707.0
+margin_bottom = 348.0
+theme = ExtResource( 6 )
+text = "Sin completar"
+
+[node name="Calificacion2" type="Label" parent="LabelsCalificacion"]
+margin_left = 414.0
+margin_top = 550.0
+margin_right = 712.0
+margin_bottom = 593.0
+theme = ExtResource( 6 )
+text = "Sin completar"
+
+[node name="Calificacion3" type="Label" parent="LabelsCalificacion"]
+margin_left = 416.0
+margin_top = 820.0
+margin_right = 714.0
+margin_bottom = 863.0
+theme = ExtResource( 6 )
+text = "Sin completar"
+
 [node name="1" type="Label" parent="."]
 margin_left = 36.0
 margin_top = 362.0
@@ -51,30 +80,6 @@ margin_right = 56.0
 margin_bottom = 405.0
 theme = ExtResource( 6 )
 text = "1"
-
-[node name="Puntaje Obtenido" type="Label" parent="."]
-margin_left = 409.0
-margin_top = 305.0
-margin_right = 707.0
-margin_bottom = 348.0
-theme = ExtResource( 6 )
-text = "Puntaje obtenido:"
-
-[node name="Puntaje Obtenido2" type="Label" parent="."]
-margin_left = 414.0
-margin_top = 550.0
-margin_right = 712.0
-margin_bottom = 593.0
-theme = ExtResource( 6 )
-text = "Puntaje obtenido:"
-
-[node name="Puntaje Obtenido3" type="Label" parent="."]
-margin_left = 416.0
-margin_top = 820.0
-margin_right = 714.0
-margin_bottom = 863.0
-theme = ExtResource( 6 )
-text = "Puntaje obtenido:"
 
 [node name="2" type="Label" parent="."]
 margin_left = 36.0
