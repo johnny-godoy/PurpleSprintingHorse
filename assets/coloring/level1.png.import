@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lvl2.png-ed5af672bf328e4a0512f67fed6b13da.stex"
+path="res://.import/level1.png-583acd3effd9be303e16cfdb481315d1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/coloring/lvl2.png"
-dest_files=[ "res://.import/lvl2.png-ed5af672bf328e4a0512f67fed6b13da.stex" ]
+source_file="res://assets/coloring/level1.png"
+dest_files=[ "res://.import/level1.png-583acd3effd9be303e16cfdb481315d1.stex" ]
 
 [params]
 

@@ -32,7 +32,6 @@ func _ready() -> void:
 			var b = graph_element.get_node(graph_element.node_b).get_node("TextureButton")
 			connected_node_pairs.append([a, b])
 			lines.append(graph_element.get_node("Line2D"))
-			
 		elif graph_element is PhysicsBody2D:  # Nodos
 			var button = graph_element.get_node("TextureButton")
 			button.connect("pressed", self, "_on_Node_pressed", [button])
@@ -77,6 +76,6 @@ func _process(_delta) -> void:
 	# Se revisa si el nivel terminó para correr la secuencia apropiada
 	hud.level_progress = 0
 	hud.next_level_button.visible = false
-	if hud.colors_used <= min_colors + leeway and hud.errors == 0 and hud.to_color == 0:	
+	if hud.colors_used <= min_colors + leeway and hud.errors == 0 and hud.to_color == 0:
 		hud.next_level_button.visible = has_next_level
 		hud.level_progress = 1 + int(hud.colors_used == min_colors)
