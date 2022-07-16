@@ -1,8 +1,8 @@
-extends MarginContainer
+extends Node2D
 
-onready var resume = $PanelContainer/VBoxContainer/Resume
-onready var main_menu = $PanelContainer/VBoxContainer/MainMenu
-onready var next_level = $PanelContainer/VBoxContainer/NextLevel
+onready var resume = $WonMenu/PanelContainer/VBoxContainer/Resume
+onready var main_menu = $WonMenu/PanelContainer/VBoxContainer/MainMenu
+onready var next_level = $WonMenu/PanelContainer/VBoxContainer/NextLevel
 
 func _ready():
 	resume.connect("pressed", self, "_on_resume_pressed")
