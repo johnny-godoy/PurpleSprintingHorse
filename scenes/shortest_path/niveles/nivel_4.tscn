@@ -4,7 +4,7 @@
 [ext_resource path="res://scenes/shortest_path/Bases/SP_Camera.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/shortest_path/Bases/HUD_OVERLAY.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/shortest_path/niveles/nivel_3.gd" type="Script" id=4]
-[ext_resource path="res://scenes/shortest_path/niveles/pause_menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/shortest_path/niveles/win_menu.tscn" type="PackedScene" id=6]
 
 [node name="nivel_4" type="Node2D"]
 script = ExtResource( 4 )
