@@ -7,6 +7,7 @@ onready var map = $rome_subway
 onready var stations = $rome_subway/map
 onready var won_menu = $wonMenu
 onready var camera = $SP_Camera
+onready var horse = $Horse_Overlay
 
 export var minimum_connections = 5
 export var number_of_level = 1
@@ -23,6 +24,7 @@ func _get_scale():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	horse.set_horse('ingeniero')
 	
 	# Le damos la información al HUD
 	HUD.level_number = number_of_level

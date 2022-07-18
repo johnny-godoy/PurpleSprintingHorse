@@ -14,7 +14,7 @@ onready var HUD = $HUD_OVERLAY
 onready var won_menu = $wonMenu
 onready var camera = $SP_Camera
 
-export var minimum_connections = 999
+export var minimum_connections = 4
 export var number_of_level = 7
 
 export var stations_scale := 0.5 setget , _get_scale
@@ -30,8 +30,20 @@ func _ready():
 	manager.HUD = HUD
 	manager.number_of_connections = 0
 	manager.player_won = false
+	manager.optimal_path_len = minimum_connections
 	
 	create_and_conf_stations() # Replace with function body.
+
+var activated = false
+func _physics_process(delta):
+	
+	if manager.player_won and not activated:
+		activated = true
+		camera.zoom = Vector2(1, 1)
+		won_menu.pause_menu()
+		
+	elif not manager.player_won and activated:
+		activated = false
 
 func create_and_conf_stations():
 	for station_node in get_tree().get_nodes_in_group('estacion'):
@@ -53,8 +65,16 @@ func create_and_conf_stations():
 			temp_station.conexiones_a_estacion[_temp_neigh] = map_mo.get_conn_line(_temp_station_pos, _neighbour_pos)
 	
 	# Set the start and end stations
-	_incomplete_stations.values()[0].is_starting_station = true
-	_incomplete_stations.values()[-1].is_ending_station = true
+	_incomplete_stations[Vector2(702, 516)].is_starting_station = true
+	_incomplete_stations[Vector2(685, 364)].is_ending_station = true
+	
+	manager.start_station = _incomplete_stations[Vector2(702, 516)]
+	manager.end_station = _incomplete_stations[Vector2(685, 364)]
+	manager.optimal_path = ['none']
+	
+	#min_path(_incomplete_stations[Vector2(702, 516)], _incomplete_stations[Vector2(685, 364)], [_incomplete_stations[Vector2(702, 516)]])
+	#min_min()
 
 func _get_scale():
 	return Vector2(stations_scale, stations_scale)
+

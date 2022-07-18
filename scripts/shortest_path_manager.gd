@@ -20,6 +20,7 @@ var current_station : Node2D = null
 var start_station : Node2D = null # Indefinite
 var end_station : Node2D = null # Indefinite
 var optimal_path = [] # Indefinite
+var optimal_path_len = 0xFFFFFFFF
 
 var number_of_connections := 0 setget _set_noc# Reset by station
 
@@ -41,8 +42,8 @@ func check_path(last_station : Node2D):
 		while is_instance_valid(current_station):
 			current_path.insert(0, current_station)
 			current_station = current_station.connected_from
-			
-		if current_path == optimal_path:
+		
+		if current_path == optimal_path or len(current_path) == optimal_path_len+1:
 			player_won = true
 		else:
 			player_won = false
