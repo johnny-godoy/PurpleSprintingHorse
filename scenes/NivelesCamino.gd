@@ -1,24 +1,21 @@
 extends Node2D
 
 onready var atras = $atras
-onready var lvl1 = $Niveles2/lvl1
-onready var lvl2 = $Niveles2/lvl2
-onready var lvl3 = $Niveles2/lvl3
+onready var seleccion = $Scroll/Seleccion
+
 
 func _ready():
-	atras.connect("pressed",self, "_on_atras_pressed")
-	lvl1.connect("pressed",self, "_on_lvl1_pressed")
-	lvl2.connect("pressed",self, "_on_lvl2_pressed")
-	lvl3.connect("pressed",self, "_on_lvl3_pressed")
+	atras.connect("pressed", self, "_on_atras_pressed")
+	# Preparando los botones y etiquetas
+	var seleccionables = seleccion.get_children()
+	for nivel in seleccionables.size():
+		var seleccionable = seleccionables[nivel]
+		seleccionable.index.text = str(nivel + 1)
+		# seleccionable.completion.text = Según lo que carguen del guardado
+		seleccionable.texture_normal = load("res://assets/shortest_path/lvl%d.png" % (nivel + 1))
+		seleccionable.scene = "res://scenes/shortest_path/niveles/nivel_%d.tscn" % (nivel + 1)
+
 
 func _on_atras_pressed():
+	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/MainMenu.tscn")
-
-func _on_lvl1_pressed():
-	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_1.tscn")
-
-func _on_lvl2_pressed():
-	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_2.tscn")
-
-func _on_lvl3_pressed():
-	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_3.tscn")

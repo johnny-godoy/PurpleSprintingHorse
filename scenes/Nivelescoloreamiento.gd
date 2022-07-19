@@ -20,7 +20,7 @@ func _ready():
 		seleccionable.index.text = str(nivel + 1)
 		seleccionable.completion.text = calificaciones[indices_progreso[nivel]]
 		seleccionable.texture_normal = load("res://assets/coloring/level%d.png" % (nivel + 1))
-		seleccionable.scene = "res://coloring/Level %d.png" % (nivel + 1)
+		seleccionable.scene = "res://coloring/Level %d.tscn" % (nivel + 1)
 
 
 func _on_atras_pressed():
