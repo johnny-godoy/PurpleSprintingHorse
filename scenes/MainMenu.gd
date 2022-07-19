@@ -14,7 +14,7 @@ func _ready() -> void:
 
 
 func _scene_changer(path: String) -> void:
-	# warning-ignore:return_value_discarded
+	 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://scenes/%s" % path)
 
 

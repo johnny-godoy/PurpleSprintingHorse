@@ -41,6 +41,7 @@ window/stretch/aspect="keep"
 layout=false
 displa=false
 window=false
+touch=false
 
 [input]
 
