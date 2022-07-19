@@ -99,10 +99,18 @@ func instrucciones_nivel():
 	var texto_bienvenida = "Hola, bienvenide! En este trabajo al parecer debo encontrar el camino más corto entre dos puntos..."
 	# Explicar que significa cada cosa, mencionar que parpadean las estaciones y que estos niveles
 	# Son para entender el sistema
+	var texto_introduccion = [
+		'Hola, ¡bienvenide! Como ves al frente tuyo hay una línea de metro con 6 estaciones, 4 redondas y 2 con forma de estrella...',
+		'Las estaciones con estrella son las estaciones de inicio y final, como se muestra en el texto que tienen debajo...',
+		'El objetivo de este trabajo es encontrar el camino más corto entre el inicio y el final, de todas maneras cualquier camino que encuentres sirve...',
+		'aunque mientras más se aleje del óptimo menor puntaje obtendremos. La cantidad de conexiones mínimas es mostrada arriba a la izquierda...',
+		'y para conectar estaciones entre sí solo has click en la estación de inicio y arrastra el dedo hasta la siguiente estación.',
+		'¡Buena suerte!'
+	]
 	
 	$SP_Camera.current = false
-	yield(instruction_overlay.prompt_text(texto_bienvenida), "completed")
-	yield(instruction_overlay.prompt_iterables(['Habia', 'una', 'vez', 'truz']), "completed")
+	#yield(instruction_overlay.prompt_text(texto_bienvenida), "completed")
+	yield(instruction_overlay.prompt_iterables(texto_introduccion), "completed")
 	$SP_Camera.current = true
 	instruction_overlay.visible = false
 

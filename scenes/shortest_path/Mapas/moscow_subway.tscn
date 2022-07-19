@@ -1,38 +1,36 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/shortest_path/Mapa Moscow.png" type="Texture" id=1]
+[ext_resource path="res://scenes/shortest_path/Mapas/moscow_subway.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 2.0
 
 [node name="moscow_subway" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="Control" type="Control" parent="."]
-margin_right = 721.0
-margin_bottom = 1079.0
+margin_right = 720.0
+margin_bottom = 1080.0
+mouse_filter = 2
 
 [node name="background" type="ColorRect" parent="Control"]
-margin_left = -203.0
-margin_top = -263.0
-margin_right = 1089.0
-margin_bottom = 1108.0
+margin_left = -422.0
+margin_top = -315.0
+margin_right = 1350.0
+margin_bottom = 1436.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
 
 [node name="map" type="TextureRect" parent="Control"]
-anchor_top = 0.013
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.0
-margin_top = 156.973
-margin_right = 1.0
-margin_bottom = -116.0
+margin_top = 172.186
+margin_bottom = -116.108
 rect_pivot_offset = Vector2( 624, 295 )
+mouse_filter = 2
 texture = ExtResource( 1 )
 expand = true
-__meta__ = {
-"_edit_lock_": true
-}
+stretch_mode = 1
 
 [node name="linea_azul" type="Node2D" parent="Control/map" groups=["linea"]]
 
@@ -340,7 +338,7 @@ antialiased = true
 
 [node name="linea_cafe" type="Node2D" parent="Control/map" groups=["linea"]]
 
-[node name="1" type="StaticBody2D" parent="Control/map/linea_cafe" groups=["conexion", "estacion"]]
+[node name="1" type="StaticBody2D" parent="Control/map/linea_cafe" groups=["estacion"]]
 position = Vector2( 225, 297 )
 __meta__ = {
 "_edit_group_": true
@@ -474,7 +472,7 @@ antialiased = true
 
 [node name="4-5" type="PinJoint2D" parent="Control/map/linea_cafe" groups=["conexion"]]
 node_a = NodePath("../4")
-node_b = NodePath("../../linea_azul/5")
+node_b = NodePath("../5")
 
 [node name="Line2D" type="Line2D" parent="Control/map/linea_cafe/4-5"]
 points = PoolVector2Array( 454, 195, 463, 199, 477, 209, 489, 220 )
@@ -1283,16 +1281,243 @@ position = Vector2( 1, 0 )
 shape = SubResource( 1 )
 disabled = true
 
-[node name="1-CA2" type="PinJoint2D" parent="Control/map/linea_verde_osc"]
+[node name="1-CA2" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
 node_a = NodePath("../VO1")
 node_b = NodePath("../../linea_cafe/2")
 
 [node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/1-CA2"]
-points = PoolVector2Array( 208, 85, 210, 159, 272, 221 )
+points = PoolVector2Array( 208, 85, 209, 160, 272, 221 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
 
-[node name="CA2-2" type="PinJoint2D" parent="Control/map/linea_verde_osc"]
+[node name="CA2-2" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
 node_a = NodePath("../../linea_cafe/2")
 node_b = NodePath("../VO2")
 
 [node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/CA2-2"]
 points = PoolVector2Array( 271, 220, 312, 262 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="2-RO4" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../VO2")
+node_b = NodePath("../../linea_roja/RO4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/2-RO4"]
+points = PoolVector2Array( 311, 260, 378, 328 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="RO4-NA3" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../../linea_roja/RO4")
+node_b = NodePath("../../linea_naranja/NA3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/RO4-NA3"]
+points = PoolVector2Array( 378, 328, 394, 344, 393, 426 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="NA3-CA6" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../../linea_naranja/NA3")
+node_b = NodePath("../../linea_cafe/6")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/NA3-CA6"]
+points = PoolVector2Array( 393, 425, 393, 442, 435, 480 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="CA6-3" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../../linea_cafe/6")
+node_b = NodePath("../VO3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/CA6-3"]
+points = PoolVector2Array( 436, 480, 494, 537 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="3-4" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../VO3")
+node_b = NodePath("../VO4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/3-4"]
+points = PoolVector2Array( 494, 538, 494, 630 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="4-5" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../VO4")
+node_b = NodePath("../VO5")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/4-5"]
+points = PoolVector2Array( 496, 631, 596, 731 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="5-6" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../VO5")
+node_b = NodePath("../VO6")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/5-6"]
+points = PoolVector2Array( 597, 730, 642, 729 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="linea_verde_cla" type="Node2D" parent="Control/map" groups=["linea"]]
+
+[node name="VC1" type="StaticBody2D" parent="Control/map/linea_verde_cla" groups=["estacion"]]
+position = Vector2( 404, 139 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_cla/VC1"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="VC2" type="StaticBody2D" parent="Control/map/linea_verde_cla" groups=["estacion"]]
+position = Vector2( 470, 298 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_cla/VC2"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="VC3" type="StaticBody2D" parent="Control/map/linea_verde_cla" groups=["estacion"]]
+position = Vector2( 570, 533 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_cla/VC3"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="VC4" type="StaticBody2D" parent="Control/map/linea_verde_cla" groups=["estacion"]]
+position = Vector2( 595, 631 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_cla/VC4"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="1-2" type="PinJoint2D" parent="Control/map/linea_verde_cla" groups=["conexion"]]
+node_a = NodePath("../VC1")
+node_b = NodePath("../VC2")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_cla/1-2"]
+points = PoolVector2Array( 405, 139, 407, 159, 405, 233, 471, 298 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="2-CA9" type="PinJoint2D" parent="Control/map/linea_verde_cla" groups=["conexion"]]
+node_a = NodePath("../VC2")
+node_b = NodePath("../../linea_cafe/9")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_cla/2-CA9"]
+points = PoolVector2Array( 471, 298, 526, 354, 536, 358 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="CA9-MO5" type="PinJoint2D" parent="Control/map/linea_verde_cla" groups=["conexion"]]
+node_a = NodePath("../../linea_cafe/9")
+node_b = NodePath("../../linea_morada/MO5")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_cla/CA9-MO5"]
+points = PoolVector2Array( 536, 358, 543, 372, 567, 396, 568, 452 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="MO5-3" type="PinJoint2D" parent="Control/map/linea_verde_cla" groups=["conexion"]]
+node_a = NodePath("../../linea_morada/MO5")
+node_b = NodePath("../VC3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_cla/MO5-3"]
+points = PoolVector2Array( 568, 451, 568, 529, 570, 532 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="3-4" type="PinJoint2D" parent="Control/map/linea_verde_cla" groups=["conexion"]]
+node_a = NodePath("../VC3")
+node_b = NodePath("../VC4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_cla/3-4"]
+points = PoolVector2Array( 569, 532, 594, 558, 595, 631 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="4-VO5" type="PinJoint2D" parent="Control/map/linea_verde_cla" groups=["conexion"]]
+node_a = NodePath("../VC4")
+node_b = NodePath("../../linea_verde_osc/VO5")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_cla/4-VO5"]
+points = PoolVector2Array( 596, 630, 597, 730 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true

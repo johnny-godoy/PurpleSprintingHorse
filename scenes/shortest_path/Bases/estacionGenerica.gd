@@ -16,6 +16,9 @@ var mouse_button_pressed = false
 var is_starting_station = false setget _set_is_starting
 var is_ending_station = false setget _set_is_ending
 
+var top_offset = 0
+var left_offset = 0
+
 signal frame_passed
 
 # TODO: end_station no debería poder tirar nuevas líneas
@@ -39,11 +42,10 @@ func _physics_process(delta):
 		if mouse_button_pressed and not connected_to:
 			var distance
 			
-			var posi = get_global_mouse_position()
-			
+			var posi = get_global_mouse_position() - Vector2(left_offset, top_offset)
 			distance = position.distance_to(posi)
 			var angle = int(position.angle_to_point(posi)*180/PI - 180) % 360
-				
+			
 			arm.rotation_degrees = angle
 			arm.scale.x = distance / (64 * scale.x) # Asumiendo que scale.x = scale.y
 		
@@ -68,7 +70,7 @@ func _clicked(_viewport, event, _shape_idx):
 	
 	if InputMap.event_is_action(event, "click") && event.pressed:
 		manager.station_touched = true
-		
+		# print('estacion tocada')
 		# Para permitir conexión debe ser la primera estación o deben existir conexiones
 		if not is_starting_station and manager.number_of_connections == 0:
 			return
