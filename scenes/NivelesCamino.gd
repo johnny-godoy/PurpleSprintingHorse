@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var manager = ShortestPathManager
+
 onready var atras = $atras
 onready var lvl1 = $Niveles2/lvl1
 onready var lvl2 = $Niveles2/lvl2

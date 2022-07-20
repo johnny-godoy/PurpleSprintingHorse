@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://resources/temita.tres" type="Theme" id=1]
 [ext_resource path="res://assets/font/Kurland_Font_0_22/Kurland.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/shortest_path/niveles/win_menu.gd" type="Script" id=3]
+[ext_resource path="res://assets/shortest_path/0_estrellas.PNG" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -14,10 +15,6 @@ script = ExtResource( 3 )
 
 [node name="WonMenu" type="MarginContainer" parent="."]
 pause_mode = 2
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
 margin_left = -101.0
 margin_top = -71.0
 margin_right = 810.0
@@ -35,38 +32,47 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="WonMenu"]
-margin_left = 329.0
-margin_top = 539.0
-margin_right = 582.0
-margin_bottom = 731.0
+margin_left = 155.0
+margin_top = 411.0
+margin_right = 755.0
+margin_bottom = 859.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="WonMenu/PanelContainer"]
-margin_right = 253.0
-margin_bottom = 192.0
+margin_right = 600.0
+margin_bottom = 448.0
+
+[node name="StarRect" type="TextureRect" parent="WonMenu/PanelContainer/VBoxContainer"]
+margin_right = 600.0
+margin_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 4 )
+stretch_mode = 6
 
 [node name="Label" type="Label" parent="WonMenu/PanelContainer/VBoxContainer"]
-margin_right = 253.0
-margin_bottom = 51.0
+margin_top = 256.0
+margin_right = 600.0
+margin_bottom = 307.0
 custom_fonts/font = SubResource( 1 )
 text = "Has ganado!"
 align = 1
 
 [node name="NextLevel" type="Button" parent="WonMenu/PanelContainer/VBoxContainer"]
-margin_top = 55.0
-margin_right = 253.0
-margin_bottom = 98.0
+margin_top = 311.0
+margin_right = 600.0
+margin_bottom = 354.0
 text = "Siguiente nivel"
 
 [node name="Resume" type="Button" parent="WonMenu/PanelContainer/VBoxContainer"]
-margin_top = 102.0
-margin_right = 253.0
-margin_bottom = 145.0
+margin_top = 358.0
+margin_right = 600.0
+margin_bottom = 401.0
 text = "Volver al nivel"
 
 [node name="MainMenu" type="Button" parent="WonMenu/PanelContainer/VBoxContainer"]
-margin_top = 149.0
-margin_right = 253.0
-margin_bottom = 192.0
+margin_top = 405.0
+margin_right = 600.0
+margin_bottom = 448.0
 text = "Menu principal"

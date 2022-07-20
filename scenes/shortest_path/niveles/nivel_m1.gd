@@ -14,7 +14,7 @@ onready var HUD = $HUD_OVERLAY
 onready var won_menu = $wonMenu
 onready var camera = $SP_Camera
 
-export var minimum_connections = 11 # 3S-11, 2S-12, 1S-13, 0S-14+
+export var minimum_connections = 11 
 export var number_of_level = 7
 
 export var stations_scale := 0.5 setget , _get_scale
@@ -39,8 +39,11 @@ func _physics_process(delta):
 	
 	if manager.player_won and not activated:
 		activated = true
+		var stars = _calculate_stars()
+		manager.save_score(number_of_level, stars)
 		camera.zoom = Vector2(1, 1)
-		won_menu.pause_menu()
+		print("nivel: ", stars)
+		won_menu.pause_menu(stars)
 		
 	elif not manager.player_won and activated:
 		activated = false
@@ -81,6 +84,19 @@ func create_and_conf_stations():
 	
 func _get_scale():
 	return Vector2(stations_scale, stations_scale)
+
+# 3S-11, 2S-12, 1S-13, 0S-14+
+func _calculate_stars():
+	var noc = manager.number_of_connections
+	
+	if noc == minimum_connections:
+		return 3
+	elif noc == minimum_connections + 1:
+		return 2
+	elif noc == minimum_connections + 2:
+		return 1
+	else:
+		return 0
 
 var paths = []
 func min_path(st, end, curr):
