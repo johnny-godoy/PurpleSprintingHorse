@@ -14,8 +14,8 @@ onready var HUD = $HUD_OVERLAY
 onready var won_menu = $wonMenu
 onready var camera = $SP_Camera
 
-export var minimum_connections = 999
-export var number_of_level = 7
+export var minimum_connections = 7
+export var number_of_level = 9
 
 export var stations_scale := 0.5 setget , _get_scale
 
@@ -30,8 +30,22 @@ func _ready():
 	manager.HUD = HUD
 	manager.number_of_connections = 0
 	manager.player_won = false
+	manager.optimal_path_len = minimum_connections
 	
 	create_and_conf_stations() # Replace with function body.
+
+var activated = false
+func _physics_process(delta):
+	
+	if manager.player_won and not activated:
+		activated = true
+		var stars = _calculate_stars()
+		manager.save_score(number_of_level, stars)
+		camera.zoom = Vector2(1, 1)
+		won_menu.pause_menu(stars)
+		
+	elif not manager.player_won and activated:
+		activated = false
 
 func create_and_conf_stations():
 	for station_node in get_tree().get_nodes_in_group('estacion'):
@@ -53,8 +67,30 @@ func create_and_conf_stations():
 			temp_station.conexiones_a_estacion[_temp_neigh] = map_mo.get_conn_line(_temp_station_pos, _neighbour_pos)
 	
 	# Set the start and end stations
-	_incomplete_stations.values()[0].is_starting_station = true
-	_incomplete_stations.values()[-1].is_ending_station = true
-
+	_incomplete_stations[Vector2(324, 21)].is_starting_station = true
+	_incomplete_stations[Vector2(273, 667)].is_ending_station = true
+	
+	manager.start_station = _incomplete_stations[Vector2(324, 21)]
+	manager.end_station = _incomplete_stations[Vector2(273, 667)]
+	manager.optimal_path = ['none']
+	
+	#min_path(manager.start_station, manager.end_station, [manager.start_station])
+	#min_min()
+	
 func _get_scale():
 	return Vector2(stations_scale, stations_scale)
+
+func _calculate_stars():
+	var noc = manager.number_of_connections
+	
+	if noc == minimum_connections:
+		return 3
+	elif noc == minimum_connections + 1:
+		return 2
+	elif noc == minimum_connections + 2:
+		return 1
+	else:
+		return 0
+
+func next_level():
+	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_m4.tscn")

@@ -17,6 +17,7 @@ signal frame_passed
 signal finished_prompt
 signal user_ended_prompt
 
+onready var image : TextureRect = $horse_overlay/horse_image
 onready var text_box : RichTextLabel = $horse_overlay/PanelContainer/TextBox/RichTextLabel
 
 # Called when the node enters the scene tree for the first time.
@@ -113,3 +114,12 @@ func prompt_iterables(iterable_object):
 				text = data
 				
 			yield(_prompt_text(text, fpspp, pi), "completed")
+
+func set_horse(string):
+	if string.to_lower() == 'ingeniero':
+		image.texture = load("res://assets/otros/caballo_ingeniero.png")
+	elif string.to_lower() == 'artista':
+		image.texture = load("res://assets/otros/caballo_artista.png")
+	else:
+		print('NO VALID IMAGE CHOSEN FOR HORSE [BOJACK DEFAULTED]')
+		image.texture = load("res://assets/otros/bojack.png")
