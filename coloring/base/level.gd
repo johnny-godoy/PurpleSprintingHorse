@@ -1,15 +1,15 @@
 class_name Level
 extends Node2D
 
+onready var buckets = $ColorBuckets
 onready var graph = $GraphToColor
 onready var hud = $HUD_OVERLAY
+onready var pop_audio = $Pop
 onready var selected = $Marco/Selected
-onready var buckets = $ColorBuckets
 
 export var min_colors = 4
 export var level = 0
 export var leeway = 1
-
 
 var buttons = []
 var connected_node_pairs = []
@@ -39,6 +39,7 @@ func _ready() -> void:
 
 
 func _on_Node_pressed(button: TextureButton) -> void:
+	pop_audio.play()
 	button.modulate = buckets.current_color
 
 

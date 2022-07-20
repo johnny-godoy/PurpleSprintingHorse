@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+onready var audio = $AudioStreamPlayer
 onready var menu_button: Button = $MenuButton
 onready var next_level_button: Button = $NextLevelButton
 onready var last_level_button: Button = $LastLevelButton
@@ -52,6 +53,8 @@ func save_progress() -> void:
 
 
 func _scene_changer(path) -> void:
+	audio.play()
+	yield(audio, "finished")
 	save_progress()
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene(path)

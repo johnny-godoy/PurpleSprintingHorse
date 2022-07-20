@@ -233,6 +233,7 @@ margin_bottom = 630.0
 rect_scale = Vector2( 0.15, 0.15 )
 texture_normal = ExtResource( 3 )
 script = ExtResource( 4 )
+stream_file = "res://assets/sonido/menuback.wav"
 next_scene = "res://scenes/MainMenu.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="atras"]
