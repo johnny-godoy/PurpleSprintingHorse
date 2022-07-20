@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://resources/temita.tres" type="Theme" id=1]
 [ext_resource path="res://assets/font/Kurland_Font_0_22/Kurland.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/shortest_path/niveles/win_menu.gd" type="Script" id=3]
 [ext_resource path="res://assets/shortest_path/0_estrellas.PNG" type="Texture" id=4]
+[ext_resource path="res://assets/sonido/menuhit.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -76,3 +77,6 @@ margin_top = 405.0
 margin_right = 600.0
 margin_bottom = 448.0
 text = "Menu principal"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )

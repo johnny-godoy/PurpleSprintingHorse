@@ -1,9 +1,7 @@
 extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var audio = $AudioStreamPlayer
 onready var _menu_button:Button = $HUD/MenuButton
 onready var _level_number_label:Label = $HUD/LevelNumber
 onready var _stations_label:Label = $HUD/StationNumber
@@ -20,6 +18,8 @@ func _ready():
 	
 # Despliega el menú
 func _menu_button_pressed():
+	audio.play()
+	yield(audio, "finished")
 	get_tree().change_scene("res://scenes/NivelesCamino.tscn")
 	
 func _set_lvl_num(new_number):
