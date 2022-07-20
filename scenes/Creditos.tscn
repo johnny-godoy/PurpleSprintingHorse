@@ -17,7 +17,7 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 666.0
-margin_bottom = 991.0
+margin_bottom = 1042.0
 custom_constants/separation = 47
 
 [node name="Título" type="Label" parent="ScrollContainer/VBoxContainer"]
@@ -83,7 +83,7 @@ valign = 1
 [node name="Recursos" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
 margin_top = 309.0
 margin_right = 666.0
-margin_bottom = 658.0
+margin_bottom = 709.0
 theme = ExtResource( 1 )
 custom_constants/separation = 8
 
@@ -168,10 +168,19 @@ text = "Imágenes creadas por nosotros"
 align = 1
 valign = 1
 
+[node name="Audio" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
+margin_left = 105.0
+margin_top = 357.0
+margin_right = 560.0
+margin_bottom = 400.0
+size_flags_horizontal = 4
+theme = ExtResource( 1 )
+text = "Audio: DDK RPK y nuestro"
+
 [node name="Agradecimientos" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
-margin_top = 705.0
+margin_top = 756.0
 margin_right = 666.0
-margin_bottom = 901.0
+margin_bottom = 952.0
 theme = ExtResource( 1 )
 custom_constants/separation = 8
 
@@ -219,9 +228,9 @@ align = 1
 valign = 1
 
 [node name="Motor" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 948.0
+margin_top = 999.0
 margin_right = 666.0
-margin_bottom = 991.0
+margin_bottom = 1042.0
 theme = ExtResource( 1 )
 text = "Motor: https://godotengine.org/license"
 
@@ -233,6 +242,7 @@ margin_bottom = 630.0
 rect_scale = Vector2( 0.15, 0.15 )
 texture_normal = ExtResource( 3 )
 script = ExtResource( 4 )
+stream_file = "res://assets/sonido/menuback.wav"
 next_scene = "res://scenes/MainMenu.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="atras"]
