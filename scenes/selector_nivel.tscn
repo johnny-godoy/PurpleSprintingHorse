@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/playbuttonpdn.png" type="Texture" id=1]
 [ext_resource path="res://assets/coloring/level1.png" type="Texture" id=2]
 [ext_resource path="res://resources/temita.tres" type="Theme" id=3]
+[ext_resource path="res://assets/shortest_path/0_estrellas.PNG" type="Texture" id=4]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends TextureButton
 
 onready var index = $index
 onready var completion = $completion
+onready var score_achieved = $score_achieved
+onready var stars = $stars
 
 export(String, FILE) var scene
 
@@ -20,6 +23,14 @@ func _ready() -> void:
 func change_scene() -> void:
 	# warning-ignore:return_value_discarded
 	get_tree().change_scene(scene)
+
+func shortest_path():
+	stars.visible = true
+	score_achieved.visible = true
+	completion.visible = false
+
+func star_texture(texture):
+	stars.texture = texture
 "
 
 [node name="Selector" type="TextureButton"]
@@ -37,6 +48,12 @@ position = Vector2( 181, 108 )
 scale = Vector2( 0.0938671, 0.100894 )
 texture = ExtResource( 1 )
 
+[node name="stars" type="Sprite" parent="."]
+visible = false
+position = Vector2( 506, 147 )
+scale = Vector2( 0.3809, 0.344953 )
+texture = ExtResource( 4 )
+
 [node name="index" type="Label" parent="."]
 modulate = Color( 0, 0, 0, 1 )
 margin_left = 30.0
@@ -47,6 +64,15 @@ rect_min_size = Vector2( 20, 43 )
 mouse_filter = 1
 theme = ExtResource( 3 )
 text = "1"
+
+[node name="score_achieved" type="Label" parent="."]
+visible = false
+margin_left = 392.0
+margin_top = 51.0
+margin_right = 679.0
+margin_bottom = 94.0
+theme = ExtResource( 3 )
+text = "Puntaje:"
 
 [node name="completion" type="Label" parent="."]
 margin_left = 384.0
