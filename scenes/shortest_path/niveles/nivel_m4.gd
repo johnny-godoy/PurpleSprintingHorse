@@ -92,6 +92,18 @@ func _calculate_stars():
 	else:
 		return 0
 
+func next_level():
+	# TODO: QUE HABLE EL CABALLO DE QUE ES EL FINAL
+	get_tree().change_scene("res://scenes/MainMenu.tscn")
+
+
+
+
+
+
+
+
+
 var paths = []
 func min_path(st, end, curr):
 	

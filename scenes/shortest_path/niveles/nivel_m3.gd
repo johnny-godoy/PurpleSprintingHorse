@@ -92,44 +92,5 @@ func _calculate_stars():
 	else:
 		return 0
 
-var paths = []
-func min_path(st, end, curr):
-	
-	for ss in st.estaciones_adyacentes:
-		if ss in curr:
-			continue
-		
-		if ss == end:
-			paths.append({len(curr) : curr})
-			return
-		
-		var a = curr.duplicate()
-		a.append(ss)
-		min_path(ss, end, a)
-		
-	return
-
-func min_min():
-	
-	var curr_min = 100
-	var curr_path 
-	
-	var path_2
-	
-	var first = true
-	
-	for par in paths:
-		if par.keys()[0] < curr_min:
-			curr_min = par.keys()[0]
-			curr_path = par.values()[0]
-		
-		if par.keys()[0] == 7:
-			print(7)
-	
-	var pses = []
-	for sss in curr_path:
-		pses.append(sss.position)
-		sss.is_starting_station = true
-		
-	print(curr_min)
-	print(pses)
+func next_level():
+	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_m4.tscn")

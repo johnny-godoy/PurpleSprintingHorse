@@ -129,7 +129,7 @@ func load_data(return_data = false):
 	if return_data:
 		return _file_data
 
-func load_starts(level:String):
+func load_stars(level):
 	if typeof(level) == TYPE_INT:
 		level = var2str(level)
 		
