@@ -36,7 +36,7 @@ margin_right = 313.0
 margin_bottom = 127.0
 theme = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Estaciones: xx/nn"
+text = "Conexiones: xx/nn"
 
 [node name="MenuButton" type="Button" parent="HUD"]
 anchor_left = 0.814
