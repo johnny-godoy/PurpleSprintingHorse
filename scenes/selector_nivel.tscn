@@ -6,23 +6,20 @@
 [ext_resource path="res://assets/shortest_path/0_estrellas.PNG" type="Texture" id=4]
 
 [sub_resource type="GDScript" id=1]
-script/source = "extends TextureButton
+script/source = "extends SoundButton
 
 onready var index = $index
 onready var completion = $completion
 onready var score_achieved = $score_achieved
 onready var stars = $stars
 
+
 export(String, FILE) var scene
 
 
 func _ready() -> void:
-	self.connect(\"pressed\", self, \"change_scene\")
+	next_scene = scene
 
-
-func change_scene() -> void:
-	# warning-ignore:return_value_discarded
-	get_tree().change_scene(scene)
 
 func shortest_path():
 	stars.visible = true
@@ -81,3 +78,5 @@ margin_right = 617.0
 margin_bottom = 123.0
 theme = ExtResource( 3 )
 text = "Sin completar"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

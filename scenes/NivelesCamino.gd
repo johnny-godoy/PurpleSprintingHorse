@@ -6,7 +6,6 @@ onready var seleccion = $Scroll/Seleccion
 
 
 func _ready():
-	atras.connect("pressed", self, "_on_atras_pressed")
 	# Preparando los botones y etiquetas
 	var seleccionables = seleccion.get_children()
 	for nivel in seleccionables.size():
@@ -15,12 +14,8 @@ func _ready():
 		seleccionable.index.text = str(nivel + 1)
 		# seleccionable.completion.text = Según lo que carguen del guardado
 		seleccionable.texture_normal = load("res://assets/shortest_path/lvl%d.png" % (nivel + 1))
-		seleccionable.scene = "res://scenes/shortest_path/niveles/nivel_%d.tscn" % (nivel + 1)
+		seleccionable.next_scene = "res://scenes/shortest_path/niveles/nivel_%d.tscn" % (nivel + 1)
 		seleccionable.star_texture(_star_texture(nivel + 1))
-
-func _on_atras_pressed():
-	# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
 
 func _star_texture(lvl):
 	var num_stars = manager.load_stars(lvl)
