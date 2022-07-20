@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://resources/temita.tres" type="Theme" id=1]
 [ext_resource path="res://scenes/Creditos.gd" type="Script" id=2]
 [ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/leftarrow.png" type="Texture" id=3]
+[ext_resource path="res://scenes/SoundButton.gd" type="Script" id=4]
 
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 2 )
@@ -220,3 +221,5 @@ margin_right = 1180.0
 margin_bottom = 630.0
 rect_scale = Vector2( 0.15, 0.15 )
 texture_normal = ExtResource( 3 )
+script = ExtResource( 4 )
+next_scene = "res://scenes/MainMenu.tscn"

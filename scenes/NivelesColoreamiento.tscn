@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/leftarrow.png" type="Texture" id=1]
 [ext_resource path="res://scenes/selector_nivel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/SoundButton.gd" type="Script" id=3]
 [ext_resource path="res://scenes/Nivelescoloreamiento.gd" type="Script" id=5]
 [ext_resource path="res://resources/temita.tres" type="Theme" id=6]
 
@@ -24,6 +25,10 @@ margin_right = 1182.0
 margin_bottom = 647.0
 rect_scale = Vector2( 0.15, 0.15 )
 texture_normal = ExtResource( 1 )
+script = ExtResource( 3 )
+next_scene = "res://scenes/MainMenu.tscn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="atras"]
 
 [node name="Scroll" type="ScrollContainer" parent="."]
 margin_left = 41.0

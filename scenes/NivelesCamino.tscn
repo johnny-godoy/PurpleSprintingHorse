@@ -26,6 +26,7 @@ margin_bottom = 647.0
 rect_scale = Vector2( 0.15, 0.15 )
 texture_normal = ExtResource( 1 )
 script = ExtResource( 3 )
+next_scene = "res://scenes/MainMenu.tscn"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="atras"]
 
