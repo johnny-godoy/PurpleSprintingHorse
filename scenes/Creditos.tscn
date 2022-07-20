@@ -8,16 +8,21 @@
 [node name="Tutorial" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 36.0
-margin_top = 142.0
-margin_right = 704.0
-margin_bottom = 1133.0
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 16.0
+margin_top = 147.0
+margin_right = 708.0
+margin_bottom = 1062.0
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 666.0
+margin_bottom = 991.0
 custom_constants/separation = 47
 
-[node name="Título" type="Label" parent="VBoxContainer"]
-margin_left = 241.0
-margin_right = 426.0
+[node name="Título" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_left = 240.0
+margin_right = 425.0
 margin_bottom = 43.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -25,16 +30,16 @@ text = "CRÉDITOS"
 align = 1
 valign = 1
 
-[node name="Equipo" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Equipo" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
 margin_top = 90.0
-margin_right = 668.0
+margin_right = 666.0
 margin_bottom = 262.0
 theme = ExtResource( 1 )
 custom_constants/separation = 0
 
-[node name="Equipo" type="Label" parent="VBoxContainer/Equipo"]
-margin_left = 116.0
-margin_right = 551.0
+[node name="Equipo" type="Label" parent="ScrollContainer/VBoxContainer/Equipo"]
+margin_left = 115.0
+margin_right = 550.0
 margin_bottom = 43.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -42,10 +47,10 @@ text = "DISEÑO Y DESARROLLO"
 align = 1
 valign = 1
 
-[node name="N" type="Label" parent="VBoxContainer/Equipo"]
-margin_left = 182.0
+[node name="N" type="Label" parent="ScrollContainer/VBoxContainer/Equipo"]
+margin_left = 181.0
 margin_top = 43.0
-margin_right = 486.0
+margin_right = 485.0
 margin_bottom = 86.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -53,10 +58,10 @@ text = "Nicolás Calbucura"
 align = 1
 valign = 1
 
-[node name="J" type="Label" parent="VBoxContainer/Equipo"]
-margin_left = 212.0
+[node name="J" type="Label" parent="ScrollContainer/VBoxContainer/Equipo"]
+margin_left = 211.0
 margin_top = 86.0
-margin_right = 456.0
+margin_right = 455.0
 margin_bottom = 129.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -64,10 +69,10 @@ text = "Johnny Godoy"
 align = 1
 valign = 1
 
-[node name="A" type="Label" parent="VBoxContainer/Equipo"]
-margin_left = 188.0
+[node name="A" type="Label" parent="ScrollContainer/VBoxContainer/Equipo"]
+margin_left = 187.0
 margin_top = 129.0
-margin_right = 479.0
+margin_right = 478.0
 margin_bottom = 172.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -75,16 +80,16 @@ text = "Agustín González"
 align = 1
 valign = 1
 
-[node name="Recursos" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Recursos" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
 margin_top = 309.0
-margin_right = 668.0
+margin_right = 666.0
 margin_bottom = 658.0
 theme = ExtResource( 1 )
 custom_constants/separation = 8
 
-[node name="Recursos" type="Label" parent="VBoxContainer/Recursos"]
-margin_left = 235.0
-margin_right = 433.0
+[node name="Recursos" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
+margin_left = 234.0
+margin_right = 432.0
 margin_bottom = 43.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -92,10 +97,10 @@ text = "RECURSOS"
 align = 1
 valign = 1
 
-[node name="I" type="Label" parent="VBoxContainer/Recursos"]
-margin_left = 56.0
+[node name="I" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
+margin_left = 55.0
 margin_top = 51.0
-margin_right = 611.0
+margin_right = 610.0
 margin_bottom = 94.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -103,10 +108,10 @@ text = "Páquete de íconos de AndelRodis"
 align = 1
 valign = 1
 
-[node name="C" type="Label" parent="VBoxContainer/Recursos"]
-margin_left = 90.0
+[node name="C" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
+margin_left = 89.0
 margin_top = 102.0
-margin_right = 577.0
+margin_right = 576.0
 margin_bottom = 145.0
 rect_pivot_offset = Vector2( -1252, -102 )
 size_flags_horizontal = 4
@@ -116,10 +121,10 @@ align = 1
 valign = 1
 max_lines_visible = 0
 
-[node name="Casco" type="Label" parent="VBoxContainer/Recursos"]
-margin_left = 79.0
+[node name="Casco" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
+margin_left = 78.0
 margin_top = 153.0
-margin_right = 589.0
+margin_right = 588.0
 margin_bottom = 196.0
 rect_pivot_offset = Vector2( -1252, -102 )
 size_flags_horizontal = 4
@@ -129,10 +134,9 @@ align = 1
 valign = 1
 max_lines_visible = 0
 
-[node name="Borrador" type="Label" parent="VBoxContainer/Recursos"]
-margin_left = 1.0
+[node name="Borrador" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
 margin_top = 204.0
-margin_right = 667.0
+margin_right = 666.0
 margin_bottom = 247.0
 rect_pivot_offset = Vector2( -1252, -102 )
 size_flags_horizontal = 4
@@ -142,10 +146,10 @@ align = 1
 valign = 1
 max_lines_visible = 0
 
-[node name="L" type="Label" parent="VBoxContainer/Recursos"]
-margin_left = 90.0
+[node name="L" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
+margin_left = 89.0
 margin_top = 255.0
-margin_right = 577.0
+margin_right = 576.0
 margin_bottom = 298.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -153,10 +157,10 @@ text = "Imágenes libres de atribución"
 align = 1
 valign = 1
 
-[node name="N" type="Label" parent="VBoxContainer/Recursos"]
-margin_left = 73.0
+[node name="N" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
+margin_left = 72.0
 margin_top = 306.0
-margin_right = 594.0
+margin_right = 593.0
 margin_bottom = 349.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -164,16 +168,16 @@ text = "Imágenes creadas por nosotros"
 align = 1
 valign = 1
 
-[node name="Agradecimientos" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Agradecimientos" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
 margin_top = 705.0
-margin_right = 668.0
+margin_right = 666.0
 margin_bottom = 901.0
 theme = ExtResource( 1 )
 custom_constants/separation = 8
 
-[node name="Agradecimientos" type="Label" parent="VBoxContainer/Agradecimientos"]
-margin_left = 150.0
-margin_right = 517.0
+[node name="Agradecimientos" type="Label" parent="ScrollContainer/VBoxContainer/Agradecimientos"]
+margin_left = 149.0
+margin_right = 516.0
 margin_bottom = 43.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -181,10 +185,10 @@ text = "AGRADECIMIENTOS"
 align = 1
 valign = 1
 
-[node name="ED" type="Label" parent="VBoxContainer/Agradecimientos"]
-margin_left = 129.0
+[node name="ED" type="Label" parent="ScrollContainer/VBoxContainer/Agradecimientos"]
+margin_left = 128.0
 margin_top = 51.0
-margin_right = 538.0
+margin_right = 537.0
 margin_bottom = 94.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -192,10 +196,10 @@ text = "Equipo Docente CC5408"
 align = 1
 valign = 1
 
-[node name="AF" type="Label" parent="VBoxContainer/Agradecimientos"]
-margin_left = 4.0
+[node name="AF" type="Label" parent="ScrollContainer/VBoxContainer/Agradecimientos"]
+margin_left = 3.0
 margin_top = 102.0
-margin_right = 664.0
+margin_right = 663.0
 margin_bottom = 145.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -203,16 +207,23 @@ text = "Amigos y familia que probaron el juego"
 align = 1
 valign = 1
 
-[node name="Eq" type="Label" parent="VBoxContainer/Agradecimientos"]
-margin_left = 267.0
+[node name="Eq" type="Label" parent="ScrollContainer/VBoxContainer/Agradecimientos"]
+margin_left = 266.0
 margin_top = 153.0
-margin_right = 400.0
+margin_right = 399.0
 margin_bottom = 196.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
 text = "Equinos"
 align = 1
 valign = 1
+
+[node name="Motor" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 948.0
+margin_right = 666.0
+margin_bottom = 991.0
+theme = ExtResource( 1 )
+text = "Motor: https://godotengine.org/license"
 
 [node name="atras" type="TextureButton" parent="."]
 margin_left = 580.0
@@ -223,3 +234,5 @@ rect_scale = Vector2( 0.15, 0.15 )
 texture_normal = ExtResource( 3 )
 script = ExtResource( 4 )
 next_scene = "res://scenes/MainMenu.tscn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="atras"]
