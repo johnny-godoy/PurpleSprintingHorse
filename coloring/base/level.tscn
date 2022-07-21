@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://coloring/base/level.gd" type="Script" id=1]
 [ext_resource path="res://assets/coloring/Easel-PNG-Pic.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://coloring/base/HUD_OVERLAY.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/coloring/1080x1920-Wallpaper_AppsApk_-481.jpg" type="Texture" id=5]
 [ext_resource path="res://assets/sonido/pop.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/Puzzles.wav" type="AudioStream" id=7]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -43,3 +44,9 @@ margin_bottom = 69.0
 
 [node name="Pop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+
+[node name="LoopSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 384, -1 )
+stream = ExtResource( 7 )
+volume_db = -18.087
+autoplay = true
