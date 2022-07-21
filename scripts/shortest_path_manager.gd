@@ -135,3 +135,10 @@ func load_stars(level):
 		
 	return _file_data[level]["stars"]
 	
+func restart_levels():
+	for i in range(1,11):
+		_file_data[var2str(i)] = {
+						"noc": 0,
+						"stars": 0
+						}
+	save_data()

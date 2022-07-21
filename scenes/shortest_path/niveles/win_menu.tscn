@@ -80,7 +80,9 @@ margin_bottom = 448.0
 text = "Menu principal"
 
 [node name="pop" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 5 )
 
-[node name="click" type="AudioStreamPlayer2D" parent="."]
+[node name="click" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 6 )

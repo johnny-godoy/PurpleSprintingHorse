@@ -25,7 +25,6 @@ func pause_menu(number_of_stars=-1):
 		star_sprite.texture = load("res://assets/shortest_path/0_estrellas.PNG")
 	
 	audio.play()
-	yield(audio, "finished")
 	get_tree().paused = true
 	visible = true
 
@@ -38,11 +37,13 @@ func _on_resume_pressed():
 
 func _on_main_menu_pressed():
 	click.play()
+	#yield(click, "finished")
 	get_tree().change_scene("res://scenes/NivelesCamino.tscn")
 	get_tree().paused = false
 
 func _on_next_level_pressed():
 	click.play()
+	#yield(click, "finished")
 	get_parent().next_level()
 	get_tree().paused = false
 
