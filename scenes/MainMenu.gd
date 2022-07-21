@@ -9,6 +9,5 @@ onready var exit = $Exit
 func _ready() -> void:
 	exit.connect("pressed", self, "_on_exit_pressed")
 
-
 func _on_exit_pressed() -> void:
 	get_tree().quit()

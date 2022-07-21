@@ -2,6 +2,7 @@ extends Node2D
 
 
 onready var audio = $AudioStreamPlayer
+onready var background_music = $LoopSound
 onready var _menu_button:Button = $HUD/MenuButton
 onready var _level_number_label:Label = $HUD/LevelNumber
 onready var _stations_label:Label = $HUD/StationNumber
@@ -37,3 +38,5 @@ func _set_min_conns(min_number):
 	min_num_conns = min_number
 	_stations_label.text = 'Conexiones: %d/%d' % [num_connections, min_num_conns]
 
+func stop_music():
+	background_music.stop()

@@ -10,6 +10,8 @@ onready var map_mo_map = $moscow_subway/Control/map
 
 onready var manager = ShortestPathManager
 
+onready var HO = $Horse_Overlay
+onready var HO_sprite = $Horse_Overlay/horse_overlay/horse_image
 onready var HUD = $HUD_OVERLAY
 onready var won_menu = $wonMenu
 onready var camera = $SP_Camera
@@ -42,6 +44,7 @@ func _physics_process(delta):
 		var stars = _calculate_stars()
 		manager.save_score(number_of_level, stars)
 		camera.zoom = Vector2(1, 1)
+		yield(last_level(), "completed")
 		won_menu.pause_menu(stars)
 		
 	elif not manager.player_won and activated:
@@ -92,12 +95,22 @@ func _calculate_stars():
 	else:
 		return 0
 
+func last_level():
+	var texto_despedida = ["Hemos llegado al último nivel, muchas gracias por toda tu ayuda no lo habría podido hacer sin ti...",
+							"aunque debo he decidido que este trabajo no es para mí, demasiadas estaciones y conexiones...",
+							"así que renuncié. ¡Nos vemos en un próximo trabajo!",
+							"Por cierto, si seleccionas siguiente nivel nada pasará."]
+	HO.visible = true
+	yield(HO.prompt_iterables(texto_despedida), "completed")
+	HO.visible = false
+	HUD.stop_music()
+
+var nl_count = 0
 func next_level():
-	# TODO: QUE HABLE EL CABALLO DE QUE ES EL FINAL
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
-
-
-
+	nl_count += 1
+	
+	if nl_count == 23:
+		get_tree().change_scene("res://scenes/MainMenu.tscn")
 
 
 
