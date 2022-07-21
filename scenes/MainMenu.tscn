@@ -1,16 +1,15 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://resources/temita.tres" type="Theme" id=1]
 [ext_resource path="res://assets/shortestpath.png" type="Texture" id=2]
 [ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/playbuttonpdn.png" type="Texture" id=3]
 [ext_resource path="res://assets/coloreamiento.png" type="Texture" id=4]
-[ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/question.png" type="Texture" id=5]
 [ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/exitdoor.png" type="Texture" id=6]
 [ext_resource path="res://scenes/MainMenu.gd" type="Script" id=7]
 [ext_resource path="res://assets/IconPack/IconPackByAndelRodis/pngonebyone/info.png" type="Texture" id=8]
 [ext_resource path="res://scenes/SoundButton.gd" type="Script" id=10]
 
-[node name="Node2D" type="Node2D"]
+[node name="MainMenu" type="Node2D"]
 script = ExtResource( 7 )
 
 [node name="Label" type="Label" parent="."]
@@ -27,25 +26,17 @@ valign = 1
 
 [node name="Exit" type="TextureButton" parent="."]
 margin_left = 584.0
-margin_top = 48.0
+margin_top = 54.0
 margin_right = 1184.0
-margin_bottom = 648.0
+margin_bottom = 654.0
 rect_scale = Vector2( 0.15, 0.15 )
 texture_normal = ExtResource( 6 )
 
-[node name="Help" type="TextureButton" parent="."]
-margin_left = 48.0
-margin_top = 48.0
-margin_right = 648.0
-margin_bottom = 648.0
-rect_scale = Vector2( 0.15, 0.15 )
-texture_normal = ExtResource( 5 )
-
 [node name="Credits" type="TextureButton" parent="."]
-margin_left = 326.0
-margin_top = 50.0
-margin_right = 926.0
-margin_bottom = 650.0
+margin_left = 66.0
+margin_top = 54.0
+margin_right = 666.0
+margin_bottom = 654.0
 rect_scale = Vector2( 0.15, 0.15 )
 texture_normal = ExtResource( 8 )
 script = ExtResource( 10 )

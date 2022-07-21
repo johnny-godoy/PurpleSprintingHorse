@@ -17,7 +17,7 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 666.0
-margin_bottom = 1042.0
+margin_bottom = 1139.0
 custom_constants/separation = 47
 
 [node name="Título" type="Label" parent="ScrollContainer/VBoxContainer"]
@@ -83,7 +83,7 @@ valign = 1
 [node name="Recursos" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
 margin_top = 309.0
 margin_right = 666.0
-margin_bottom = 709.0
+margin_bottom = 806.0
 theme = ExtResource( 1 )
 custom_constants/separation = 8
 
@@ -97,11 +97,19 @@ text = "RECURSOS"
 align = 1
 valign = 1
 
+[node name="Fuente" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
+margin_top = 51.0
+margin_right = 666.0
+margin_bottom = 140.0
+text = "Fuente \"Kurland\" de GGBotNet (bajo
+licencia OFL)"
+align = 1
+
 [node name="I" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
 margin_left = 55.0
-margin_top = 51.0
+margin_top = 148.0
 margin_right = 610.0
-margin_bottom = 94.0
+margin_bottom = 191.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
 text = "Páquete de íconos de AndelRodis"
@@ -110,9 +118,9 @@ valign = 1
 
 [node name="C" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
 margin_left = 89.0
-margin_top = 102.0
+margin_top = 199.0
 margin_right = 576.0
-margin_bottom = 145.0
+margin_bottom = 242.0
 rect_pivot_offset = Vector2( -1252, -102 )
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -123,9 +131,9 @@ max_lines_visible = 0
 
 [node name="Casco" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
 margin_left = 78.0
-margin_top = 153.0
+margin_top = 250.0
 margin_right = 588.0
-margin_bottom = 196.0
+margin_bottom = 293.0
 rect_pivot_offset = Vector2( -1252, -102 )
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -135,9 +143,9 @@ valign = 1
 max_lines_visible = 0
 
 [node name="Borrador" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
-margin_top = 204.0
+margin_top = 301.0
 margin_right = 666.0
-margin_bottom = 247.0
+margin_bottom = 344.0
 rect_pivot_offset = Vector2( -1252, -102 )
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
@@ -148,9 +156,9 @@ max_lines_visible = 0
 
 [node name="L" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
 margin_left = 89.0
-margin_top = 255.0
+margin_top = 352.0
 margin_right = 576.0
-margin_bottom = 298.0
+margin_bottom = 395.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
 text = "Imágenes libres de atribución"
@@ -159,9 +167,9 @@ valign = 1
 
 [node name="N" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
 margin_left = 72.0
-margin_top = 306.0
+margin_top = 403.0
 margin_right = 593.0
-margin_bottom = 349.0
+margin_bottom = 446.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
 text = "Imágenes creadas por nosotros"
@@ -170,17 +178,17 @@ valign = 1
 
 [node name="Audio" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
 margin_left = 105.0
-margin_top = 357.0
+margin_top = 454.0
 margin_right = 560.0
-margin_bottom = 400.0
+margin_bottom = 497.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
 text = "Audio: DDK RPK y nuestro"
 
 [node name="Agradecimientos" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
-margin_top = 756.0
+margin_top = 853.0
 margin_right = 666.0
-margin_bottom = 952.0
+margin_bottom = 1049.0
 theme = ExtResource( 1 )
 custom_constants/separation = 8
 
@@ -228,9 +236,9 @@ align = 1
 valign = 1
 
 [node name="Motor" type="Label" parent="ScrollContainer/VBoxContainer"]
-margin_top = 999.0
+margin_top = 1096.0
 margin_right = 666.0
-margin_bottom = 1042.0
+margin_bottom = 1139.0
 theme = ExtResource( 1 )
 text = "Motor: https://godotengine.org/license"
 

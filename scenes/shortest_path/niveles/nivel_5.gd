@@ -8,9 +8,10 @@ onready var map = $cdmx_subway
 onready var stations = $cdmx_subway/map
 onready var won_menu = $wonMenu
 onready var stations_to_be_used = []
+onready var camera = $SP_Camera
 
-export var minimum_connections = 6
-export var number_of_level = 3
+export var minimum_connections = 7
+export var number_of_level = 5
 
 export var stations_scale := 0.5 setget , _get_scale
 
@@ -24,7 +25,7 @@ func _get_scale():
 
 # Siguiente nivel
 func next_level():
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_4.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,11 +39,12 @@ func _ready():
 	manager.HUD = HUD
 	manager.number_of_connections = 0
 	manager.player_won = false
+	manager.optimal_path_len = minimum_connections
 	
 	for st in places:
 		stations_to_be_used.append(st.get_name())
 	
-	var _optimal_path_map_ = ['lightgreen_2','blue_4','blue_5','blue_6','blue_7','blue_8','blue_9']
+	var _optimal_path_map_ = ['grey_6','grey_7','lightblue_1','lightblue_2','brown_4','blue_10','brown_3','lightgreen_6']
 	var _optimal_path = range(len(_optimal_path_map_))
 	
 	# Se crean las estaciones
@@ -72,7 +74,7 @@ func _ready():
 			num = num + 1
 			continue
 		
-		for neighbour in map.next_too[num]:
+		for neighbour in map.next_to[num]:
 			station.estaciones_adyacentes.append(_childs[neighbour])
 			station.conexiones_a_estacion[_childs[neighbour]] = map.connecting_line[[num, neighbour]]
 		num = num + 1
@@ -83,13 +85,25 @@ var count = 0
 var count2 = 0
 var activated = false
 func _physics_process(delta):
-	
-	if count < 90:
-		count += 1
-	
 	if manager.player_won and not activated:
 		activated = true
-		won_menu.pause_menu()
+		var stars = _calculate_stars()
+		manager.save_score(number_of_level, stars)
+		camera.zoom = Vector2(1, 1)
+		print("nivel: ", stars)
+		won_menu.pause_menu(stars)
+		
 	elif not manager.player_won and activated:
 		activated = false
 		
+func _calculate_stars():
+	var noc = manager.number_of_connections
+	
+	if noc == minimum_connections:
+		return 3
+	elif noc == minimum_connections + 1:
+		return 2
+	elif noc == minimum_connections + 2:
+		return 1
+	else:
+		return 0

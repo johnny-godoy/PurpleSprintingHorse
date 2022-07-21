@@ -10,8 +10,8 @@ onready var won_menu = $wonMenu
 onready var stations_to_be_used = []
 onready var camera = $SP_Camera
 
-export var minimum_connections = 6
-export var number_of_level = 4
+export var minimum_connections = 4
+export var number_of_level = 3
 
 export var stations_scale := 0.5 setget , _get_scale
 
@@ -44,7 +44,7 @@ func _ready():
 	for st in places:
 		stations_to_be_used.append(st.get_name())
 	
-	var _optimal_path_map_ = ['lightgreen_2','blue_4','blue_5','blue_6','blue_7','blue_8','blue_9']
+	var _optimal_path_map_ = ['orange_6','pink_1','pink_2','pink_3','lightgreen_4']
 	var _optimal_path = range(len(_optimal_path_map_))
 	
 	# Se crean las estaciones

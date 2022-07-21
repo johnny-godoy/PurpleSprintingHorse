@@ -183,6 +183,10 @@ func _ready():
 		[places[41], $map/lines/lightblue_5],
 		[places[50], $map/lines/brown_7]
 		])
+	_add_conn(places[37], [
+		[places[4], $map/lines/green_2],
+		[places[38], $map/lines/green_3]
+		])
 	_add_conn(places[38], [
 		[places[37], $map/lines/green_3],
 		[places[39], $map/lines/green_4],
@@ -246,11 +250,8 @@ func _add_conn(_og, connections):
 	var temp_node = []
 
 	for node_n_line in connections:
-		temp_node.append(name_to_num(node_n_line[0]))
-		connecting_line[[name_to_num(_og), name_to_num(node_n_line[0])]] = node_n_line[1]
+		temp_node.append(places.find(node_n_line[0]))
+		connecting_line[[places.find(_og), places.find(node_n_line[0])]] = node_n_line[1]
 	
 	next_to.append(temp_node)
 	#connecting_line = temp_line
-
-func name_to_num(the_node):
-	return places.find(get_node('map/' + the_node))

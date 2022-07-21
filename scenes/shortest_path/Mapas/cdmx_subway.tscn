@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://assets/shortest_path/metro_cdmx.png" type="Texture" id=1]
-[ext_resource path="res://scenes/shortest_path/Mapas/rome_subway.gd" type="Script" id=2]
+[ext_resource path="res://scenes/shortest_path/Mapas/cdmx_subway.gd" type="Script" id=2]
 
 [node name="cdmx_subway" type="Node2D"]
 script = ExtResource( 2 )
