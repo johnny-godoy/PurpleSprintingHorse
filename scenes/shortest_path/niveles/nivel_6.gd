@@ -25,7 +25,7 @@ func _get_scale():
 
 # Siguiente nivel
 func next_level():
-	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_m1.tscn")
+	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_7.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

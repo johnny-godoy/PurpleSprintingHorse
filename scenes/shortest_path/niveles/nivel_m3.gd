@@ -93,4 +93,4 @@ func _calculate_stars():
 		return 0
 
 func next_level():
-	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_m4.tscn")
+	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_10.tscn")
