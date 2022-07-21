@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://resources/temita.tres" type="Theme" id=1]
 [ext_resource path="res://assets/font/Kurland_Font_0_22/Kurland.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/shortest_path/Bases/HUD_OVERLAY.gd" type="Script" id=3]
 [ext_resource path="res://assets/sonido/menuback.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/Puzzles.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -58,3 +59,9 @@ text = "Menú"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_priority = -1
 stream = ExtResource( 4 )
+
+[node name="LoopSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 384, -1 )
+stream = ExtResource( 5 )
+volume_db = -18.087
+autoplay = true

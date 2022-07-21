@@ -1,7 +1,8 @@
 extends Node2D
 
 onready var manager = ShortestPathManager
-onready var audio = $AudioStreamPlayer
+onready var audio = $pop
+onready var click = $click
 onready var resume = $WonMenu/PanelContainer/VBoxContainer/Resume
 onready var main_menu = $WonMenu/PanelContainer/VBoxContainer/MainMenu
 onready var next_level = $WonMenu/PanelContainer/VBoxContainer/NextLevel
@@ -23,20 +24,25 @@ func pause_menu(number_of_stars=-1):
 	else:
 		star_sprite.texture = load("res://assets/shortest_path/0_estrellas.PNG")
 	
+	audio.play()
+	yield(audio, "finished")
 	get_tree().paused = true
 	visible = true
 
 func _on_resume_pressed():
+	click.play()
 	get_tree().paused = false
 	# audio.play()
 	# yield(audio, "finished")
 	visible = false
 
 func _on_main_menu_pressed():
+	click.play()
 	get_tree().change_scene("res://scenes/NivelesCamino.tscn")
 	get_tree().paused = false
 
 func _on_next_level_pressed():
+	click.play()
 	get_parent().next_level()
 	get_tree().paused = false
 

@@ -91,7 +91,7 @@ func _physics_process(delta):
 		activated = true
 		camera.zoom = Vector2(1, 1)
 		manager.save_score(number_of_level, 3)
-		won_menu.pause_menu()
+		won_menu.pause_menu(3)
 		
 	elif not manager.player_won and activated:
 		activated = false
@@ -99,16 +99,15 @@ func _physics_process(delta):
 
 func instrucciones_nivel():
 	var instruction_overlay = $Horse_Overlay
-	var texto_bienvenida = "Hola, bienvenide! En este trabajo al parecer debo encontrar el camino más corto entre dos puntos..."
 	# Explicar que significa cada cosa, mencionar que parpadean las estaciones y que estos niveles
 	# Son para entender el sistema
 	var texto_introduccion = [
-		'Hola, ¡bienvenide! Como ves al frente tuyo hay una línea de metro con 6 estaciones, 4 redondas y 2 con forma de estrella...',
+		'Hola de nuevo! Decidí buscar otro trabajo y encontré este...','Como ves al frente tuyo hay una línea de metro con 6 estaciones, 4 redondas y 2 con forma de estrella...',
 		'Las estaciones con estrella son las estaciones de inicio y final, como se muestra en el texto que tienen debajo...',
 		'El objetivo de este trabajo es encontrar el camino más corto entre el inicio y el final, de todas maneras cualquier camino que encuentres sirve...',
 		'aunque mientras más se aleje del óptimo menor puntaje obtendremos. La cantidad de conexiones mínimas es mostrada arriba a la izquierda...',
 		'y para conectar estaciones entre sí solo has click en la estación de inicio y arrastra el dedo hasta la siguiente estación.',
-		'¡Buena suerte!'
+		'¡Manos a la obra!'
 	]
 	
 	$SP_Camera.current = false

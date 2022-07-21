@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://resources/temita.tres" type="Theme" id=1]
 [ext_resource path="res://assets/font/Kurland_Font_0_22/Kurland.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/shortest_path/niveles/win_menu.gd" type="Script" id=3]
 [ext_resource path="res://assets/shortest_path/0_estrellas.PNG" type="Texture" id=4]
-[ext_resource path="res://assets/sonido/menuhit.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sonido/pop.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sonido/button_click.wav" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -43,6 +44,7 @@ size_flags_vertical = 4
 [node name="VBoxContainer" type="VBoxContainer" parent="WonMenu/PanelContainer"]
 margin_right = 600.0
 margin_bottom = 448.0
+alignment = 1
 
 [node name="StarRect" type="TextureRect" parent="WonMenu/PanelContainer/VBoxContainer"]
 margin_right = 600.0
@@ -50,7 +52,6 @@ margin_bottom = 252.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource( 4 )
-stretch_mode = 6
 
 [node name="Label" type="Label" parent="WonMenu/PanelContainer/VBoxContainer"]
 margin_top = 256.0
@@ -78,5 +79,8 @@ margin_right = 600.0
 margin_bottom = 448.0
 text = "Menu principal"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="pop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
