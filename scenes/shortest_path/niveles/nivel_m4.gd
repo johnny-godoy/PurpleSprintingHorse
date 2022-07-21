@@ -34,6 +34,8 @@ func _ready():
 	manager.player_won = false
 	manager.optimal_path_len = minimum_connections
 	
+	HO.set_horse('ingeniero')
+	
 	create_and_conf_stations() # Replace with function body.
 
 var activated = false
@@ -101,7 +103,9 @@ func last_level():
 							"así que renuncié. ¡Nos vemos en un próximo trabajo!",
 							"Por cierto, si seleccionas siguiente nivel nada pasará."]
 	HO.visible = true
+	camera.current = false
 	yield(HO.prompt_iterables(texto_despedida), "completed")
+	camera.current = true
 	HO.visible = false
 	HUD.stop_music()
 
