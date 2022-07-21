@@ -60,8 +60,7 @@ text = "Menú"
 process_priority = -1
 stream = ExtResource( 4 )
 
-[node name="LoopSound" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 384, -1 )
+[node name="LoopSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -18.087
+volume_db = -19.217
 autoplay = true

@@ -6,7 +6,7 @@
 [ext_resource path="res://resources/temita.tres" type="Theme" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 30.0
+radius = 34.0
 
 [node name="estacion" type="Node2D" groups=["station"]]
 position = Vector2( 165, 97 )

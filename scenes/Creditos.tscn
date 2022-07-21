@@ -179,13 +179,13 @@ align = 1
 valign = 1
 
 [node name="Audio" type="Label" parent="ScrollContainer/VBoxContainer/Recursos"]
-margin_left = 105.0
+margin_left = 43.0
 margin_top = 454.0
-margin_right = 560.0
+margin_right = 623.0
 margin_bottom = 497.0
 size_flags_horizontal = 4
 theme = ExtResource( 1 )
-text = "Audio: DDK RPK y nuestro"
+text = "Audio: DDK RPK, jhaeka y nuestro"
 
 [node name="Agradecimientos" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
 margin_top = 853.0
