@@ -85,7 +85,7 @@ func _physics_process(delta):
 		activated = true
 		camera.zoom = Vector2(1, 1)
 		manager.save_score(number_of_level, 3)
-		won_menu.pause_menu()
+		won_menu.pause_menu(3)
 	elif not manager.player_won and activated:
 		activated = false
 		
