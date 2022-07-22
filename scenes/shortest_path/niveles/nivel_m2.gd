@@ -1,7 +1,7 @@
 extends Node2D
 
 # Estacion moscu 
-const station = preload("res://scenes/shortest_path/bases/estacionGenerica.tscn")
+const station = preload("res://scenes/shortest_path/Bases/estacionGenerica.tscn")
 
 var _incomplete_stations = {}
 

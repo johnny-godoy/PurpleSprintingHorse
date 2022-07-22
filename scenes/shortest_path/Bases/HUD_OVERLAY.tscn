@@ -56,6 +56,35 @@ enabled_focus_mode = 0
 keep_pressed_outside = true
 text = "Menú"
 
+[node name="tips" type="Button" parent="HUD"]
+visible = false
+anchor_left = 0.626
+anchor_top = 0.066
+anchor_right = 0.751
+anchor_bottom = 0.113
+margin_left = -5.72003
+margin_top = -7.28
+margin_right = 0.279968
+margin_bottom = 0.959999
+focus_mode = 0
+theme = ExtResource( 1 )
+action_mode = 0
+enabled_focus_mode = 0
+keep_pressed_outside = true
+text = "Tip"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD"]
+margin_left = 196.0
+margin_top = 145.0
+margin_right = 675.0
+margin_bottom = 328.0
+rect_scale = Vector2( 0.7, 0.7 )
+mouse_filter = 1
+theme = ExtResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "\"Tip 2: A veces se pu"
+scroll_active = false
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_priority = -1
 stream = ExtResource( 4 )
