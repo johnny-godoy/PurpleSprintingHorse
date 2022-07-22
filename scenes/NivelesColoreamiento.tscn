@@ -40,54 +40,64 @@ mouse_filter = 1
 scroll_horizontal_enabled = false
 
 [node name="Seleccion" type="VBoxContainer" parent="Scroll"]
-margin_right = 600.0
+margin_right = 400.0
 margin_bottom = 2370.0
 custom_constants/separation = 20
 
 [node name="Selector" parent="Scroll/Seleccion" instance=ExtResource( 2 )]
-margin_right = 600.0
+margin_right = 400.0
+rect_min_size = Vector2( 400, 219 )
 
 [node name="Selector2" parent="Scroll/Seleccion" instance=ExtResource( 2 )]
 margin_top = 239.0
-margin_right = 600.0
+margin_right = 400.0
 margin_bottom = 458.0
+rect_min_size = Vector2( 400, 219 )
 
 [node name="Selector3" parent="Scroll/Seleccion" instance=ExtResource( 2 )]
 margin_top = 478.0
-margin_right = 600.0
+margin_right = 400.0
 margin_bottom = 697.0
+rect_min_size = Vector2( 400, 219 )
 
 [node name="Selector4" parent="Scroll/Seleccion" instance=ExtResource( 2 )]
 margin_top = 717.0
-margin_right = 600.0
+margin_right = 400.0
 margin_bottom = 936.0
+rect_min_size = Vector2( 400, 219 )
 
 [node name="Selector5" parent="Scroll/Seleccion" instance=ExtResource( 2 )]
 margin_top = 956.0
-margin_right = 600.0
+margin_right = 400.0
 margin_bottom = 1175.0
+rect_min_size = Vector2( 400, 219 )
 
 [node name="Selector6" parent="Scroll/Seleccion" instance=ExtResource( 2 )]
 margin_top = 1195.0
-margin_right = 600.0
+margin_right = 400.0
 margin_bottom = 1414.0
+rect_min_size = Vector2( 400, 219 )
 
 [node name="Selector7" parent="Scroll/Seleccion" instance=ExtResource( 2 )]
 margin_top = 1434.0
-margin_right = 600.0
+margin_right = 400.0
 margin_bottom = 1653.0
+rect_min_size = Vector2( 400, 219 )
 
 [node name="Selector8" parent="Scroll/Seleccion" instance=ExtResource( 2 )]
 margin_top = 1673.0
-margin_right = 600.0
+margin_right = 400.0
 margin_bottom = 1892.0
+rect_min_size = Vector2( 400, 219 )
 
 [node name="Selector9" parent="Scroll/Seleccion" instance=ExtResource( 2 )]
 margin_top = 1912.0
-margin_right = 600.0
+margin_right = 400.0
 margin_bottom = 2131.0
+rect_min_size = Vector2( 400, 219 )
 
 [node name="Selector10" parent="Scroll/Seleccion" instance=ExtResource( 2 )]
 margin_top = 2151.0
-margin_right = 600.0
+margin_right = 400.0
 margin_bottom = 2370.0
+rect_min_size = Vector2( 400, 219 )
