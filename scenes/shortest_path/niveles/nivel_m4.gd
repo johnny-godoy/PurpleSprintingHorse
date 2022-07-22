@@ -99,7 +99,7 @@ func _calculate_stars():
 
 func last_level():
 	var texto_despedida = ["Hemos llegado al último nivel, muchas gracias por toda tu ayuda no lo habría podido hacer sin ti...",
-							"aunque debo he decidido que este trabajo no es para mí, demasiadas estaciones y conexiones...",
+							"aunque he decidido que este trabajo no es para mí, demasiadas estaciones y conexiones...",
 							"así que renuncié. ¡Nos vemos en un próximo trabajo!",
 							"Por cierto, si seleccionas siguiente nivel nada pasará."]
 	HO.visible = true
