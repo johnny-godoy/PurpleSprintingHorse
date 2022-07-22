@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://color_group.tres" type="ButtonGroup" id=1]
+[ext_resource path="res://resources/temita.tres" type="Theme" id=1]
 [ext_resource path="res://coloring/base/ColorBuckets.gd" type="Script" id=2]
 [ext_resource path="res://assets/eraser.png" type="Texture" id=3]
 [ext_resource path="res://assets/sonido/button_click.wav" type="AudioStream" id=4]
@@ -12,6 +12,8 @@ bg_color = Color( 1, 1, 1, 1 )
 Button/styles/hover = null
 Button/styles/normal = SubResource( 1 )
 
+[sub_resource type="ButtonGroup" id=3]
+
 [node name="ColorBuckets" type="HBoxContainer"]
 margin_left = 62.0
 margin_top = 637.0
@@ -19,6 +21,7 @@ margin_right = 679.0
 margin_bottom = 928.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Clear" type="Button" parent="."]
@@ -29,7 +32,7 @@ mouse_filter = 1
 size_flags_horizontal = 3
 theme = SubResource( 2 )
 toggle_mode = true
-group = ExtResource( 1 )
+group = SubResource( 3 )
 
 [node name="Eraser" type="Sprite" parent="Clear"]
 position = Vector2( 54, 127 )
@@ -45,7 +48,7 @@ mouse_filter = 1
 size_flags_horizontal = 3
 theme = SubResource( 2 )
 toggle_mode = true
-group = ExtResource( 1 )
+group = SubResource( 3 )
 
 [node name="Orange" type="Button" parent="."]
 modulate = Color( 1, 0.498039, 0.054902, 1 )
@@ -57,7 +60,7 @@ mouse_filter = 1
 size_flags_horizontal = 3
 theme = SubResource( 2 )
 toggle_mode = true
-group = ExtResource( 1 )
+group = SubResource( 3 )
 
 [node name="Green" type="Button" parent="."]
 modulate = Color( 0.172549, 0.627451, 0.172549, 1 )
@@ -69,7 +72,7 @@ mouse_filter = 1
 size_flags_horizontal = 3
 theme = SubResource( 2 )
 toggle_mode = true
-group = ExtResource( 1 )
+group = SubResource( 3 )
 
 [node name="Red" type="Button" parent="."]
 modulate = Color( 0.839216, 0.152941, 0.156863, 1 )
@@ -81,7 +84,7 @@ mouse_filter = 1
 size_flags_horizontal = 3
 theme = SubResource( 2 )
 toggle_mode = true
-group = ExtResource( 1 )
+group = SubResource( 3 )
 
 [node name="Purple" type="Button" parent="."]
 modulate = Color( 0.580392, 0.403922, 0.741176, 1 )
@@ -93,7 +96,7 @@ mouse_filter = 1
 size_flags_horizontal = 3
 theme = SubResource( 2 )
 toggle_mode = true
-group = ExtResource( 1 )
+group = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
