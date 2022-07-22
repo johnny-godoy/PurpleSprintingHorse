@@ -36,7 +36,7 @@ var number_of_connections := 0 setget _set_noc# Reset by station
 var HUD : Node2D
 
 export var player_won = false
-var player_tried_to_win = false
+export var player_tried_to_win = false
 
 func _ready():
 	load_data()
@@ -49,7 +49,6 @@ func reset_variables():
 	current_station = null
 	accept_connection = false
 	current_ending_station = null
-	player_tried_to_win = false
 
 # Checkeo de que se encontró el camino más corto, permite encontrarlo por largo 
 # o por exactitud del camino
@@ -69,7 +68,7 @@ func check_path(last_station : Node2D):
 			player_won = true
 		else:
 			player_won = false
-			player_tried_to_win = true
+			HUD.show_tip = true
 
 # Llamado por las estaciones cuando se conectan y desconectan, cambia la
 # cantidad de conexiones en el HUD. Permite además un checkeo cuando es llamado
@@ -82,7 +81,6 @@ func _set_noc(value):
 		check_path(current_ending_station)
 	else:
 		player_won = false
-		player_tried_to_win = false
 
 """
 Para guardar y cargar puntajes en los niveles del camino más corto
