@@ -3,6 +3,7 @@ extends Node2D
 
 onready var buckets = $ColorBuckets
 onready var graph = $GraphToColor
+onready var horse = $Horse_Overlay
 onready var hud = $HUD_OVERLAY
 onready var pop_audio = $Pop
 onready var selected = $Marco/Selected
@@ -13,12 +14,15 @@ export var leeway = 1
 
 var buttons = []
 var connected_node_pairs = []
+var finished = false setget , is_finished
 var lines = []
 var uncolored = Color(1, 1, 1, 1)
 var has_next_level: bool
+var activated: bool = false
 
 
 func _ready() -> void:
+	horse.visible = false
 	# Inicializando el HUD
 	hud.min_colors = min_colors
 	hud.level = level
@@ -77,6 +81,29 @@ func _process(_delta) -> void:
 	# Se revisa si el nivel terminó para correr la secuencia apropiada
 	hud.level_progress = 0
 	hud.next_level_button.visible = false
-	if hud.colors_used <= min_colors + leeway and hud.errors == 0 and hud.to_color == 0:
-		hud.next_level_button.visible = has_next_level
+	if is_finished():
 		hud.level_progress = 1 + int(hud.colors_used == min_colors)
+		hud.next_level_button.visible = has_next_level
+	if is_finished() and not activated:
+		activated = true
+		
+		if not has_next_level:
+			yield(goodbye(), "completed")
+	elif not is_finished() and activated:
+		activated = false
+
+
+func is_finished() -> bool:
+	return hud.colors_used <= min_colors + leeway and hud.errors == 0 and hud.to_color == 0
+
+
+func goodbye():
+	horse.visible = true
+	var texto_despedida = 'Oh...hola.'
+
+	var script = ['Tengo malas noticias, me van a expulsar de la Academia Equina de Arte...Por falta de integridad académica',
+	'Las buenas noticias son que me conseguí un trabajo en construcción. ¡Deberías visitarme allá!']
+
+	yield(horse.prompt_text(texto_despedida), "completed")
+	yield(horse.prompt_iterables(script), "completed")
+	horse.visible = false
