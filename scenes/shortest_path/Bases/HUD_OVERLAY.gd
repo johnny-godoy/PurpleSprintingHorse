@@ -1,6 +1,5 @@
 extends Node2D
 
-onready var manager = ShortestPathManager
 onready var audio = $AudioStreamPlayer
 onready var background_music = $LoopSound
 onready var _menu_button:Button = $HUD/MenuButton
@@ -18,6 +17,7 @@ var tip2 = "Tip 2: A veces se puede buscar el camino más corto hasta un punto a
 var tip3 = "Tip 3: Algunas conexiones recorren más distancia que otras."
 
 var tips = [tip1, tip2, tip3]
+var show_tip = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,19 +26,31 @@ func _ready():
 	_menu_button.add_stylebox_override("hover", _menu_button.get_stylebox('normal'))
 	_tip_button.add_stylebox_override("hover", _menu_button.get_stylebox('normal'))
 	_tip_button.mouse_filter = Control.MOUSE_FILTER_STOP
+	_tip_button.connect("button_down", self, '_tip_button_pressed')
 
 var _frames_passed = 0
+var _show_once = true
+var _can_press = true
 func _physics_process(delta):
-	if manager.player_tried_to_win:
-		var tip = randi() % 3
+	_frames_passed = (_frames_passed + 1) % 1801
+	
+	if show_tip and _show_once:
+		_tip_button.visible = true
+		
+	if _frames_passed == 900:
+		_can_press = true
+		
+	if _frames_passed == 450:
+		_tip_text.visible = false
+var tip = 0
+func _tip_button_pressed():
+	if _can_press:
 		_tip_text.text = tips[tip]
 		_tip_text.visible = true
 		_frames_passed = 0
-	else:
-		_frames_passed += 1 % 3601
-	
-	if _frames_passed == 600:
-		_tip_text.visible = false
+		_can_press = false
+		tip = (tip + 1) % 3
+
 
 # Despliega el menú
 func _menu_button_pressed():
