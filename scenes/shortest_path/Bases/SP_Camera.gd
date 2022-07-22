@@ -12,9 +12,9 @@ export var min_zoom := 0.3
 # Upper cap for the `_zoom_level`.
 export var max_zoom := 1.1
 # Controls how much we increase or decrease the `_zoom_level` on every turn of the scroll wheel.
-export var zoom_factor := 0.28
+export var zoom_factor := 3
 # Duration of the zoom's tween animation.
-export var zoom_duration := 0.2
+export var zoom_duration := 0.03
 
 # Ubicación corte superior de la cámara
 export var top_position : float
