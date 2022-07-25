@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "Level",
 "language": "GDScript",
 "path": "res://coloring/base/level.gd"
+}, {
+"base": "TextureButton",
+"class": "SoundButton",
+"language": "GDScript",
+"path": "res://scenes/SoundButton.gd"
 } ]
 _global_script_class_icons={
-"Level": ""
+"Level": "",
+"SoundButton": ""
 }
 
 [application]
@@ -41,6 +47,7 @@ window/stretch/aspect="keep"
 layout=false
 displa=false
 window=false
+touch=false
 
 [input]
 

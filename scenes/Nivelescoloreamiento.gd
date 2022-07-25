@@ -1,24 +1,22 @@
 extends Node2D
 
 onready var atras = $atras
-onready var lvl1 = $Niveles2/lvl1
-onready var lvl2 = $Niveles2/lvl2
-onready var lvl3 = $Niveles2/lvl3
+onready var seleccion = $Scroll/Seleccion
+
 
 func _ready():
-	atras.connect("pressed",self, "_on_atras_pressed")
-	lvl1.connect("pressed",self, "_on_lvl1_pressed")
-	lvl2.connect("pressed",self, "_on_lvl2_pressed")
-	lvl3.connect("pressed",self, "_on_lvl3_pressed")
+	# Cargando las calificaciones
+	var calificaciones = ["Sin completar", "Completo", "Perfecto"]
+	var guardado = File.new()
+	guardado.open("res://coloring/base/coloring_progress.dat", File.READ)
+	var indices_progreso = str2var(guardado.get_as_text())
+	guardado.close()
 
-func _on_atras_pressed():
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
-
-func _on_lvl1_pressed():
-	get_tree().change_scene("res://coloring/Level 1.tscn")
-
-func _on_lvl2_pressed():
-	get_tree().change_scene("res://coloring/Level 2.tscn")
-
-func _on_lvl3_pressed():
-	get_tree().change_scene("res://coloring/Level 3.tscn")
+	# Preparando los botones y etiquetas
+	var seleccionables = seleccion.get_children()
+	for nivel in seleccionables.size():
+		var seleccionable = seleccionables[nivel]
+		seleccionable.index.text = str(nivel + 1)
+		seleccionable.completion.text = calificaciones[indices_progreso[nivel]]
+		seleccionable.texture_normal = load("res://assets/coloring/level%d.png" % (nivel + 1))
+		seleccionable.next_scene = "res://coloring/Level %d.tscn" % (nivel + 1)

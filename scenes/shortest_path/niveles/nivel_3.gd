@@ -2,12 +2,15 @@ extends Node2D
 
 onready var manager = ShortestPathManager
 
+onready var places = get_tree().get_nodes_in_group('stations')
 onready var HUD = $HUD_OVERLAY
-onready var map = $rome_subway
-onready var stations = $rome_subway/map
+onready var map = $cdmx_subway
+onready var stations = $cdmx_subway/map
 onready var won_menu = $wonMenu
+onready var stations_to_be_used = []
+onready var camera = $SP_Camera
 
-export var minimum_connections = 2
+export var minimum_connections = 4
 export var number_of_level = 3
 
 export var stations_scale := 0.5 setget , _get_scale
@@ -22,7 +25,7 @@ func _get_scale():
 
 # Siguiente nivel
 func next_level():
-	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_4.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,19 +39,17 @@ func _ready():
 	manager.HUD = HUD
 	manager.number_of_connections = 0
 	manager.player_won = false
+	manager.optimal_path_len = minimum_connections
 	
-	var stations_to_be_used = ['sp_blue_1', 'sp_black_1', 'sp_green_1']
-	# EN ESTOS NIVELES SE USAN POCOS NIVELES, POR LO QUE EL ORDEN DE LA LISTA 
-	# ANTERIOR ES EL MISMO ORDEN QUE EL CAMINO OPTIMO
-	var _optimal_path_map_ = stations_to_be_used
-	var _optimal_path = range(len(stations_to_be_used))
+	for st in places:
+		stations_to_be_used.append(st.get_name())
+	
+	var _optimal_path_map_ = ['orange_6','pink_1','pink_2','pink_3','lightgreen_4']
+	var _optimal_path = range(len(_optimal_path_map_))
 	
 	# Se crean las estaciones
 	for pos in stations.get_children():
 		if not pos.is_in_group('stations'):
-			continue
-		elif not pos.get_name() in stations_to_be_used:
-			_childs.append(null)
 			continue
 			
 		var temp_station = station.instance()
@@ -64,8 +65,8 @@ func _ready():
 			manager.end_station = temp_station
 			temp_station.is_ending_station = true
 	
-		_optimal_path[stations_to_be_used.find(pos.name)] = temp_station
-		
+		if pos.name in _optimal_path_map_:
+			_optimal_path[_optimal_path_map_.find(pos.name)] = temp_station
 	var num = 0
 	for station in _childs:
 		
@@ -84,13 +85,25 @@ var count = 0
 var count2 = 0
 var activated = false
 func _physics_process(delta):
-	
-	if count < 90:
-		count += 1
-	
 	if manager.player_won and not activated:
 		activated = true
-		won_menu.pause_menu()
+		var stars = _calculate_stars()
+		manager.save_score(number_of_level, stars)
+		camera.zoom = Vector2(1, 1)
+		print("nivel: ", stars)
+		won_menu.pause_menu(stars)
+		
 	elif not manager.player_won and activated:
 		activated = false
 		
+func _calculate_stars():
+	var noc = manager.number_of_connections
+	
+	if noc == minimum_connections:
+		return 3
+	elif noc == minimum_connections + 1:
+		return 2
+	elif noc == minimum_connections + 2:
+		return 1
+	else:
+		return 0

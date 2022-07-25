@@ -1,15 +1,25 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/shortest_path/Mapas/rome_subway.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/shortest_path/Bases/HUD_OVERLAY.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/shortest_path/testeo_lvl/test_level.gd" type="Script" id=3]
 [ext_resource path="res://scenes/shortest_path/Bases/SP_Camera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/caballo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/shortest_path/Mapas/moscow_subway.tscn" type="PackedScene" id=6]
 
 [node name="test_lvl" type="Node2D"]
+process_priority = -1
 script = ExtResource( 3 )
 
 [node name="HUD_OVERLAY" parent="." instance=ExtResource( 2 )]
 
+[node name="moscow_subway" parent="." instance=ExtResource( 6 )]
+
 [node name="rome_subway" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="SP_Camera" parent="." instance=ExtResource( 4 )]
+process_priority = 1
+
+[node name="horse_overlay" parent="." instance=ExtResource( 5 )]
+visible = false

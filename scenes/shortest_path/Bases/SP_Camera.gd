@@ -12,9 +12,9 @@ export var min_zoom := 0.3
 # Upper cap for the `_zoom_level`.
 export var max_zoom := 1.1
 # Controls how much we increase or decrease the `_zoom_level` on every turn of the scroll wheel.
-export var zoom_factor := 0.1
+export var zoom_factor := 3
 # Duration of the zoom's tween animation.
-export var zoom_duration := 0.2
+export var zoom_duration := 0.03
 
 # Ubicación corte superior de la cámara
 export var top_position : float
@@ -40,6 +40,8 @@ var og_diff_left
 var og_diff_right
 var og_diff_top
 var og_diff_bottom
+
+# Para evitar comportamientos 
 
 # The camera's target zoom level.
 var _zoom_level := 1.0 setget _set_zoom_level
@@ -85,6 +87,8 @@ func _set_zoom_level(value: float):
 	tween.start()
 	
 func _input(event):
+	if not current:
+		return
 	
 	##### MOBILE OPTIONS
 	if event is InputEventScreenTouch:
@@ -95,7 +99,7 @@ func _input(event):
 		# - 
 		if event.pressed:
 			touch_events[event.index] = event
-			print('camera input')
+			# print('camera input')
 		else:
 			touch_events.erase(event.index)
 		

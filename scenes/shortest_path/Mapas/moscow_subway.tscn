@@ -1,0 +1,1523 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/shortest_path/Mapa Moscow.png" type="Texture" id=1]
+[ext_resource path="res://scenes/shortest_path/Mapas/moscow_subway.gd" type="Script" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 2.0
+
+[node name="moscow_subway" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 720.0
+margin_bottom = 1080.0
+mouse_filter = 2
+
+[node name="background" type="ColorRect" parent="Control"]
+margin_left = -422.0
+margin_top = -249.0
+margin_right = 1350.0
+margin_bottom = 1502.0
+mouse_filter = 2
+
+[node name="map" type="TextureRect" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 131.0
+margin_bottom = -157.294
+rect_pivot_offset = Vector2( 624, 295 )
+mouse_filter = 2
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+
+[node name="linea_azul" type="Node2D" parent="Control/map" groups=["linea"]]
+
+[node name="1" type="StaticBody2D" parent="Control/map/linea_azul" groups=["estacion"]]
+position = Vector2( 64, 129 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_azul/1"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="2" type="StaticBody2D" parent="Control/map/linea_azul" groups=["estacion"]]
+position = Vector2( 65, 213 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_azul/2"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="3" type="StaticBody2D" parent="Control/map/linea_azul" groups=["estacion"]]
+position = Vector2( 65, 265 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_azul/3"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="4" type="StaticBody2D" parent="Control/map/linea_azul" groups=["estacion"]]
+position = Vector2( 66, 344 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_azul/4"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="5" type="StaticBody2D" parent="Control/map/linea_azul" groups=["estacion"]]
+position = Vector2( 155, 433 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_azul/5"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="6" type="StaticBody2D" parent="Control/map/linea_azul" groups=["estacion"]]
+position = Vector2( 238, 401 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_azul/6"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="7" type="StaticBody2D" parent="Control/map/linea_azul" groups=["estacion"]]
+position = Vector2( 335, 351 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_azul/7"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="8" type="StaticBody2D" parent="Control/map/linea_azul" groups=["estacion"]]
+position = Vector2( 423, 355 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_azul/8"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="9" type="StaticBody2D" parent="Control/map/linea_azul" groups=["estacion"]]
+position = Vector2( 536, 358 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_azul/9"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="10" type="StaticBody2D" parent="Control/map/linea_azul" groups=["estacion"]]
+position = Vector2( 613, 302 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_azul/10"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="11" type="StaticBody2D" parent="Control/map/linea_azul" groups=["estacion"]]
+position = Vector2( 614, 206 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_azul/11"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="1-2" type="PinJoint2D" parent="Control/map/linea_azul" groups=["conexion"]]
+node_a = NodePath("../1")
+node_b = NodePath("../2")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_azul/1-2"]
+points = PoolVector2Array( 65, 129, 65, 215 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="2-3" type="PinJoint2D" parent="Control/map/linea_azul" groups=["conexion"]]
+node_a = NodePath("../2")
+node_b = NodePath("../3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_azul/2-3"]
+position = Vector2( 0, 86 )
+points = PoolVector2Array( 65, 129, 65, 180 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="3-4" type="PinJoint2D" parent="Control/map/linea_azul" groups=["conexion"]]
+node_a = NodePath("../3")
+node_b = NodePath("../4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_azul/3-4"]
+position = Vector2( 0, 72.8947 )
+scale = Vector2( 1, 1.50877 )
+points = PoolVector2Array( 65, 129, 65, 180 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="4-5" type="PinJoint2D" parent="Control/map/linea_azul" groups=["conexion"]]
+node_a = NodePath("../4")
+node_b = NodePath("../5")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_azul/4-5"]
+rotation = -0.000289174
+points = PoolVector2Array( 66, 345, 155, 434 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="5-6" type="PinJoint2D" parent="Control/map/linea_azul" groups=["conexion"]]
+node_a = NodePath("../5")
+node_b = NodePath("../6")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_azul/5-6"]
+points = PoolVector2Array( 154, 433, 179, 458, 237, 402 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="6-7" type="PinJoint2D" parent="Control/map/linea_azul" groups=["conexion"]]
+node_a = NodePath("../6")
+node_b = NodePath("../7")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_azul/6-7"]
+position = Vector2( 0, -1 )
+points = PoolVector2Array( 239, 400, 283, 358, 335, 357 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="7-8" type="PinJoint2D" parent="Control/map/linea_azul" groups=["conexion"]]
+node_a = NodePath("../7")
+node_b = NodePath("../8")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_azul/7-8"]
+points = PoolVector2Array( 335, 356, 423, 355 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="8-9" type="PinJoint2D" parent="Control/map/linea_azul" groups=["conexion"]]
+node_a = NodePath("../8")
+node_b = NodePath("../9")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_azul/8-9"]
+points = PoolVector2Array( 423, 355, 534, 355 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="9-10" type="PinJoint2D" parent="Control/map/linea_azul" groups=["conexion"]]
+node_a = NodePath("../9")
+node_b = NodePath("../10")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_azul/9-10"]
+points = PoolVector2Array( 536, 355, 558, 355, 613, 302 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="10-11" type="PinJoint2D" parent="Control/map/linea_azul" groups=["conexion"]]
+node_a = NodePath("../10")
+node_b = NodePath("../11")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_azul/10-11"]
+points = PoolVector2Array( 614, 302, 614, 206 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="linea_celeste" type="Node2D" parent="Control/map" groups=["linea"]]
+
+[node name="1" type="StaticBody2D" parent="Control/map/linea_celeste" groups=["estacion"]]
+position = Vector2( 126, 377 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_celeste/1"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="2" type="StaticBody2D" parent="Control/map/linea_celeste" groups=["estacion"]]
+position = Vector2( 179, 325 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_celeste/2"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="3" type="StaticBody2D" parent="Control/map/linea_celeste" groups=["estacion"]]
+position = Vector2( 271, 343 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_celeste/3"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="AZ4-1" type="PinJoint2D" parent="Control/map/linea_celeste" groups=["conexion"]]
+node_a = NodePath("../../linea_azul/4")
+node_b = NodePath("../1")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_celeste/AZ4-1"]
+points = PoolVector2Array( 66, 344, 78, 331, 126, 377 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="1-2" type="PinJoint2D" parent="Control/map/linea_celeste" groups=["conexion"]]
+node_a = NodePath("../1")
+node_b = NodePath("../2")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_celeste/1-2"]
+points = PoolVector2Array( 126, 378, 181, 433, 223, 386, 179, 343, 179, 325 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="1-3" type="PinJoint2D" parent="Control/map/linea_celeste" groups=["conexion"]]
+node_a = NodePath("../1")
+node_b = NodePath("../3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_celeste/1-3"]
+points = PoolVector2Array( 126, 377, 181, 432, 230, 381, 264, 349, 271, 344 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="3-AZ7" type="PinJoint2D" parent="Control/map/linea_celeste" groups=["conexion"]]
+node_a = NodePath("../3")
+node_b = NodePath("../../linea_azul/7")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_celeste/3-AZ7"]
+points = PoolVector2Array( 269, 344, 280, 342, 328, 342, 335, 351 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="2-3" type="PinJoint2D" parent="Control/map/linea_celeste" groups=["conexion"]]
+node_a = NodePath("../2")
+node_b = NodePath("../3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_celeste/2-3"]
+points = PoolVector2Array( 270, 344, 223, 385, 179, 342, 179, 325 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="linea_cafe" type="Node2D" parent="Control/map" groups=["linea"]]
+
+[node name="1" type="StaticBody2D" parent="Control/map/linea_cafe" groups=["estacion"]]
+position = Vector2( 225, 297 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_cafe/1"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="2" type="StaticBody2D" parent="Control/map/linea_cafe" groups=["estacion"]]
+position = Vector2( 271, 220 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_cafe/2"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="3" type="StaticBody2D" parent="Control/map/linea_cafe" groups=["estacion"]]
+position = Vector2( 339, 181 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_cafe/3"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="4" type="StaticBody2D" parent="Control/map/linea_cafe" groups=["estacion"]]
+position = Vector2( 454, 195 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_cafe/4"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="5" type="StaticBody2D" parent="Control/map/linea_cafe" groups=["estacion"]]
+position = Vector2( 489, 220 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_cafe/5"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="6" type="StaticBody2D" parent="Control/map/linea_cafe" groups=["estacion"]]
+position = Vector2( 436, 480 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_cafe/6"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="7" type="StaticBody2D" parent="Control/map/linea_cafe" groups=["estacion"]]
+position = Vector2( 403, 489 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_cafe/7"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="8" type="StaticBody2D" parent="Control/map/linea_cafe" groups=["estacion"]]
+position = Vector2( 335, 484 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_cafe/8"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="9" type="StaticBody2D" parent="Control/map/linea_cafe" groups=["estacion"]]
+position = Vector2( 265, 440 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_cafe/9"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="1-2" type="PinJoint2D" parent="Control/map/linea_cafe" groups=["conexion"]]
+node_a = NodePath("../1")
+node_b = NodePath("../2")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_cafe/1-2"]
+points = PoolVector2Array( 225, 297, 231, 278, 239, 260, 248, 246, 259, 232, 271, 220 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="2-3" type="PinJoint2D" parent="Control/map/linea_cafe" groups=["conexion"]]
+node_a = NodePath("../2")
+node_b = NodePath("../3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_cafe/2-3"]
+points = PoolVector2Array( 271, 220, 284, 208, 295, 201, 309, 193, 325, 187, 339, 182 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="3-4" type="PinJoint2D" parent="Control/map/linea_cafe" groups=["conexion"]]
+node_a = NodePath("../3")
+node_b = NodePath("../4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_cafe/3-4"]
+points = PoolVector2Array( 339, 182, 359, 178, 381, 177, 400, 177, 417, 181, 436, 187, 454, 195 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="4-5" type="PinJoint2D" parent="Control/map/linea_cafe" groups=["conexion"]]
+node_a = NodePath("../4")
+node_b = NodePath("../5")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_cafe/4-5"]
+points = PoolVector2Array( 454, 195, 463, 199, 477, 209, 489, 220 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="5-AZ9" type="PinJoint2D" parent="Control/map/linea_cafe" groups=["conexion"]]
+node_a = NodePath("../5")
+node_b = NodePath("../../linea_azul/9")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_cafe/5-AZ9"]
+points = PoolVector2Array( 488, 220, 508, 242, 521, 264, 533, 291, 537, 315, 538, 337, 536, 359 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="AZ9-6" type="PinJoint2D" parent="Control/map/linea_cafe" groups=["conexion"]]
+node_a = NodePath("../../linea_azul/9")
+node_b = NodePath("../6")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_cafe/AZ9-6"]
+points = PoolVector2Array( 536, 358, 530, 385, 521, 406, 506, 427, 494, 443, 475, 459, 460, 469, 436, 480 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="6-7" type="PinJoint2D" parent="Control/map/linea_cafe" groups=["conexion"]]
+node_a = NodePath("../6")
+node_b = NodePath("../7")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_cafe/6-7"]
+points = PoolVector2Array( 436, 480, 421, 486, 403, 489 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="7-8" type="PinJoint2D" parent="Control/map/linea_cafe" groups=["conexion"]]
+node_a = NodePath("../7")
+node_b = NodePath("../8")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_cafe/7-8"]
+points = PoolVector2Array( 403, 489, 381, 490, 359, 489, 334, 484 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="8-9" type="PinJoint2D" parent="Control/map/linea_cafe" groups=["conexion"]]
+node_a = NodePath("../8")
+node_b = NodePath("../9")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_cafe/8-9"]
+points = PoolVector2Array( 335, 484, 323, 480, 311, 476, 297, 468, 282, 458, 265, 440 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="9-AZ6" type="PinJoint2D" parent="Control/map/linea_cafe" groups=["conexion"]]
+node_a = NodePath("../9")
+node_b = NodePath("../../linea_azul/6")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_cafe/9-AZ6"]
+points = PoolVector2Array( 265, 440, 251, 426, 244, 416, 238, 401 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="AZ6-1" type="PinJoint2D" parent="Control/map/linea_cafe" groups=["conexion"]]
+node_a = NodePath("../../linea_azul/6")
+node_b = NodePath("../1")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_cafe/AZ6-1"]
+points = PoolVector2Array( 238, 401, 227, 376, 223, 359, 221, 339, 221, 322, 226, 297 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="linea_roja" type="Node2D" parent="Control/map" groups=["linea"]]
+
+[node name="RO1" type="StaticBody2D" parent="Control/map/linea_roja" groups=["estacion"]]
+position = Vector2( 135, 567 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_roja/RO1"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="RO2" type="StaticBody2D" parent="Control/map/linea_roja" groups=["estacion"]]
+position = Vector2( 204, 500 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_roja/RO2"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="RO3" type="StaticBody2D" parent="Control/map/linea_roja" groups=["estacion"]]
+position = Vector2( 308, 396 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_roja/RO3"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="RO4" type="StaticBody2D" parent="Control/map/linea_roja" groups=["estacion"]]
+position = Vector2( 378, 328 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_roja/RO4"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="RO5" type="StaticBody2D" parent="Control/map/linea_roja" groups=["estacion"]]
+position = Vector2( 410, 296 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_roja/RO5"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="RO6" type="StaticBody2D" parent="Control/map/linea_roja" groups=["estacion"]]
+position = Vector2( 540, 169 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_roja/RO6"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="RO7" type="StaticBody2D" parent="Control/map/linea_roja" groups=["estacion"]]
+position = Vector2( 575, 111 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_roja/RO7"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="1-2" type="PinJoint2D" parent="Control/map/linea_roja" groups=["conexion"]]
+node_a = NodePath("../RO1")
+node_b = NodePath("../RO2")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_roja/1-2"]
+points = PoolVector2Array( 135, 567, 204, 499 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="2-CA9" type="PinJoint2D" parent="Control/map/linea_roja" groups=["conexion"]]
+node_a = NodePath("../RO2")
+node_b = NodePath("../../linea_cafe/9")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_roja/2-CA9"]
+points = PoolVector2Array( 204, 500, 265, 439 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="CA9-3" type="PinJoint2D" parent="Control/map/linea_roja" groups=["conexion"]]
+node_a = NodePath("../../linea_cafe/9")
+node_b = NodePath("../RO3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_roja/CA9-3"]
+points = PoolVector2Array( 265, 440, 309, 396 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="3-4" type="PinJoint2D" parent="Control/map/linea_roja" groups=["conexion"]]
+node_a = NodePath("../RO3")
+node_b = NodePath("../RO4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_roja/3-4"]
+points = PoolVector2Array( 309, 396, 379, 328 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="4-5" type="PinJoint2D" parent="Control/map/linea_roja" groups=["conexion"]]
+node_a = NodePath("../RO4")
+node_b = NodePath("../RO5")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_roja/4-5"]
+points = PoolVector2Array( 379, 329, 411, 296 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="5-CA5" type="PinJoint2D" parent="Control/map/linea_roja" groups=["conexion"]]
+node_a = NodePath("../RO5")
+node_b = NodePath("../../linea_cafe/5")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_roja/5-CA5"]
+points = PoolVector2Array( 411, 296, 489, 220 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="CA5-6" type="PinJoint2D" parent="Control/map/linea_roja" groups=["conexion"]]
+node_a = NodePath("../../linea_cafe/5")
+node_b = NodePath("../RO6")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_roja/CA5-6"]
+points = PoolVector2Array( 490, 220, 541, 169 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="6-7" type="PinJoint2D" parent="Control/map/linea_roja" groups=["conexion"]]
+node_a = NodePath("../RO6")
+node_b = NodePath("../RO7")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_roja/6-7"]
+points = PoolVector2Array( 541, 169, 575, 136, 575, 111 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="linea_morada" type="Node2D" parent="Control/map" groups=["linea"]]
+
+[node name="MO1" type="StaticBody2D" parent="Control/map/linea_morada" groups=["estacion"]]
+position = Vector2( 144, 144 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_morada/MO1"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="MO2" type="StaticBody2D" parent="Control/map/linea_morada" groups=["estacion"]]
+position = Vector2( 144, 220 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_morada/MO2"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="MO3" type="StaticBody2D" parent="Control/map/linea_morada" groups=["estacion"]]
+position = Vector2( 312, 296 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_morada/MO3"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="MO4" type="StaticBody2D" parent="Control/map/linea_morada" groups=["estacion"]]
+position = Vector2( 452, 338 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_morada/MO4"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="MO5" type="StaticBody2D" parent="Control/map/linea_morada" groups=["estacion"]]
+position = Vector2( 568, 452 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_morada/MO5"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="MO6" type="StaticBody2D" parent="Control/map/linea_morada" groups=["estacion"]]
+position = Vector2( 702, 516 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_morada/MO6"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="1-2" type="PinJoint2D" parent="Control/map/linea_morada" groups=["conexion"]]
+node_a = NodePath("../MO1")
+node_b = NodePath("../MO2")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_morada/1-2"]
+points = PoolVector2Array( 144, 144, 144, 208, 144, 220 )
+width = 3.0
+default_color = Color( 0.780392, 0.705882, 0.705882, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="2-CA1" type="PinJoint2D" parent="Control/map/linea_morada" groups=["conexion"]]
+node_a = NodePath("../MO2")
+node_b = NodePath("../../linea_cafe/1")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_morada/2-CA1"]
+points = PoolVector2Array( 145, 220, 213, 289, 226, 297 )
+width = 3.0
+default_color = Color( 0.780392, 0.705882, 0.705882, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="CA1-3" type="PinJoint2D" parent="Control/map/linea_morada" groups=["conexion"]]
+node_a = NodePath("../../linea_cafe/1")
+node_b = NodePath("../MO3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_morada/CA1-3"]
+points = PoolVector2Array( 227, 298, 313, 297 )
+width = 3.0
+default_color = Color( 0.780392, 0.705882, 0.705882, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="3-RO5" type="PinJoint2D" parent="Control/map/linea_morada" groups=["conexion"]]
+node_a = NodePath("../MO3")
+node_b = NodePath("../../linea_roja/RO5")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_morada/3-RO5"]
+points = PoolVector2Array( 313, 297, 411, 297 )
+width = 3.0
+default_color = Color( 0.780392, 0.705882, 0.705882, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="RO5-4" type="PinJoint2D" parent="Control/map/linea_morada" groups=["conexion"]]
+node_a = NodePath("../../linea_roja/RO5")
+node_b = NodePath("../MO4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_morada/RO5-4"]
+points = PoolVector2Array( 412, 297, 453, 339 )
+width = 3.0
+default_color = Color( 0.780392, 0.705882, 0.705882, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="4-5" type="PinJoint2D" parent="Control/map/linea_morada" groups=["conexion"]]
+node_a = NodePath("../MO4")
+node_b = NodePath("../MO5")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_morada/4-5"]
+points = PoolVector2Array( 454, 339, 568, 454 )
+width = 3.0
+default_color = Color( 0.780392, 0.705882, 0.705882, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="5-6" type="PinJoint2D" parent="Control/map/linea_morada" groups=["conexion"]]
+node_a = NodePath("../MO5")
+node_b = NodePath("../MO6")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_morada/5-6"]
+points = PoolVector2Array( 568, 454, 630, 514, 703, 516 )
+width = 3.0
+default_color = Color( 0.780392, 0.705882, 0.705882, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="linea_naranja" type="Node2D" parent="Control/map" groups=["linea"]]
+
+[node name="NA1" type="StaticBody2D" parent="Control/map/linea_naranja" groups=["estacion"]]
+position = Vector2( 273, 667 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_naranja/NA1"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="NA2" type="StaticBody2D" parent="Control/map/linea_naranja" groups=["estacion"]]
+position = Vector2( 295, 555 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_naranja/NA2"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="NA3" type="StaticBody2D" parent="Control/map/linea_naranja" groups=["estacion"]]
+position = Vector2( 393, 425 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_naranja/NA3"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="NA4" type="StaticBody2D" parent="Control/map/linea_naranja" groups=["estacion"]]
+position = Vector2( 468, 99 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_naranja/NA4"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="NA5" type="StaticBody2D" parent="Control/map/linea_naranja" groups=["estacion"]]
+position = Vector2( 500, 32 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_naranja/NA5"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="1-2" type="PinJoint2D" parent="Control/map/linea_naranja" groups=["conexion"]]
+node_a = NodePath("../NA1")
+node_b = NodePath("../NA2")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_naranja/1-2"]
+points = PoolVector2Array( 274, 668, 247, 636, 247, 603, 295, 554 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="2-CA8" type="PinJoint2D" parent="Control/map/linea_naranja" groups=["conexion"]]
+node_a = NodePath("../NA2")
+node_b = NodePath("../../linea_cafe/8")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_naranja/2-CA8"]
+points = PoolVector2Array( 294, 555, 333, 518, 335, 484 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="CA8-3" type="PinJoint2D" parent="Control/map/linea_naranja" groups=["conexion"]]
+node_a = NodePath("../../linea_cafe/8")
+node_b = NodePath("../NA3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_naranja/CA8-3"]
+points = PoolVector2Array( 334, 483, 393, 425 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="3-MO4" type="PinJoint2D" parent="Control/map/linea_naranja" groups=["conexion"]]
+node_a = NodePath("../NA3")
+node_b = NodePath("../../linea_morada/MO4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_naranja/3-MO4"]
+points = PoolVector2Array( 395, 424, 451, 368, 452, 339 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="MO4-CA4" type="PinJoint2D" parent="Control/map/linea_naranja" groups=["conexion"]]
+node_a = NodePath("../../linea_morada/MO4")
+node_b = NodePath("../../linea_cafe/4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_naranja/MO4-CA4"]
+points = PoolVector2Array( 452, 337, 452, 208, 454, 195 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="CA4-4" type="PinJoint2D" parent="Control/map/linea_naranja" groups=["conexion"]]
+node_a = NodePath("../../linea_cafe/4")
+node_b = NodePath("../NA4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_naranja/CA4-4"]
+points = PoolVector2Array( 455, 195, 468, 181, 468, 99 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="4-5" type="PinJoint2D" parent="Control/map/linea_naranja" groups=["conexion"]]
+node_a = NodePath("../NA4")
+node_b = NodePath("../NA5")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_naranja/4-5"]
+points = PoolVector2Array( 468, 101, 468, 86, 500, 55, 500, 31 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="linea_gris" type="Node2D" parent="Control/map" groups=["linea"]]
+
+[node name="GR1" type="StaticBody2D" parent="Control/map/linea_gris" groups=["estacion"]]
+position = Vector2( 369, 723 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_gris/GR1"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="GR2" type="StaticBody2D" parent="Control/map/linea_gris" groups=["estacion"]]
+position = Vector2( 337, 423 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_gris/GR2"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="GR3" type="StaticBody2D" parent="Control/map/linea_gris" groups=["estacion"]]
+position = Vector2( 385, 230 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_gris/GR3"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="GR4" type="StaticBody2D" parent="Control/map/linea_gris" groups=["estacion"]]
+position = Vector2( 324, 21 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_gris/GR4"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="1-CA7" type="PinJoint2D" parent="Control/map/linea_gris" groups=["conexion"]]
+node_a = NodePath("../GR1")
+node_b = NodePath("../../linea_cafe/7")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_gris/1-CA7"]
+points = PoolVector2Array( 369, 722, 399, 693, 399, 639, 384, 625, 383, 572, 404, 554, 403, 489 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="CA7-2" type="PinJoint2D" parent="Control/map/linea_gris" groups=["conexion"]]
+node_a = NodePath("../../linea_cafe/7")
+node_b = NodePath("../GR2")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_gris/CA7-2"]
+points = PoolVector2Array( 403, 489, 337, 422 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="2-AZ7" type="PinJoint2D" parent="Control/map/linea_gris" groups=["conexion"]]
+node_a = NodePath("../GR2")
+node_b = NodePath("../../linea_azul/7")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_gris/2-AZ7"]
+points = PoolVector2Array( 338, 422, 336, 419, 337, 390, 336, 353 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="AZ7-3" type="PinJoint2D" parent="Control/map/linea_gris" groups=["conexion"]]
+node_a = NodePath("../../linea_azul/7")
+node_b = NodePath("../GR3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_gris/AZ7-3"]
+points = PoolVector2Array( 334, 349, 335, 280, 386, 231 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="3-CA3" type="PinJoint2D" parent="Control/map/linea_gris" groups=["conexion"]]
+node_a = NodePath("../GR3")
+node_b = NodePath("../../linea_cafe/3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_gris/3-CA3"]
+points = PoolVector2Array( 386, 230, 338, 184 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="CA3-4" type="PinJoint2D" parent="Control/map/linea_gris" groups=["conexion"]]
+node_a = NodePath("../../linea_cafe/3")
+node_b = NodePath("../GR4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_gris/CA3-4"]
+points = PoolVector2Array( 340, 183, 324, 169, 324, 90, 340, 77, 340, 37, 324, 21 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="linea_amarilla" type="Node2D" parent="Control/map" groups=["linea"]]
+
+[node name="AM1" type="StaticBody2D" parent="Control/map/linea_amarilla" groups=["estacion"]]
+position = Vector2( 685, 364 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_amarilla/AM1"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="NA3-1" type="PinJoint2D" parent="Control/map/linea_amarilla" groups=["conexion"]]
+node_a = NodePath("../../linea_naranja/NA3")
+node_b = NodePath("../AM1")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_amarilla/NA3-1"]
+points = PoolVector2Array( 394, 425, 416, 433, 591, 432, 660, 364, 685, 364 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="linea_verde_osc" type="Node2D" parent="Control/map" groups=["linea"]]
+
+[node name="VO1" type="StaticBody2D" parent="Control/map/linea_verde_osc" groups=["estacion"]]
+position = Vector2( 208, 85 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_osc/VO1"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="VO2" type="StaticBody2D" parent="Control/map/linea_verde_osc" groups=["estacion"]]
+position = Vector2( 312, 261 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_osc/VO2"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="VO3" type="StaticBody2D" parent="Control/map/linea_verde_osc" groups=["estacion"]]
+position = Vector2( 494, 538 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_osc/VO3"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="VO4" type="StaticBody2D" parent="Control/map/linea_verde_osc" groups=["estacion"]]
+position = Vector2( 496, 631 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_osc/VO4"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="VO5" type="StaticBody2D" parent="Control/map/linea_verde_osc" groups=["estacion"]]
+position = Vector2( 596, 730 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_osc/VO5"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="VO6" type="StaticBody2D" parent="Control/map/linea_verde_osc" groups=["estacion"]]
+position = Vector2( 641, 729 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_osc/VO6"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="1-CA2" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../VO1")
+node_b = NodePath("../../linea_cafe/2")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/1-CA2"]
+points = PoolVector2Array( 208, 85, 209, 160, 272, 221 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="CA2-2" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../../linea_cafe/2")
+node_b = NodePath("../VO2")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/CA2-2"]
+points = PoolVector2Array( 271, 220, 312, 262 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="2-RO4" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../VO2")
+node_b = NodePath("../../linea_roja/RO4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/2-RO4"]
+points = PoolVector2Array( 311, 260, 378, 328 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="RO4-NA3" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../../linea_roja/RO4")
+node_b = NodePath("../../linea_naranja/NA3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/RO4-NA3"]
+points = PoolVector2Array( 378, 328, 394, 344, 393, 426 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="NA3-CA6" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../../linea_naranja/NA3")
+node_b = NodePath("../../linea_cafe/6")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/NA3-CA6"]
+points = PoolVector2Array( 393, 425, 393, 442, 435, 480 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="CA6-3" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../../linea_cafe/6")
+node_b = NodePath("../VO3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/CA6-3"]
+points = PoolVector2Array( 436, 480, 494, 537 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="3-4" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../VO3")
+node_b = NodePath("../VO4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/3-4"]
+points = PoolVector2Array( 494, 538, 494, 630 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="4-5" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../VO4")
+node_b = NodePath("../VO5")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/4-5"]
+points = PoolVector2Array( 496, 631, 596, 731 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="5-6" type="PinJoint2D" parent="Control/map/linea_verde_osc" groups=["conexion"]]
+node_a = NodePath("../VO5")
+node_b = NodePath("../VO6")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_osc/5-6"]
+points = PoolVector2Array( 597, 730, 642, 729 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="linea_verde_cla" type="Node2D" parent="Control/map" groups=["linea"]]
+
+[node name="VC1" type="StaticBody2D" parent="Control/map/linea_verde_cla" groups=["estacion"]]
+position = Vector2( 404, 139 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_cla/VC1"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="VC2" type="StaticBody2D" parent="Control/map/linea_verde_cla" groups=["estacion"]]
+position = Vector2( 470, 298 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_cla/VC2"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="VC3" type="StaticBody2D" parent="Control/map/linea_verde_cla" groups=["estacion"]]
+position = Vector2( 570, 533 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_cla/VC3"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="VC4" type="StaticBody2D" parent="Control/map/linea_verde_cla" groups=["estacion"]]
+position = Vector2( 595, 631 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/map/linea_verde_cla/VC4"]
+position = Vector2( 1, 0 )
+shape = SubResource( 1 )
+disabled = true
+
+[node name="1-2" type="PinJoint2D" parent="Control/map/linea_verde_cla" groups=["conexion"]]
+node_a = NodePath("../VC1")
+node_b = NodePath("../VC2")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_cla/1-2"]
+points = PoolVector2Array( 405, 139, 407, 159, 405, 233, 471, 298 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="2-AZ9" type="PinJoint2D" parent="Control/map/linea_verde_cla" groups=["conexion"]]
+node_a = NodePath("../VC2")
+node_b = NodePath("../../linea_azul/9")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_cla/2-AZ9"]
+points = PoolVector2Array( 471, 298, 526, 354, 536, 358 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="AZ9-MO5" type="PinJoint2D" parent="Control/map/linea_verde_cla" groups=["conexion"]]
+node_a = NodePath("../../linea_azul/9")
+node_b = NodePath("../../linea_morada/MO5")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_cla/AZ9-MO5"]
+points = PoolVector2Array( 536, 358, 543, 372, 567, 396, 568, 452 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="MO5-3" type="PinJoint2D" parent="Control/map/linea_verde_cla" groups=["conexion"]]
+node_a = NodePath("../../linea_morada/MO5")
+node_b = NodePath("../VC3")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_cla/MO5-3"]
+points = PoolVector2Array( 568, 451, 568, 529, 570, 532 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="3-4" type="PinJoint2D" parent="Control/map/linea_verde_cla" groups=["conexion"]]
+node_a = NodePath("../VC3")
+node_b = NodePath("../VC4")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_cla/3-4"]
+points = PoolVector2Array( 569, 532, 594, 558, 595, 631 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="4-VO5" type="PinJoint2D" parent="Control/map/linea_verde_cla" groups=["conexion"]]
+node_a = NodePath("../VC4")
+node_b = NodePath("../../linea_verde_osc/VO5")
+
+[node name="Line2D" type="Line2D" parent="Control/map/linea_verde_cla/4-VO5"]
+points = PoolVector2Array( 596, 630, 597, 730 )
+width = 3.0
+default_color = Color( 0, 0, 0, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true

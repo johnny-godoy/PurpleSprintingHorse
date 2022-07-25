@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://resources/temita.tres" type="Theme" id=1]
 [ext_resource path="res://assets/font/Kurland_Font_0_22/Kurland.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/shortest_path/Bases/HUD_OVERLAY.gd" type="Script" id=3]
+[ext_resource path="res://assets/sonido/menuback.wav" type="AudioStream" id=4]
+[ext_resource path="res://assets/Puzzles.wav" type="AudioStream" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -36,7 +38,7 @@ margin_right = 313.0
 margin_bottom = 127.0
 theme = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Estaciones: xx/nn"
+text = "Conexiones: xx/nn"
 
 [node name="MenuButton" type="Button" parent="HUD"]
 anchor_left = 0.814
@@ -53,3 +55,42 @@ action_mode = 0
 enabled_focus_mode = 0
 keep_pressed_outside = true
 text = "Menú"
+
+[node name="tips" type="Button" parent="HUD"]
+visible = false
+anchor_left = 0.626
+anchor_top = 0.066
+anchor_right = 0.751
+anchor_bottom = 0.113
+margin_left = -5.72003
+margin_top = -7.28
+margin_right = 0.279968
+margin_bottom = 0.959999
+focus_mode = 0
+theme = ExtResource( 1 )
+action_mode = 0
+enabled_focus_mode = 0
+keep_pressed_outside = true
+text = "Tip"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD"]
+visible = false
+margin_left = 196.0
+margin_top = 145.0
+margin_right = 675.0
+margin_bottom = 328.0
+rect_scale = Vector2( 0.7, 0.7 )
+mouse_filter = 1
+theme = ExtResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+text = "Tip "
+scroll_active = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_priority = -1
+stream = ExtResource( 4 )
+
+[node name="LoopSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -19.217
+autoplay = true

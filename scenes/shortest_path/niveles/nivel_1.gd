@@ -7,6 +7,7 @@ onready var map = $rome_subway
 onready var stations = $rome_subway/map
 onready var won_menu = $wonMenu
 onready var camera = $SP_Camera
+onready var horse = $Horse_Overlay
 
 export var minimum_connections = 5
 export var number_of_level = 1
@@ -23,6 +24,7 @@ func _get_scale():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	horse.set_horse('ingeniero')
 	
 	# Le damos la información al HUD
 	HUD.level_number = number_of_level
@@ -74,6 +76,9 @@ func _ready():
 			station.conexiones_a_estacion[_childs[neighbour]] = map.connecting_line[[num, neighbour]]
 		num = num + 1
 	
+	instrucciones_nivel()
+	
+	
 var count = 0
 var count2 = 0
 var activated = false
@@ -85,11 +90,31 @@ func _physics_process(delta):
 	if manager.player_won and not activated:
 		activated = true
 		camera.zoom = Vector2(1, 1)
-		won_menu.pause_menu()
+		manager.save_score(number_of_level, 3)
+		won_menu.pause_menu(3)
 		
 	elif not manager.player_won and activated:
 		activated = false
 		
+
+func instrucciones_nivel():
+	var instruction_overlay = $Horse_Overlay
+	# Explicar que significa cada cosa, mencionar que parpadean las estaciones y que estos niveles
+	# Son para entender el sistema
+	var texto_introduccion = [
+		'Hola de nuevo! Decidí buscar otro trabajo y encontré este...','Como ves al frente tuyo hay una línea de metro con 6 estaciones, 4 redondas y 2 con forma de estrella...',
+		'Las estaciones con estrella son las estaciones de inicio y final, como se muestra en el texto que tienen debajo...',
+		'El objetivo de este trabajo es encontrar el camino más corto entre el inicio y el final, de todas maneras cualquier camino que encuentres sirve...',
+		'aunque mientras más se aleje del óptimo menor puntaje obtendremos. La cantidad de conexiones mínimas es mostrada arriba a la izquierda...',
+		'y para conectar estaciones entre sí solo has click en la estación de inicio y arrastra el dedo hasta la siguiente estación.',
+		'¡Manos a la obra!'
+	]
+	
+	$SP_Camera.current = false
+	#yield(instruction_overlay.prompt_text(texto_bienvenida), "completed")
+	yield(instruction_overlay.prompt_iterables(texto_introduccion), "completed")
+	$SP_Camera.current = true
+	instruction_overlay.visible = false
 
 func next_level():
 	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_2.tscn")

@@ -6,6 +6,8 @@ onready var HUD = $HUD_OVERLAY
 onready var map = $rome_subway
 onready var stations = $rome_subway/map
 onready var won_menu = $wonMenu
+onready var camera = $SP_Camera
+onready var HO = $Horse_Overlay
 
 export var minimum_connections = 5
 export var number_of_level = 2
@@ -22,6 +24,8 @@ func _get_scale():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	HO.set_horse("ingeniero")
+	HO.visible = false
 	
 	# Le damos la información al HUD
 	HUD.level_number = number_of_level
@@ -82,10 +86,22 @@ func _physics_process(delta):
 	
 	if manager.player_won and not activated:
 		activated = true
-		won_menu.pause_menu()
+		camera.zoom = Vector2(1, 1)
+		manager.save_score(number_of_level, 3)
+		yield(horse_talk(), "completed")
+		won_menu.pause_menu(3)
+		
 	elif not manager.player_won and activated:
 		activated = false
 		
 
 func next_level():
 	get_tree().change_scene("res://scenes/shortest_path/niveles/nivel_3.tscn")
+
+func horse_talk():
+	var texto = "Bien hecho! Ahora que ya sabemos como funciona nos han asignado mapas más grandes, ojalá no sean complicados..."
+	HO.visible = true
+	camera.current = false
+	yield(HO.prompt_text(texto), "completed")
+	camera.current = true
+	HO.visible = false

@@ -109,7 +109,6 @@ modulate = Color( 0, 0, 0, 1 )
 self_modulate = Color( 0, 0, 0, 1 )
 position = Vector2( 3, 0 )
 scale = Vector2( 0.984848, 1 )
-z_index = 1
 points = PoolVector2Array( 52.8, 734, 96.4616, 756, 117.785, 724, 143.169, 684, 184.8, 623, 435.6, 623, 482.308, 590, 469.108, 575, 386.862, 494, 376.708, 485, 362.493, 485 )
 width = 5.0
 joint_mode = 2

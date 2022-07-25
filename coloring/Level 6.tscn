@@ -1,0 +1,241 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://coloring/base/level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/shortest_path/Untitled.001.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 45.0444
+
+[node name="Level" type="Node2D"]
+
+[node name="Level 6" parent="." instance=ExtResource( 1 )]
+min_colors = 3
+level = 6
+
+[node name="GraphToColor" type="Node2D" parent="Level 6"]
+
+[node name="Edge 1-3" type="PinJoint2D" parent="Level 6/GraphToColor"]
+position = Vector2( -204, -43 )
+rotation = -1.74882
+node_a = NodePath("../FirstNode")
+node_b = NodePath("../ThirdNode")
+
+[node name="Line2D" type="Line2D" parent="Level 6/GraphToColor/Edge 1-3"]
+points = PoolVector2Array( -516.068, 253.62, -617.038, 357.38 )
+
+[node name="Edge 4-6" type="PinJoint2D" parent="Level 6/GraphToColor"]
+position = Vector2( 35, -42 )
+rotation = -1.74882
+node_a = NodePath("../FourthNode")
+node_b = NodePath("../SixthNode")
+
+[node name="Line2D" type="Line2D" parent="Level 6/GraphToColor/Edge 4-6"]
+points = PoolVector2Array( -516.068, 253.62, -617.038, 357.38 )
+
+[node name="Edge 2-3" type="PinJoint2D" parent="Level 6/GraphToColor"]
+position = Vector2( -204, -43 )
+rotation = -1.74882
+node_a = NodePath("../SecondNode")
+node_b = NodePath("../ThirdNode")
+
+[node name="Line2D" type="Line2D" parent="Level 6/GraphToColor/Edge 2-3"]
+points = PoolVector2Array( -662.182, 224.282, -617.038, 357.38 )
+
+[node name="Edge 5-6" type="PinJoint2D" parent="Level 6/GraphToColor"]
+position = Vector2( 36, -42 )
+rotation = -1.74882
+node_a = NodePath("../FifthNode")
+node_b = NodePath("../SixthNode")
+
+[node name="Line2D" type="Line2D" parent="Level 6/GraphToColor/Edge 5-6"]
+points = PoolVector2Array( -662.182, 224.282, -617.038, 357.38 )
+
+[node name="Edge 3-5" type="PinJoint2D" parent="Level 6/GraphToColor"]
+position = Vector2( -82, 28 )
+rotation = -1.74882
+node_a = NodePath("../ThirdNode")
+node_b = NodePath("../FifthNode")
+
+[node name="Line2D" type="Line2D" parent="Level 6/GraphToColor/Edge 3-5"]
+points = PoolVector2Array( -525.733, 250.865, -617.038, 357.38 )
+
+[node name="Edge 6-8" type="PinJoint2D" parent="Level 6/GraphToColor"]
+position = Vector2( 150, 28 )
+rotation = -1.74882
+node_a = NodePath("../SixthNode")
+node_b = NodePath("../EighthNode")
+
+[node name="Line2D" type="Line2D" parent="Level 6/GraphToColor/Edge 6-8"]
+points = PoolVector2Array( -525.733, 250.865, -617.038, 357.38 )
+
+[node name="Edge 3-4" type="PinJoint2D" parent="Level 6/GraphToColor"]
+position = Vector2( -82, -119 )
+rotation = -1.74882
+node_a = NodePath("../ThirdNode")
+node_b = NodePath("../FourthNode")
+
+[node name="Line2D" type="Line2D" parent="Level 6/GraphToColor/Edge 3-4"]
+points = PoolVector2Array( -669.879, 221.881, -617.038, 357.38 )
+
+[node name="Edge 6-7" type="PinJoint2D" parent="Level 6/GraphToColor"]
+position = Vector2( 150, -116 )
+rotation = -1.74882
+node_a = NodePath("../SixthNode")
+node_b = NodePath("../SeventhNode")
+
+[node name="Line2D" type="Line2D" parent="Level 6/GraphToColor/Edge 6-7"]
+points = PoolVector2Array( -669.879, 221.881, -611.842, 362.379 )
+
+[node name="Edge 1-2" type="PinJoint2D" parent="Level 6/GraphToColor"]
+position = Vector2( -204, -43 )
+rotation = -1.74882
+node_a = NodePath("../FirstNode")
+node_b = NodePath("../SecondNode")
+
+[node name="Line2D" type="Line2D" parent="Level 6/GraphToColor/Edge 1-2"]
+points = PoolVector2Array( -516.068, 253.62, -665.843, 227.688 )
+
+[node name="Edge 7-8" type="PinJoint2D" parent="Level 6/GraphToColor"]
+position = Vector2( 273, -41 )
+rotation = -1.74882
+node_a = NodePath("../SeventhNode")
+node_b = NodePath("../EighthNode")
+
+[node name="Line2D" type="Line2D" parent="Level 6/GraphToColor/Edge 7-8"]
+points = PoolVector2Array( -516.068, 253.62, -665.843, 227.688 )
+
+[node name="FirstNode" type="StaticBody2D" parent="Level 6/GraphToColor"]
+position = Vector2( 137, 420 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 6/GraphToColor/FirstNode"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="TextureButton" type="TextureButton" parent="Level 6/GraphToColor/FirstNode"]
+margin_left = -44.0
+margin_top = -44.0
+margin_right = 316.0
+margin_bottom = 316.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 2 )
+
+[node name="SecondNode" type="StaticBody2D" parent="Level 6/GraphToColor"]
+position = Vector2( 134, 568 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 6/GraphToColor/SecondNode"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="TextureButton" type="TextureButton" parent="Level 6/GraphToColor/SecondNode"]
+margin_left = -44.0
+margin_top = -44.0
+margin_right = 316.0
+margin_bottom = 316.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 2 )
+
+[node name="ThirdNode" type="StaticBody2D" parent="Level 6/GraphToColor"]
+position = Vector2( 257, 500 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 6/GraphToColor/ThirdNode"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="TextureButton" type="TextureButton" parent="Level 6/GraphToColor/ThirdNode"]
+margin_left = -44.0
+margin_top = -44.0
+margin_right = 316.0
+margin_bottom = 316.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 2 )
+
+[node name="FourthNode" type="StaticBody2D" parent="Level 6/GraphToColor"]
+position = Vector2( 381, 421 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 6/GraphToColor/FourthNode"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="TextureButton" type="TextureButton" parent="Level 6/GraphToColor/FourthNode"]
+margin_left = -44.0
+margin_top = -44.0
+margin_right = 316.0
+margin_bottom = 316.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 2 )
+
+[node name="FifthNode" type="StaticBody2D" parent="Level 6/GraphToColor"]
+position = Vector2( 378, 569 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 6/GraphToColor/FifthNode"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="TextureButton" type="TextureButton" parent="Level 6/GraphToColor/FifthNode"]
+margin_left = -44.0
+margin_top = -44.0
+margin_right = 316.0
+margin_bottom = 316.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 2 )
+
+[node name="SixthNode" type="StaticBody2D" parent="Level 6/GraphToColor"]
+position = Vector2( 490, 502 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 6/GraphToColor/SixthNode"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="TextureButton" type="TextureButton" parent="Level 6/GraphToColor/SixthNode"]
+margin_left = -44.0
+margin_top = -44.0
+margin_right = 316.0
+margin_bottom = 316.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 2 )
+
+[node name="SeventhNode" type="StaticBody2D" parent="Level 6/GraphToColor"]
+position = Vector2( 614, 423 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 6/GraphToColor/SeventhNode"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="TextureButton" type="TextureButton" parent="Level 6/GraphToColor/SeventhNode"]
+margin_left = -44.0
+margin_top = -44.0
+margin_right = 316.0
+margin_bottom = 316.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 2 )
+
+[node name="EighthNode" type="StaticBody2D" parent="Level 6/GraphToColor"]
+position = Vector2( 611, 571 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 6/GraphToColor/EighthNode"]
+position = Vector2( 0, 1 )
+shape = SubResource( 1 )
+
+[node name="TextureButton" type="TextureButton" parent="Level 6/GraphToColor/EighthNode"]
+margin_left = -44.0
+margin_top = -44.0
+margin_right = 316.0
+margin_bottom = 316.0
+rect_scale = Vector2( 0.25, 0.25 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource( 2 )

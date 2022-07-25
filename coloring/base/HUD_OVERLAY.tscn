@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://resources/temita.tres" type="Theme" id=1]
 [ext_resource path="res://assets/font/Kurland_Font_0_22/Kurland.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://coloring/base/HUD_OVERLAY.gd" type="Script" id=3]
+[ext_resource path="res://assets/sonido/menuback.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -16,6 +17,7 @@ script = ExtResource( 3 )
 anchor_right = 1.0
 margin_bottom = 214.0
 rect_pivot_offset = Vector2( 501, 115 )
+color = Color( 1, 0.65098, 0.117647, 1 )
 
 [node name="LevelNumber" type="Label" parent="."]
 anchor_right = 1.0
@@ -100,3 +102,6 @@ action_mode = 0
 enabled_focus_mode = 0
 keep_pressed_outside = true
 text = "Anterior"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
